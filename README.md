@@ -12,11 +12,11 @@ The package is compatible with Python versions `3 >=3.7, <= 3.11`.
 Install the package from PyPi using the following pip command:
 
 ```python
-pip install postnl-ecommerce-sdk==1.0.2
+pip install postnl-ecommerce-sdk==1.0.1
 ```
 
 You can also view the package at:
-https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.2
+https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.1
 
 ## Test the SDK
 
