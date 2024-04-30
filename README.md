@@ -1,60 +1,22 @@
 
-# Getting Started with PostNL
+# Getting Started with Postnl-Ecommerce
 
 ## Introduction
 
-This is an API description. Add as many details as you like.
+<div><p><b>PostNL Ecommerce APIs</b></p><p>Explore our technical documentation, test your integration and go live with PostNL service.</p><p><b>Start using PostNL APIs for e-commerce processes</b></p><p>To get to know the PostNL APIs better, read all about it in our <a href='https://developer.postnl.nl/api-overview/'>API overview</a>. Learn everything you need to about our API's before embarking on integration with PostNL.</p><p>To connect to PostNL, you can request an API key via <a href='https://developer.postnl.nl/api-overview/'>Mijn PostNL</a> portal. Choose your APIs and build your integration. Explore our guides, examples, and resources to guide you through each phase of integration and start testing. Ensure that you can make successful test calls towards all endpoints used in the solution.</p><p>Contact our integrations team to have your test calls reviewed and gain access to our API production environment. Once everything is configured and validated, you'll be ready to go live and start using the PostNL service. <br>For help contact us via our support form: <a href='https://developer.postnl.nl/support/form/'>Need help? Submit a case | PostNL</a>.</p></div>
 
-## Building
 
-You must have Python `3 >=3.7, <= 3.11` installed on your system to install and run this SDK. This SDK package depends on other Python packages like pytest, jsonpickle etc. These dependencies are defined in the `requirements.txt` file that comes with the SDK. To resolve these dependencies, you can use the PIP Dependency manager. Install it by following steps at [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/).
+## Install the Package
 
-Python and PIP executables should be defined in your PATH. Open command prompt and type `pip --version`. This should display the version of the PIP Dependency Manager installed if your installation was successful and the paths are properly defined.
-
-* Using command line, navigate to the directory containing the generated files (including `requirements.txt`) for the SDK.
-* Run the command `pip install -r requirements.txt`. This should install all the required dependencies.
-
-![Building SDK - Step 1](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&step=installDependencies)
-
-## Installation
-
-The following section explains how to use the postnl library in a new project.
-
-### 1. Open Project in an IDE
-
-Open up a Python IDE like PyCharm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
-
-![Open project in PyCharm - Step 1](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&step=pyCharm)
-
-Click on `Open` in PyCharm to browse to your generated SDK directory and then click `OK`.
-
-![Open project in PyCharm - Step 2](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&step=openProject0)
-
-The project files will be displayed in the side bar as follows:
-
-![Open project in PyCharm - Step 3](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&projectName=postnl&step=openProject1)
-
-### 2. Add a new Test file
-
-Add a python file to your project.
-
-![Add a new project in PyCharm - Step 3](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&projectName=postnl&step=createFile)
-
-Name it "testSDK".
-
-![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?workspaceFolder=Postnl-Python&projectName=postnl&step=nameFile)
-
-In your python file you will be required to import the generated python library using the following code lines
+The package is compatible with Python versions `3 >=3.7, <= 3.11`.
+Install the package from PyPi using the following pip command:
 
 ```python
-from postnl.postnl_client import PostnlClient
+pip install postnl-ecommerce-sdk==1.0.2
 ```
 
-After this you can write code to instantiate an API client object, get a controller object and  make API calls. Sample code is given in the subsequent sections.
-
-### 3. Run the Test Project
-
-To run the file within your test project, right click on your Python file inside your Test project and click on `Run`
+You can also view the package at:
+https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.2
 
 ## Test the SDK
 
@@ -89,7 +51,7 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```python
-client = PostnlClient(
+client = PostnlecommerceClient(
     custom_header_authentication_credentials=CustomHeaderAuthenticationCredentials(
         apikey='apikey'
     )
@@ -116,8 +78,8 @@ The SDK can be configured to use a different environment for making API calls. A
 
 | Name | Description |
 |  --- | --- |
-| Production server | **Default** |
-| Non-Production server | - |
+| Production server | **Default** Production server |
+| Non-Production server | Sandbox environment for testing |
 
 ## Authorization
 
@@ -128,7 +90,6 @@ This API uses the following authentication schemes.
 ## List of APIs
 
 * [Postalcodecheck](doc/controllers/postalcodecheck.md)
-* [Track Trace](doc/controllers/track-trace.md)
 * [Barcode](doc/controllers/barcode.md)
 * [Checkout](doc/controllers/checkout.md)
 * [Confirming](doc/controllers/confirming.md)
@@ -136,6 +97,7 @@ This API uses the following authentication schemes.
 * [Labelling](doc/controllers/labelling.md)
 * [Locations](doc/controllers/locations.md)
 * [Shipment](doc/controllers/shipment.md)
+* [Shipping Status](doc/controllers/shipping-status.md)
 * [Timeframes](doc/controllers/timeframes.md)
 
 ## Classes Documentation
