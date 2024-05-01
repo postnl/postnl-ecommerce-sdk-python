@@ -3,7 +3,7 @@
 
 ## Introduction
 
-<div><p><b>PostNL Ecommerce APIs</b></p><p>Explore our technical documentation, test your integration and go live with PostNL service.</p><p><b>Start using PostNL APIs for e-commerce processes</b></p><p>To get to know the PostNL APIs better, read all about it in our <a href='https://developer.postnl.nl/api-overview/'>API overview</a>. Learn everything you need to about our API's before embarking on integration with PostNL.</p><p>To connect to PostNL, you can request an API key via <a href='https://developer.postnl.nl/api-overview/'>Mijn PostNL</a> portal. Choose your APIs and build your integration. Explore our guides, examples, and resources to guide you through each phase of integration and start testing. Ensure that you can make successful test calls towards all endpoints used in the solution.</p><p>Contact our integrations team to have your test calls reviewed and gain access to our API production environment. Once everything is configured and validated, you'll be ready to go live and start using the PostNL service.</p><p>For help contact us via our support form: <a href='https://developer.postnl.nl/support/form/'>Need help? Submit a case | PostNL</a>.</p></div>
+<div><p><b>PostNL Ecommerce APIs</b></p><p>Explore our technical documentation, test your integration and go live with PostNL service.</p><p><b>Start using PostNL APIs for e-commerce processes</b></p><p>To get to know the PostNL APIs better, read all about it in our <a href='https://developer.postnl.nl/api-overview/'>API overview</a>. Learn everything you need to about our API's before embarking on integration with PostNL.</p><p>To connect to PostNL, you can request an API key via <a href='https://mijn.postnl.nl/c/BP2_Mod_Login.app?inresponseto=&RelayState=&startURL=%2F'>Mijn PostNL</a> portal. Choose your APIs and build your integration. Explore our guides, examples, and resources to guide you through each phase of integration and start testing. Ensure that you can make successful test calls towards all endpoints used in the solution.</p><p>Contact our integrations team to have your test calls reviewed and gain access to our API production environment. Once everything is configured and validated, you'll be ready to go live and start using the PostNL service.</p><p>For help contact us via our support form: <a href='https://developer.postnl.nl/support/form/'>Need help? Submit a case | PostNL</a>.</p></div>
 
 
 ## Install the Package
@@ -12,11 +12,11 @@ The package is compatible with Python versions `3 >=3.7, <= 3.11`.
 Install the package from PyPi using the following pip command:
 
 ```python
-pip install postnl-ecommerce-sdk==1.0.1
+pip install postnl-ecommerce-sdk==1.0.2
 ```
 
 You can also view the package at:
-https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.1
+https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.2
 
 ## Test the SDK
 
