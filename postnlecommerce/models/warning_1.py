@@ -14,7 +14,8 @@ class Warning1(object):
     """Implementation of the 'Warning1' model.
 
     Sustainability score; see [Sustainability
-    codes](#tag/Reference-codes/Sustainability-codes) for possible values.
+    codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-cod
+    es/delivery-options) for possible values.
 
     Attributes:
         code (str): The Warning code

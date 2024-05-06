@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `complete_status` | [`CompleteStatus`](../../doc/models/complete-status.md) | Optional | The current status and old statuses of the shipment |
 | `current_status` | [`CurrentStatus`](../../doc/models/current-status.md) | Optional | The current status and old statuses of the shipment |
-| `warnings` | [`List[Warning2]`](../../doc/models/warning-2.md) | Optional | Possible warnings (see [Error Codes](#tag/Error-codes) for possible values) |
+| `warnings` | [`List[Warning2]`](../../doc/models/warning-2.md) | Optional | Possible warnings (see [Error Codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values) |
 
 ## Example (as JSON)
 

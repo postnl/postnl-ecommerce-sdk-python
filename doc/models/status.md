@@ -1,7 +1,7 @@
 
 # Status
 
-The current status of the shipment (see the [Status codes](#tag/TandT-status-codes/Status-codes) for possible values.
+The current status of the shipment (see the [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-codes/event-codes) for possible values.
 
 ## Structure
 

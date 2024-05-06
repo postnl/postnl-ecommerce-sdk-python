@@ -18,7 +18,8 @@ class Group(object):
     Attributes:
         group_type (str): Group sort that determines the type of group that is
             indicated. This is a code. For possible values, please see
-            [here](#tag/Reference-codes/Group-types)
+            [here](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/group-types)
         group_sequence (int): Sequence number of the collo within the complete
             shipment (e.g. collo 2 of 4) Mandatory for multicollo shipments
         group_count (int): Total number of colli in the shipment (in case of

@@ -57,8 +57,8 @@ class BarcodeController(BaseController):
                 '###000000-###000000', for example 100000-20000. The range
                 must consist of a minimal difference of 100.000. It is allowed
                 to add extra leading zeros at the beginning of the serie. See
-                [Guidelines](https://developer.postnl.nl/browse-apis/send-and-t
-                rack/barcode-webservice/) for more information.
+                [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoi
+                nts/send-track/barcode/guidelines) for more information.
             range (str, optional): Only used for International Mail and Packet
                 products (PEPS) shipments (with type LA, RI, UE). Identifying
                 the issuing postal administration's country (NL in this

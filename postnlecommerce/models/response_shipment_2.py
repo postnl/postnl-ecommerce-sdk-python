@@ -22,7 +22,8 @@ class ResponseShipment2(object):
         labels (List[Label]): All labels belonging to the selected product
         barcode (str): The barcode used on the label
         warnings (List[Warning1]): Possible warnings. See the [Error
-            Codes](#tag/Error-codes) for possible values
+            Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
+            -codes) for possible values
 
     """
 

@@ -34,8 +34,8 @@ class Location1(object):
         opening_hours (OpeningHours): The standard opening times of the pickup
             location
         sustainability (Warning1): Sustainability score; see [Sustainability
-            codes](#tag/Reference-codes/Sustainability-codes) for possible
-            values.
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/sustainability-codes) for possible values.
         partner_name (str): The partner name belonging to the pickup location.
             Can be ignored, no longer used.
         retail_network_id (str): The retail network belonging to the pickup

@@ -14,7 +14,8 @@ class Sustainability(object):
     """Implementation of the 'Sustainability' model.
 
     Sustainability score; see [Sustainability
-    codes](#tag/Reference-codes/Sustainability-codes) for possible values.
+    codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-cod
+    es) for possible values.
 
     Attributes:
         code (CodeEnum): Sustainability score code

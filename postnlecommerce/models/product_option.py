@@ -17,10 +17,12 @@ class ProductOption(object):
     Attributes:
         characteristic (str): The characteristic of the ProductOption.
             Mandatory for some products, please see the [Products
-            page](#tag/Product-codes)
+            page](https://developer.postnl.nl/docs/#/http/reference-data/produc
+            t-codes)
         option (str): The product option code for this ProductOption.
             Mandatory for some products, please see the [Products
-            page](#tag/Product-codes)
+            page](https://developer.postnl.nl/docs/#/http/reference-data/produc
+            t-codes)
 
     """
 

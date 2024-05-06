@@ -21,7 +21,7 @@
 | `dimension` | [`Dimension1`](../../doc/models/dimension-1.md) | Optional | - |
 | `address` | [`List[Address4]`](../../doc/models/address-4.md) | Optional | A list of addresses belonging to the shipment |
 | `product_options` | [`ProductOptions`](../../doc/models/product-options.md) | Optional | A list of product options. |
-| `status` | [`Status`](../../doc/models/status.md) | Optional | The current status of the shipment (see the [Status codes](#tag/TandT-status-codes/Status-codes) for possible values. |
+| `status` | [`Status`](../../doc/models/status.md) | Optional | The current status of the shipment (see the [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-codes/event-codes) for possible values. |
 
 ## Example (as JSON)
 

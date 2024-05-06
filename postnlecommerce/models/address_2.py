@@ -49,8 +49,8 @@ class Address2(object):
             using both fields simultaneously is discouraged.
         street_house_nr_ext (str): Combination of Street, HouseNr and
             HouseNrExt. Please see
-            [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track
-            /labelling-webservice/) for the explanation.
+            [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
+            send-track/confirming/guidelines) for the explanation.
         zipcode (str): Zipcode of the address. Mandatory for shipments to
             Benelux. Max length (NL) 6 characters,(BE;LU) 4 numeric
             characters

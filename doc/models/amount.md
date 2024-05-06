@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount_type` | [`str`](../../doc/models/string-enum.md) | Required | Amount type. Please see [Amount types](#tag/Reference-codes/Amount-types) for the available types.<br>**Constraints**: *Pattern*: `^\d{2}$` |
+| `amount_type` | [`str`](../../doc/models/string-enum.md) | Required | Amount type. Please see [Amount types](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/amount-types) for the available types.<br>**Constraints**: *Pattern*: `^\d{2}$` |
 | `account_name` | [`str`](../../doc/models/string-enum.md) | Optional | Name of bank account owner<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `bic` | [`str`](../../doc/models/string-enum.md) | Optional | BIC number,optional for COD shipments (mandatory for bank account number other than originating in The Netherlands)<br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11` |
 | `currency` | [`str`](../../doc/models/string-enum.md) | Optional | Currency code. only EUR, GBP, USD and CNY are allowed.<br>**Constraints**: *Pattern*: `^[A-Z]{3}$` |

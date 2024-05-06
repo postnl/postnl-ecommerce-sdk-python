@@ -49,10 +49,10 @@ class Configuration(HttpClientConfiguration):
                  environment=Environment.PRODUCTION_SERVER, apikey=None,
                  custom_header_authentication_credentials=None):
         if retry_methods is None:
-            retry_methods = ['GET', 'PUT', 'GET', 'PUT']
+            retry_methods = ['GET', 'PUT']
 
         if retry_statuses is None:
-            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
+            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
 
         super().__init__(http_client_instance, override_http_client_configuration, http_call_back, timeout, max_retries,
                          backoff_factor, retry_statuses, retry_methods)

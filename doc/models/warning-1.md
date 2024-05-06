@@ -1,7 +1,7 @@
 
 # Warning 1
 
-Sustainability score; see [Sustainability codes](#tag/Reference-codes/Sustainability-codes) for possible values.
+Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/delivery-options) for possible values.
 
 ## Structure
 

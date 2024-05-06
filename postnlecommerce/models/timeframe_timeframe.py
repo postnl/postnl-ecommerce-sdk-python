@@ -21,8 +21,8 @@ class TimeframeTimeframe(object):
         mfrom (str): The start time of the expected delivery window
         options (Options): The delivery option for which the timeframe is
             calculated. See [Delivery
-            Options](#tag/Reference-codes/Delivery-options) for possible
-            values.
+            Options](https://developer.postnl.nl/docs/#/http/reference-data/ref
+            erence-codes/delivery-options) for possible values.
         to (str): The end time of the expected delivery window
         sustainability (Warning1): Sustainability score
 

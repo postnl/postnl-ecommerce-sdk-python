@@ -13,7 +13,7 @@
 | `creation_date` | [`str`](../../doc/models/string-enum.md) | Optional | The date of the update |
 | `customer_number` | [`str`](../../doc/models/string-enum.md) | Optional | The customer number |
 | `customer_code` | [`str`](../../doc/models/string-enum.md) | Optional | The customer code |
-| `status` | [`Status2`](../../doc/models/status-2.md) | Optional | The status update. See [Status codes](#tag/TandT-status-codes/Status-codes) for possible values. |
+| `status` | [`Status2`](../../doc/models/status-2.md) | Optional | The status update. See [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values. |
 
 ## Example (as JSON)
 

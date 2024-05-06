@@ -24,7 +24,8 @@ class ShippingstatusResponse(object):
         current_status (CurrentStatus): The current status and old statuses of
             the shipment
         warnings (List[Warning2]): Possible warnings (see [Error
-            Codes](#tag/Error-codes) for possible values)
+            Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
+            -codes) for possible values)
 
     """
 

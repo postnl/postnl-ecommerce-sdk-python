@@ -14,7 +14,8 @@ class Status2(object):
     """Implementation of the 'Status2' model.
 
     The status update. See [Status
-    codes](#tag/TandT-status-codes/Status-codes) for possible values.
+    codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes)
+    for possible values.
 
     Attributes:
         timestamp (str): The timestamp of the update

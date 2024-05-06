@@ -20,8 +20,8 @@ class Message1(object):
             dd-mm-yyyy hh:mm:ss
         printertype (str): Printer type that will be used to process the
             label, e.g. Zebra printer or PDF See [Printer
-            types](#tag/Reference-codes/Printer-types) for the available
-            printer types.
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/printer-types) for the available printer types.
 
     """
 

@@ -18,7 +18,8 @@ class Label(object):
     Attributes:
         content (str): Base64 encoded label content
         labeltype (str): Type of the label. See possible [Label
-            types](#tag/Reference-codes/Label-types)
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/label-types)
         output_type (str): Content type of the label, e.g. zebra of pdf.
 
     """

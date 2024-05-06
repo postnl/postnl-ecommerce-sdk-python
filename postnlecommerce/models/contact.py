@@ -18,17 +18,17 @@ class Contact(object):
     Attributes:
         contact_type (str): Type of the contact. This is a code. Please refer
             to the available [Contact
-            types](#tag/Reference-codes/Contact-types) for the possible
-            values.
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/contact-types) for the possible values.
         email (str): Email address of the contact. Mandatory in some cases.
             Either the Email or Telnr needs to be filled in for Non EU
             destinations. Please see
-            [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track
-            /labelling-webservice/).
+            [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
+            send-track/confirming/guidelines).
         sms_nr (str): Mobile phone number of the contact. Mandatory in some
             cases. Please see
-            [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track
-            /labelling-webservice/).
+            [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
+            send-track/confirming/guidelines).
         tel_nr (str): Phone number of the contact. Either the Email or Telnr
             needs to be filled in for Non EU destinations. Preferably prefixed
             with “+” and the international dialling code.

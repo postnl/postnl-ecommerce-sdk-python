@@ -61,11 +61,11 @@ class Custom(object):
             faster. For example Brazil uses an TAXID number for natural
             persons, known as CPF.
         transaction_code (str): See the [Reference
-            data](#tag/Reference-codes/Transaction-codes) for possible
-            values.
+            data](https://developer.postnl.nl/docs/#/http/reference-data/refere
+            nce-codes/transaction-codes) for possible values.
         transaction_description (str): Transaction description; see
-            [here](#tag/Reference-codes/Transaction-codes) for common
-            examples.
+            [here](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/transaction-codes) for common examples.
         content (List[Content]): The contents of the shipment. This section is
             mandatory (minimum once, maximum 5). Fill per unique item.
 

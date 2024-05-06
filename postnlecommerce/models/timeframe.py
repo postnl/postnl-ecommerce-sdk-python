@@ -21,14 +21,15 @@ class Timeframe(object):
         to (str): Format hh:mm:ss
         options (List[Option1Enum]): The delivery options applicable to the
             timeframe information. See [Delivery
-            Options](#tag/Reference-codes/Delivery-options) for possible
-            values.
+            Options](https://developer.postnl.nl/docs/#/http/reference-data/ref
+            erence-codes) for possible values.
         shipping_date (str): The date when you need to deliver the shipment to
             PostNL to ensure the expected delivery date is achieved. Will be
             returned as 'null' if not calculated
         sustainability (Sustainability): Sustainability score; see
-            [Sustainability codes](#tag/Reference-codes/Sustainability-codes)
-            for possible values.
+            [Sustainability
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes) for possible values.
 
     """
 

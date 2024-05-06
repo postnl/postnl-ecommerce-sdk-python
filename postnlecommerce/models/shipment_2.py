@@ -41,14 +41,17 @@ class Shipment2(object):
         address (List[Address4]): A list of addresses belonging to the
             shipment
         event (List[Event]): The events of the shipment. (see the [Event
-            Codes](#tag/TandT-status-codes/Event-codes) for possible values.
+            Codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-s
+            tatus-codes/event-codes) for possible values.
         expectation (Expectation): The expected delivery timeframe
         product_options (ProductOptions): A list of product options.
         status (Status): The current status of the shipment (see the [Status
-            codes](#tag/TandT-status-codes/Status-codes) for possible values.
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-s
+            tatus-codes/event-codes) for possible values.
         old_status (List[OldStatus]): A list of previous status codes (see the
-            [Status codes](#tag/TandT-status-codes/Status-codes) for possible
-            values.
+            [Status
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-s
+            tatus-codes/event-codes) for possible values.
 
     """
 

@@ -12,7 +12,7 @@
 | `product_code_delivery` | [`str`](../../doc/models/string-enum.md) | Optional | The product code of the shipment |
 | `labels` | [`List[Label]`](../../doc/models/label.md) | Optional | All labels belonging to the selected product |
 | `barcode` | [`str`](../../doc/models/string-enum.md) | Optional | The barcode used on the label |
-| `warnings` | [`List[Warning1]`](../../doc/models/warning-1.md) | Optional | Possible warnings. See the [Error Codes](#tag/Error-codes) for possible values |
+| `warnings` | [`List[Warning1]`](../../doc/models/warning-1.md) | Optional | Possible warnings. See the [Error Codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values |
 
 ## Example (as JSON)
 

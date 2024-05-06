@@ -26,13 +26,14 @@ class Shipment(object):
     Attributes:
         addresses (List[Address11]): List of 1 or more Address type elements.
             At least 1 address type is mandatory. See [Address
-            types](#tag/Reference-codes/Address-types) for the available
-            types.
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/address-types) for the available types.
         amounts (List[Amount]): List of amount types. An amount represents a
             value of the shipment. Amount type 01 mandatory for COD-shipments,
             Amount type 02 mandatory for domestic insured shipments. Please
-            see [Amount types](#tag/Reference-codes/Amount-types) for the
-            available types.
+            see [Amount
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/amount-types) for the available types.
         barcode (str): Barcode of the shipment. This is a unique value. Note:
             If you leave this attribute out of your request an unique barcode
             will be generated automatically.
@@ -47,8 +48,9 @@ class Shipment(object):
             the shipment. Format: dd-MM-yyyy hh:mm:ss
         contacts (List[Contact]): One or more ContactType elements belonging
             to a shipment. Mandatory in some cases. Please refer to the
-            available [Contact types](#tag/Reference-codes/Contact-types) for
-            the possible values.
+            available [Contact
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/contact-types) for the possible values.
         content (str): Content of the shipment. Mandatory for Extra@Home
             shipments
         cost_center (str): Cost center of the shipment. This value will appear
@@ -63,7 +65,7 @@ class Shipment(object):
             Evening/Morning/Sameday delivery etc.
         dimension (Dimension): Note: Length, Width, Height values are about
             the order of the size and need to be filled in from the longest to
-            the shortest value. For example: shipment’s official height is
+            the shortest value. For example: shipment's official height is
             700mm, width 500mm, length 300mm. The longest side (highest value)
             of 700mm needs to be entered at Length. Width value becomes 500mm,
             Height value: 300mm (the lowest). Entering the dimensions in the
@@ -80,18 +82,21 @@ class Shipment(object):
         groups (List[Group]): List of 0 or more Group types with data,
             grouping multiple shipments together. Mandatory for multicollo
             shipments. Please see
-            [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track
-            /labelling-webservice/) (Multiple shipments) for more
+            [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
+            send-track/confirming/guidelines) (Multiple shipments) for more
             information.
         hazardous_material (List[HazardousMaterial]): Array of hazardous
             materials contained in the shipment
         product_code_collect (str): Deprecated. Collection product code of a
             shipment.
         product_code_delivery (str): Product code of the shipment. See the
-            [Products page](#tag/Product-codes) for possible products.
+            [Products
+            page](https://developer.postnl.nl/docs/#/http/reference-data/produc
+            t-codes) for possible products.
         product_options (List[ProductOption]): Product options for the
             shipment, mandatory for certain products, see the [Products
-            page](#tag/Product-codes).
+            page](https://developer.postnl.nl/docs/#/http/reference-data/produc
+            t-codes).
         receiver_date_of_birth (str): Date of birth. Mandatory for Age check
             products
         reference (str): Your own reference of the shipment. Mandatory for

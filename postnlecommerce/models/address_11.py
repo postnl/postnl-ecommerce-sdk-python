@@ -18,7 +18,8 @@ class Address11(object):
     Attributes:
         address_type (str): Type of the address. This is a code. You can find
             the possible values at [Address
-            types](#tag/Reference-codes/Address-types)
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/address-types)
         area (str): Area of the address
         buildingname (str): Building name of the address
         city (str): City of the address
@@ -49,8 +50,8 @@ class Address11(object):
             Using both fields simultaneously is discouraged.
         street_house_nr_ext (str): Combination of Street, HouseNr and
             HouseNrExt. Please see
-            [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track
-            /labelling-webservice/) for the explanation.
+            [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
+            send-track/confirming/guidelines) for the explanation.
         zipcode (str): Zipcode of the address. Mandatory for shipments to
             Benelux. Max length (NL) 6 characters,(BE;LU) 4 numeric
             characters

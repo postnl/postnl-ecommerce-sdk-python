@@ -37,7 +37,8 @@ class Shipment11(object):
             shipment
         product_options (ProductOptions): A list of product options.
         status (Status): The current status of the shipment (see the [Status
-            codes](#tag/TandT-status-codes/Status-codes) for possible values.
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-s
+            tatus-codes/event-codes) for possible values.
 
     """
 

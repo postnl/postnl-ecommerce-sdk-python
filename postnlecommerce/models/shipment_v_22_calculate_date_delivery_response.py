@@ -21,11 +21,11 @@ class ShipmentV22CalculateDateDeliveryResponse(object):
         delivery_date (str): TODO: type description here.
         options (Options): The delivery options for which a delivery date is
             returned. Only one delivery option is specified. See [Delivery
-            Options](#tag/Reference-codes/Delivery-options) for possible
-            values.
+            Options](https://developer.postnl.nl/docs/#/http/reference-data/ref
+            erence-codes/delivery-options) for possible values.
         sustainability (Warning1): Sustainability score; see [Sustainability
-            codes](#tag/Reference-codes/Sustainability-codes) for possible
-            values.
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/delivery-options) for possible values.
 
     """
 

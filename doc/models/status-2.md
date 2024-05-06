@@ -1,7 +1,7 @@
 
 # Status 2
 
-The status update. See [Status codes](#tag/TandT-status-codes/Status-codes) for possible values.
+The status update. See [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values.
 
 ## Structure
 

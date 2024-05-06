@@ -14,7 +14,8 @@ class Status(object):
     """Implementation of the 'Status' model.
 
     The current status of the shipment (see the [Status
-    codes](#tag/TandT-status-codes/Status-codes) for possible values.
+    codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-co
+    des/event-codes) for possible values.
 
     Attributes:
         time_stamp (str): The status timestamp

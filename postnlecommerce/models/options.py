@@ -15,7 +15,8 @@ class Options(object):
 
     The delivery options for which a delivery date is returned. Only one
     delivery option is specified. See [Delivery
-    Options](#tag/Reference-codes/Delivery-options) for possible values.
+    Options](https://developer.postnl.nl/docs/#/http/reference-data/reference-c
+    odes/delivery-options) for possible values.
 
     Attributes:
         string (str): TODO: type description here.

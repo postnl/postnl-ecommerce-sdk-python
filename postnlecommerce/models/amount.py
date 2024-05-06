@@ -17,8 +17,8 @@ class Amount(object):
 
     Attributes:
         amount_type (str): Amount type. Please see [Amount
-            types](#tag/Reference-codes/Amount-types) for the available
-            types.
+            types](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes/amount-types) for the available types.
         account_name (str): Name of bank account owner
         bic (str): BIC number,optional for COD shipments (mandatory for bank
             account number other than originating in The Netherlands)

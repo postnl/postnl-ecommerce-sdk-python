@@ -21,11 +21,11 @@
 | `dimension` | [`Dimension1`](../../doc/models/dimension-1.md) | Optional | - |
 | `amount` | [`Amount1`](../../doc/models/amount-1.md) | Optional | The amounts belonging to the shipment |
 | `address` | [`List[Address4]`](../../doc/models/address-4.md) | Optional | A list of addresses belonging to the shipment |
-| `event` | [`List[Event]`](../../doc/models/event.md) | Optional | The events of the shipment. (see the [Event Codes](#tag/TandT-status-codes/Event-codes) for possible values. |
+| `event` | [`List[Event]`](../../doc/models/event.md) | Optional | The events of the shipment. (see the [Event Codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-codes/event-codes) for possible values. |
 | `expectation` | [`Expectation`](../../doc/models/expectation.md) | Optional | The expected delivery timeframe |
 | `product_options` | [`ProductOptions`](../../doc/models/product-options.md) | Optional | A list of product options. |
-| `status` | [`Status`](../../doc/models/status.md) | Optional | The current status of the shipment (see the [Status codes](#tag/TandT-status-codes/Status-codes) for possible values. |
-| `old_status` | [`List[OldStatus]`](../../doc/models/old-status.md) | Optional | A list of previous status codes (see the [Status codes](#tag/TandT-status-codes/Status-codes) for possible values. |
+| `status` | [`Status`](../../doc/models/status.md) | Optional | The current status of the shipment (see the [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-codes/event-codes) for possible values. |
+| `old_status` | [`List[OldStatus]`](../../doc/models/old-status.md) | Optional | A list of previous status codes (see the [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/t-t-status-codes/event-codes) for possible values. |
 
 ## Example (as JSON)
 

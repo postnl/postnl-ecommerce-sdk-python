@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address_type` | [`str`](../../doc/models/string-enum.md) | Required | Type of the address. This is a code. You can find the possible values at [Address types](#tag/Reference-codes/Address-types)<br>**Default**: `'01'`<br>**Constraints**: *Pattern*: `^\d{2}$` |
+| `address_type` | [`str`](../../doc/models/string-enum.md) | Required | Type of the address. This is a code. You can find the possible values at [Address types](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/address-types)<br>**Default**: `'01'`<br>**Constraints**: *Pattern*: `^\d{2}$` |
 | `area` | [`str`](../../doc/models/string-enum.md) | Optional | Area of the address<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `buildingname` | [`str`](../../doc/models/string-enum.md) | Optional | Building name of the address<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `city` | [`str`](../../doc/models/string-enum.md) | Optional | City of the address<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
@@ -24,7 +24,7 @@
 | `name` | [`str`](../../doc/models/string-enum.md) | Optional | Last name of person. This field has a dependency with the field CompanyName. One of both fields must be filled mandatory; using both fields is also allowed. Remark: please add FirstName and Name (lastname) of the receiver to improve the parcel tracking experience of your customer.<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `region` | [`str`](../../doc/models/string-enum.md) | Optional | Region of the address. Mandatory for Non EU destinations where a region is applicable.<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `street` | [`str`](../../doc/models/string-enum.md) | Optional | This field has a dependency with the field StreetHouseNrExt. One of both fields must be filled mandatory. Using both fields simultaneously is discouraged.<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `95` |
-| `street_house_nr_ext` | [`str`](../../doc/models/string-enum.md) | Optional | Combination of Street, HouseNr and HouseNrExt. Please see [Guidelines](https://developer.postnl.nl/browse-apis/send-and-track/labelling-webservice/) for the explanation. |
+| `street_house_nr_ext` | [`str`](../../doc/models/string-enum.md) | Optional | Combination of Street, HouseNr and HouseNrExt. Please see [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/send-track/confirming/guidelines) for the explanation. |
 | `zipcode` | [`str`](../../doc/models/string-enum.md) | Optional | Zipcode of the address. Mandatory for shipments to Benelux. Max length (NL) 6 characters,(BE;LU) 4 numeric characters<br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `17` |
 
 ## Example (as JSON)

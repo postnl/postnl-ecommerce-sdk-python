@@ -29,8 +29,9 @@ class Location(object):
         location_code (str): The location identifier
         partner_id (str): The partner identifier; not used anymore
         sustainability (Sustainability): Sustainability score; see
-            [Sustainability codes](#tag/Reference-codes/Sustainability-codes)
-            for possible values.
+            [Sustainability
+            codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
+            ence-codes) for possible values.
 
     """
 

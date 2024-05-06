@@ -17,7 +17,7 @@
 | `longitude` | `float` | Optional | The longitude of the pickup location |
 | `name` | [`str`](../../doc/models/string-enum.md) | Optional | The name of the pickup location |
 | `opening_hours` | [`OpeningHours`](../../doc/models/opening-hours.md) | Optional | The standard opening times of the pickup location |
-| `sustainability` | [`Warning1`](../../doc/models/warning-1.md) | Optional | Sustainability score; see [Sustainability codes](#tag/Reference-codes/Sustainability-codes) for possible values. |
+| `sustainability` | [`Warning1`](../../doc/models/warning-1.md) | Optional | Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/sustainability-codes) for possible values. |
 | `partner_name` | [`str`](../../doc/models/string-enum.md) | Optional | The partner name belonging to the pickup location. Can be ignored, no longer used. |
 | `retail_network_id` | [`str`](../../doc/models/string-enum.md) | Optional | The retail network belonging to the pickup location. Can be ignored, no longer used |
 

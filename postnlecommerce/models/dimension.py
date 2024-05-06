@@ -15,7 +15,7 @@ class Dimension(object):
 
     Note: Length, Width, Height values are about the order of the size and
     need to be filled in from the longest to the shortest value. For example:
-    shipment’s official height is 700mm, width 500mm, length 300mm. The
+    shipment's official height is 700mm, width 500mm, length 300mm. The
     longest side (highest value) of 700mm needs to be entered at Length. Width
     value becomes 500mm, Height value: 300mm (the lowest). Entering the
     dimensions in the wrong order may result in incorrect shipping labels and
