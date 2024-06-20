@@ -23,8 +23,7 @@ class LabellingCustomsContent(object):
             of the item(s).
         hs_tariff_nr (str): Specify every item with the standard HS commodity
             code (HS-code), [more
-            information](https://tarief.douane.nl/arctictariff-public-web/#!/ho
-            me)
+            information](https://tarief.douane.nl/ite-tariff-public/#/home)
         country_of_origin (str): Fill in the code of the country where the
             item was produced (ISO-code), [more
             information](https://www.iso.org/home.html)

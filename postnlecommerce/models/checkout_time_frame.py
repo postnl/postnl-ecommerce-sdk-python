@@ -22,14 +22,14 @@ class CheckoutTimeFrame(object):
         options (List[CheckoutOptionEnum]): The delivery options applicable to
             the timeframe information. See [Delivery
             Options](https://developer.postnl.nl/docs/#/http/reference-data/ref
-            erence-codes) for possible values.
+            erence-codes/delivery-options) for possible values.
         shipping_date (str): The date when you need to deliver the shipment to
             PostNL to ensure the expected delivery date is achieved. Will be
             returned as 'null' if not calculated
         sustainability (Sustainability): Sustainability score; see
             [Sustainability
             codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
-            ence-codes) for possible values.
+            ence-codes/sustainability-codes) for possible values.
 
     """
 

@@ -1,7 +1,7 @@
 
 # Sustainability
 
-Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes) for possible values.
+Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/sustainability-codes) for possible values.
 
 ## Structure
 

@@ -12,11 +12,11 @@ The package is compatible with Python versions `3 >=3.7, <= 3.11`.
 Install the package from PyPi using the following pip command:
 
 ```python
-pip install postnl-ecommerce-sdk==1.0.4
+pip install postnl-ecommerce-sdk==1.0.5
 ```
 
 You can also view the package at:
-https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.4
+https://pypi.python.org/pypi/postnl-ecommerce-sdk/1.0.5
 
 ## Test the SDK
 
@@ -31,7 +31,7 @@ pytest
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -46,7 +46,7 @@ The following parameters are configurable for the API Client:
 | `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
 | `retry_statuses` | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
-| `custom_header_authentication_credentials` | [`CustomHeaderAuthenticationCredentials`](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/$a/https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/custom-header-signature.md) | The credential object for Custom Header Signature |
+| `custom_header_authentication_credentials` | [`CustomHeaderAuthenticationCredentials`](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/$a/https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/custom-header-signature.md) | The credential object for Custom Header Signature |
 
 The API client can be initialized as follows:
 
@@ -85,24 +85,24 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`APIKeyHeader (Custom Header Signature)`](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/$a/https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/custom-header-signature.md)
+* [`APIKeyHeader (Custom Header Signature)`](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/$a/https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/custom-header-signature.md)
 
 ## List of APIs
 
-* [Postalcodecheck](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/postalcodecheck.md)
-* [Barcode](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/barcode.md)
-* [Checkout](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/checkout.md)
-* [Confirming](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/confirming.md)
-* [Deliverydate](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/deliverydate.md)
-* [Labelling](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/labelling.md)
-* [Locations](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/locations.md)
-* [Shipment](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/shipment.md)
-* [Shipping Status](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/shipping-status.md)
-* [Timeframes](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/controllers/timeframes.md)
+* [Postalcodecheck](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/postalcodecheck.md)
+* [Barcode](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/barcode.md)
+* [Checkout](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/checkout.md)
+* [Confirming](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/confirming.md)
+* [Deliverydate](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/deliverydate.md)
+* [Labelling](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/labelling.md)
+* [Locations](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/locations.md)
+* [Shipment](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/shipment.md)
+* [Shipping Status](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/shipping-status.md)
+* [Timeframes](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/controllers/timeframes.md)
 
 ## Classes Documentation
 
-* [Utility Classes](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/utility-classes.md)
-* [HttpResponse](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/http-response.md)
-* [HttpRequest](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.4/doc/http-request.md)
+* [Utility Classes](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/utility-classes.md)
+* [HttpResponse](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/http-response.md)
+* [HttpRequest](https://www.github.com/postnl/postnl-ecommerce-sdk-python/tree/1.0.5/doc/http-request.md)
 

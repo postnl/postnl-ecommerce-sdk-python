@@ -23,8 +23,8 @@ class ConfirmingCustomContent(object):
             of the item(s).
         hs_tariff_nr (str): Specify every item with the standard HS commodity
             code (6-8-10 digits HS-code), [more
-            information](https://tarief.douane.nl/arctictariff-public-web/#!/ho
-            me). Note: punctuation marks and symbols are not allowed.
+            information](https://tarief.douane.nl/ite-tariff-public/#/home).
+            Note: punctuation marks and symbols are not allowed.
         country_of_origin (str): Fill in the code of the country where the
             item was produced (ISO-code), [more
             information](https://www.iso.org/home.html)

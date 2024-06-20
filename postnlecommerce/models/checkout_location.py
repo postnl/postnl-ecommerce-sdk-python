@@ -31,7 +31,7 @@ class CheckoutLocation(object):
         sustainability (Sustainability): Sustainability score; see
             [Sustainability
             codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
-            ence-codes) for possible values.
+            ence-codes/sustainability-codes) for possible values.
 
     """
 

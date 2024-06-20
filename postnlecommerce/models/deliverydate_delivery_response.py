@@ -21,12 +21,13 @@ class DeliverydateDeliveryResponse(object):
         delivery_date (str): TODO: type description here.
         options (DeliverydateOptions): The delivery options for which a
             delivery date is returned. Only one delivery option is specified.
-            See [Delivery Options](#tag/Reference-codes/Delivery-options) for
-            possible values.
+            See [Delivery
+            Options](https://developer.postnl.nl/docs/#/http/reference-data/ref
+            erence-codes/delivery-options) for possible values.
         sustainability (Sustainability): Sustainability score; see
             [Sustainability
             codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
-            ence-codes) for possible values.
+            ence-codes/sustainability-codes) for possible values.
 
     """
 

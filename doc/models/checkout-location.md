@@ -15,7 +15,7 @@
 | `distance` | `int` | Optional | The calculated distance (in meters) between the location specified and the address provided in the request |
 | `location_code` | `str` | Optional | The location identifier |
 | `partner_id` | `str` | Optional | The partner identifier; not used anymore |
-| `sustainability` | [`Sustainability`](../../doc/models/sustainability.md) | Optional | Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes) for possible values. |
+| `sustainability` | [`Sustainability`](../../doc/models/sustainability.md) | Optional | Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/sustainability-codes) for possible values. |
 
 ## Example (as JSON)
 

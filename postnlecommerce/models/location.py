@@ -36,7 +36,7 @@ class Location(object):
         sustainability (Sustainability): Sustainability score; see
             [Sustainability
             codes](https://developer.postnl.nl/docs/#/http/reference-data/refer
-            ence-codes) for possible values.
+            ence-codes/sustainability-codes) for possible values.
         partner_name (str): The partner name belonging to the pickup location.
             Can be ignored, no longer used.
         retail_network_id (str): The retail network belonging to the pickup
