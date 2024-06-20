@@ -26,6 +26,112 @@ class ShippingStatusControllerTests(ControllerTestBase):
 
     # Request example:
     #```
+    #curl -X GET "https://api-sandbox.postnl.nl/shipment/v2/status/barcode/3SDEVC172649258" \
+    # -H "Accept: application/json" \
+    # -H "apikey: APIKEY-HERE" \
+    #```
+    #
+    def test_get_status_by_barcode(self):
+        # Parameters for the API call
+        barcode = '3SDEVC172649258'
+        detail = False
+        language = 'NL'
+        max_days = '14'
+
+        # Perform the API call through the SDK function
+        result = self.controller.get_status_by_barcode(barcode, detail, language, max_days)
+
+        # Test response code
+        assert self.response_catcher.response.status_code == 200
+
+        # Test headers
+        expected_headers = {}
+        expected_headers['content-type'] = 'application/json'
+
+        assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
+
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"CurrentStatus":{"Shipment":{"MainBarcode":"3SDEVC288882229","Bar'
+            'code":"3SDEVC288882229","ShipmentAmount":"1","ShipmentCounter":"1"'
+            ',"Customer":{"CustomerCode":"DEVC","CustomerNumber":"11223344","Na'
+            'me":"Testaccount API PNP"},"ProductCode":"002285","ProductDescript'
+            'ion":"Parcels, domestic &lt;= 10 kg","Reference":"2022133316350958'
+            '07","DeliveryDate":"2022-11-08","Dimension":{"Height":"125","Lengt'
+            'h":"250","Volume":"6250","Weight":"180","Width":"200"},"Address":['
+            '{"AddressType":"01","Building":"{}","City":"Utrecht","CompanyName"'
+            ':"{}","CountryCode":"NL","DepartmentName":"{}","District":"{}","Fi'
+            'rstName":"Peter","Floor":"{}","HouseNumber":"74","HouseNumberSuffi'
+            'x":"{}","LastName":"de Ruiter","Region":"{}","Remark":"{}","Street'
+            '":"Molengraaffplantsoen","Zipcode":"3571ZZ"},{"AddressType":"02","'
+            'Building":"{}","City":"Hoofddorp","CompanyName":"PostNL Pakketten"'
+            ',"CountryCode":"NL","DepartmentName":"{}","District":"{}","FirstNa'
+            'me":"{}","Floor":"{}","HouseNumber":"42","HouseNumberSuffix":"-60"'
+            ',"LastName":"{}","Region":"{}","Remark":"{}","Street":"Siriusdreef'
+            '","Zipcode":"2132WT"}],"ProductOptions":[{"OptionCode":"6","Charac'
+            'teristicCode":"118"}],"Status":{"TimeStamp":"08-11-2022 10:13:20",'
+            '"StatusCode":"7","StatusDescription":"Shipment out for delivery","'
+            'PhaseCode":"3","PhaseDescription":"Distribution"}}}}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
+
+    # Request example:
+    #```
+    #curl -X GET "https://api-sandbox.postnl.nl/shipment/v2/status/reference?detail=true&language=NL&customerCode={{CustomerCode}}&customerNumber={{CustomerNumber}}&reference=REF98173245876329" \
+    # -H "Accept: application/json" \
+    # -H "apikey: APIKEY-HERE" 
+    #```
+    #
+    def test_get_status_by_reference(self):
+        # Parameters for the API call
+        customer_code = 'DEVC'
+        customer_number = '11223344'
+        reference_id = 'REF-12345'
+        detail = False
+        language = 'NL'
+        max_days = '14'
+
+        # Perform the API call through the SDK function
+        result = self.controller.get_status_by_reference(customer_code, customer_number, reference_id, detail, language, max_days)
+
+        # Test response code
+        assert self.response_catcher.response.status_code == 200
+
+        # Test headers
+        expected_headers = {}
+        expected_headers['content-type'] = 'application/json'
+
+        assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
+
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"CurrentStatus":{"Shipment":{"MainBarcode":"3SDEVC288882229","Bar'
+            'code":"3SDEVC288882229","ShipmentAmount":"1","ShipmentCounter":"1"'
+            ',"Customer":{"CustomerCode":"DEVC","CustomerNumber":"11223344","Na'
+            'me":"Testaccount API PNP"},"ProductCode":"002285","ProductDescript'
+            'ion":"Parcels, domestic &lt;= 10 kg","Reference":"2022133316350958'
+            '07","DeliveryDate":"2022-11-08","Dimension":{"Height":"125","Lengt'
+            'h":"250","Volume":"6250","Weight":"180","Width":"200"},"Address":['
+            '{"AddressType":"01","Building":"{}","City":"Utrecht","CompanyName"'
+            ':"{}","CountryCode":"NL","DepartmentName":"{}","District":"{}","Fi'
+            'rstName":"Peter","Floor":"{}","HouseNumber":"74","HouseNumberSuffi'
+            'x":"{}","LastName":"de Ruiter","Region":"{}","Remark":"{}","Street'
+            '":"Molengraaffplantsoen","Zipcode":"3571ZZ"},{"AddressType":"02","'
+            'Building":"{}","City":"Hoofddorp","CompanyName":"PostNL Pakketten"'
+            ',"CountryCode":"NL","DepartmentName":"{}","District":"{}","FirstNa'
+            'me":"{}","Floor":"{}","HouseNumber":"42","HouseNumberSuffix":"-60"'
+            ',"LastName":"{}","Region":"{}","Remark":"{}","Street":"Siriusdreef'
+            '","Zipcode":"2132WT"}],"ProductOptions":[{"OptionCode":"6","Charac'
+            'teristicCode":"118"}],"Status":{"TimeStamp":"08-11-2022 10:13:20",'
+            '"StatusCode":"7","StatusDescription":"Shipment out for delivery","'
+            'PhaseCode":"3","PhaseDescription":"Distribution"}}}}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
+
+    # Request example:
+    #```
     #curl -X GET "https://api-sandbox.postnl.nl/shipment/v2/status/signature/3SDEVC172649258" \
     # -H "Accept: application/json" \
     # -H "apikey: APIKEY-HERE" 

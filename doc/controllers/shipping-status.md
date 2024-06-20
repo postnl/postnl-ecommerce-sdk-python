@@ -38,10 +38,10 @@ def get_status_by_barcode(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `barcode` | [`str`](../../doc/models/string-enum.md) | Template, Required | Barcode of the shipment. This is a unique value. |
+| `barcode` | `str` | Template, Required | Barcode of the shipment. This is a unique value. |
 | `detail` | `bool` | Query, Optional | Option to include old statuses in the response |
 | `language` | [`LanguageEnum`](../../doc/models/language-enum.md) | Query, Optional | Language of the returned shipment and status descriptions (default is Dutch). |
-| `max_days` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). |
+| `max_days` | `str` | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). |
 
 ## Response Type
 
@@ -67,15 +67,97 @@ result = shipping_status_controller.get_status_by_barcode(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "CurrentStatus": {
+    "Shipment": {
+      "MainBarcode": "3SDEVC288882229",
+      "Barcode": "3SDEVC288882229",
+      "ShipmentAmount": "1",
+      "ShipmentCounter": "1",
+      "Customer": {
+        "CustomerCode": "DEVC",
+        "CustomerNumber": "11223344",
+        "Name": "Testaccount API PNP"
+      },
+      "ProductCode": "002285",
+      "ProductDescription": "Parcels, domestic &lt;= 10 kg",
+      "Reference": "202213331635095807",
+      "DeliveryDate": "2022-11-08",
+      "Dimension": {
+        "Height": "125",
+        "Length": "250",
+        "Volume": "6250",
+        "Weight": "180",
+        "Width": "200"
+      },
+      "Address": [
+        {
+          "AddressType": "01",
+          "Building": "{}",
+          "City": "Utrecht",
+          "CompanyName": "{}",
+          "CountryCode": "NL",
+          "DepartmentName": "{}",
+          "District": "{}",
+          "FirstName": "Peter",
+          "Floor": "{}",
+          "HouseNumber": "74",
+          "HouseNumberSuffix": "{}",
+          "LastName": "de Ruiter",
+          "Region": "{}",
+          "Remark": "{}",
+          "Street": "Molengraaffplantsoen",
+          "Zipcode": "3571ZZ"
+        },
+        {
+          "AddressType": "02",
+          "Building": "{}",
+          "City": "Hoofddorp",
+          "CompanyName": "PostNL Pakketten",
+          "CountryCode": "NL",
+          "DepartmentName": "{}",
+          "District": "{}",
+          "FirstName": "{}",
+          "Floor": "{}",
+          "HouseNumber": "42",
+          "HouseNumberSuffix": "-60",
+          "LastName": "{}",
+          "Region": "{}",
+          "Remark": "{}",
+          "Street": "Siriusdreef",
+          "Zipcode": "2132WT"
+        }
+      ],
+      "ProductOptions": [
+        {
+          "OptionCode": "6",
+          "CharacteristicCode": "118"
+        }
+      ],
+      "Status": {
+        "TimeStamp": "08-11-2022 10:13:20",
+        "StatusCode": "7",
+        "StatusDescription": "Shipment out for delivery",
+        "PhaseCode": "3",
+        "PhaseDescription": "Distribution"
+      }
+    }
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Status by Reference
@@ -102,12 +184,12 @@ def get_status_by_reference(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Customer code as known at PostNL Pakketten |
-| `customer_number` | [`str`](../../doc/models/string-enum.md) | Query, Required | Customer number as known at PostNL Pakketten |
-| `reference_id` | [`str`](../../doc/models/string-enum.md) | Template, Required | The customer reference belonging to the shipment |
+| `customer_code` | `str` | Query, Required | Customer code as known at PostNL Pakketten |
+| `customer_number` | `str` | Query, Required | Customer number as known at PostNL Pakketten |
+| `reference_id` | `str` | Template, Required | The customer reference belonging to the shipment |
 | `detail` | `bool` | Query, Optional | Option to include old statuses in the response |
 | `language` | [`LanguageEnum`](../../doc/models/language-enum.md) | Query, Optional | Language of the returned shipment and status descriptions (default is Dutch). |
-| `max_days` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). By default this is 90 days in the past. |
+| `max_days` | `str` | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). By default this is 90 days in the past. |
 
 ## Response Type
 
@@ -139,15 +221,97 @@ result = shipping_status_controller.get_status_by_reference(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "CurrentStatus": {
+    "Shipment": {
+      "MainBarcode": "3SDEVC288882229",
+      "Barcode": "3SDEVC288882229",
+      "ShipmentAmount": "1",
+      "ShipmentCounter": "1",
+      "Customer": {
+        "CustomerCode": "DEVC",
+        "CustomerNumber": "11223344",
+        "Name": "Testaccount API PNP"
+      },
+      "ProductCode": "002285",
+      "ProductDescription": "Parcels, domestic &lt;= 10 kg",
+      "Reference": "202213331635095807",
+      "DeliveryDate": "2022-11-08",
+      "Dimension": {
+        "Height": "125",
+        "Length": "250",
+        "Volume": "6250",
+        "Weight": "180",
+        "Width": "200"
+      },
+      "Address": [
+        {
+          "AddressType": "01",
+          "Building": "{}",
+          "City": "Utrecht",
+          "CompanyName": "{}",
+          "CountryCode": "NL",
+          "DepartmentName": "{}",
+          "District": "{}",
+          "FirstName": "Peter",
+          "Floor": "{}",
+          "HouseNumber": "74",
+          "HouseNumberSuffix": "{}",
+          "LastName": "de Ruiter",
+          "Region": "{}",
+          "Remark": "{}",
+          "Street": "Molengraaffplantsoen",
+          "Zipcode": "3571ZZ"
+        },
+        {
+          "AddressType": "02",
+          "Building": "{}",
+          "City": "Hoofddorp",
+          "CompanyName": "PostNL Pakketten",
+          "CountryCode": "NL",
+          "DepartmentName": "{}",
+          "District": "{}",
+          "FirstName": "{}",
+          "Floor": "{}",
+          "HouseNumber": "42",
+          "HouseNumberSuffix": "-60",
+          "LastName": "{}",
+          "Region": "{}",
+          "Remark": "{}",
+          "Street": "Siriusdreef",
+          "Zipcode": "2132WT"
+        }
+      ],
+      "ProductOptions": [
+        {
+          "OptionCode": "6",
+          "CharacteristicCode": "118"
+        }
+      ],
+      "Status": {
+        "TimeStamp": "08-11-2022 10:13:20",
+        "StatusCode": "7",
+        "StatusDescription": "Shipment out for delivery",
+        "PhaseCode": "3",
+        "PhaseDescription": "Distribution"
+      }
+    }
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Shipment Signature
@@ -169,7 +333,7 @@ def get_shipment_signature(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `barcode` | [`str`](../../doc/models/string-enum.md) | Template, Required | Barcode of the shipment |
+| `barcode` | `str` | Template, Required | Barcode of the shipment |
 
 ## Response Type
 
@@ -200,11 +364,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Updated Status by Customer Number
@@ -227,8 +391,8 @@ def get_updated_status_by_customer_number(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customernumber` | [`str`](../../doc/models/string-enum.md) | Template, Required | Your customer number |
-| `period` | [`List[str]`](../../doc/models/string-enum.md) | Query, Optional | Optional array which defines a specific period in which to return updated shipments. For optimal results, schedule calls at a frequency between 5-15 minutes and align the requested period accordingly to ensure complete coverage of past updates. Shorter periods yield improved response times. The API accommodates a maximum requested period of 2 hours, granting access to shipment data up to 48 hours in the past. Please use the following format: YYYY-MM-DDTHH:MM:SS and repeat this variable to define the period (e.g. /updatedshipments?period=2022-11-07T12:00:00.000&period=2022-11-07T12:05:00.000). |
+| `customernumber` | `str` | Template, Required | Your customer number |
+| `period` | `List[str]` | Query, Optional | Optional array which defines a specific period in which to return updated shipments. For optimal results, schedule calls at a frequency between 5-15 minutes and align the requested period accordingly to ensure complete coverage of past updates. Shorter periods yield improved response times. The API accommodates a maximum requested period of 2 hours, granting access to shipment data up to 48 hours in the past. Please use the following format: YYYY-MM-DDTHH:MM:SS and repeat this variable to define the period (e.g. /updatedshipments?period=2022-11-07T12:00:00.000&period=2022-11-07T12:05:00.000). |
 
 ## Response Type
 
@@ -314,9 +478,9 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

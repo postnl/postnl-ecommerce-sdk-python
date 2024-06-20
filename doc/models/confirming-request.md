@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `customer` | [`Customer`](../../doc/models/customer.md) | Required | - |
-| `message` | [`Message`](../../doc/models/message.md) | Required | - |
-| `shipments` | [`List[Shipment]`](../../doc/models/shipment.md) | Required | List of 1 or more Shipments. At least 1 shipment is required. |
+| `message` | [`ConfirmingMessage`](../../doc/models/confirming-message.md) | Required | - |
+| `shipments` | [`List[ConfirmingShipment]`](../../doc/models/confirming-shipment.md) | Required | List of 1 or more Shipments. At least 1 shipment is required. |
 
 ## Example (as JSON)
 
@@ -61,7 +61,7 @@
           "Zipcode": "3571ZZ"
         }
       ],
-      "Barcode": "Barcode0",
+      "Barcode": "3SDEVC201611214",
       "CodingText": "#2426A3A#03#0306#",
       "CollectionTimeStampStart": "04-12-2022 17:00:00",
       "CollectionTimeStampEnd": "04-12-2022 19:00:00",

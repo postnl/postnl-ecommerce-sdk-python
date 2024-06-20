@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `warning` | [`Warning11`](../../doc/models/warning-11.md) | Optional | - |
+| `warning` | [`ShippingstatusWarning`](../../doc/models/shippingstatus-warning.md) | Optional | - |
 
 ## Example (as JSON)
 

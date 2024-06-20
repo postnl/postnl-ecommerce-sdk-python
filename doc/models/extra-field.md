@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | [`str`](../../doc/models/string-enum.md) | Optional | - |
-| `value` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `key` | `str` | Optional | - |
+| `value` | `str` | Optional | - |
 
 ## Example (as JSON)
 

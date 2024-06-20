@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response_shipments` | [`List[ResponseShipment]`](../../doc/models/response-shipment.md) | Optional | - |
+| `response_shipments` | [`List[ConfirmingResponseShipment]`](../../doc/models/confirming-response-shipment.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -19,12 +19,12 @@
     {
       "Errors": [
         {
-          "code": "code2",
-          "description": "description6"
+          "Code": "Code4",
+          "Description": "Description2"
         },
         {
-          "code": "code2",
-          "description": "description6"
+          "Code": "Code4",
+          "Description": "Description2"
         }
       ],
       "Warnings": [

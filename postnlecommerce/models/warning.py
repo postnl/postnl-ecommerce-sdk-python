@@ -16,46 +16,32 @@ class Warning(object):
     TODO: type model description here.
 
     Attributes:
-        delivery_date (str): Deliverydate that triggered the warning
-        code (str): Warning code (for a possible list of warnings, see the
-            generic error codes page)
-        description (str): Warning description (for a possible list of
-            warnings, see the generic error codes page)
-        options (List[Option2Enum]): The option that triggered the warning
+        code (str): The Warning code
+        description (str): The warning description
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "delivery_date": 'DeliveryDate',
         "code": 'Code',
-        "description": 'Description',
-        "options": 'Options'
+        "description": 'Description'
     }
 
     _optionals = [
-        'delivery_date',
         'code',
         'description',
-        'options',
     ]
 
     def __init__(self,
-                 delivery_date=APIHelper.SKIP,
                  code=APIHelper.SKIP,
-                 description=APIHelper.SKIP,
-                 options=APIHelper.SKIP):
+                 description=APIHelper.SKIP):
         """Constructor for the Warning class"""
 
         # Initialize members of the class
-        if delivery_date is not APIHelper.SKIP:
-            self.delivery_date = delivery_date 
         if code is not APIHelper.SKIP:
             self.code = code 
         if description is not APIHelper.SKIP:
             self.description = description 
-        if options is not APIHelper.SKIP:
-            self.options = options 
 
     @classmethod
     def from_dictionary(cls,
@@ -76,12 +62,8 @@ class Warning(object):
             return None
 
         # Extract variables from the dictionary
-        delivery_date = dictionary.get("DeliveryDate") if dictionary.get("DeliveryDate") else APIHelper.SKIP
         code = dictionary.get("Code") if dictionary.get("Code") else APIHelper.SKIP
         description = dictionary.get("Description") if dictionary.get("Description") else APIHelper.SKIP
-        options = dictionary.get("Options") if dictionary.get("Options") else APIHelper.SKIP
         # Return an object of this model
-        return cls(delivery_date,
-                   code,
-                   description,
-                   options)
+        return cls(code,
+                   description)

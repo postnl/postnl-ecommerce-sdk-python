@@ -7,13 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.friday import Friday
-from postnlecommerce.models.monday import Monday
-from postnlecommerce.models.saturday import Saturday
-from postnlecommerce.models.sunday import Sunday
-from postnlecommerce.models.thursday import Thursday
-from postnlecommerce.models.tuesday import Tuesday
-from postnlecommerce.models.wednesday import Wednesday
+from postnlecommerce.models.opening_hours_per_day import OpeningHoursPerDay
 
 
 class OpeningHours(object):
@@ -23,13 +17,13 @@ class OpeningHours(object):
     The standard opening hours of the pickup location
 
     Attributes:
-        monday (Monday): TODO: type description here.
-        tuesday (Tuesday): TODO: type description here.
-        wednesday (Wednesday): TODO: type description here.
-        thursday (Thursday): TODO: type description here.
-        friday (Friday): TODO: type description here.
-        saturday (Saturday): TODO: type description here.
-        sunday (Sunday): TODO: type description here.
+        monday (OpeningHoursPerDay): TODO: type description here.
+        tuesday (OpeningHoursPerDay): TODO: type description here.
+        wednesday (OpeningHoursPerDay): TODO: type description here.
+        thursday (OpeningHoursPerDay): TODO: type description here.
+        friday (OpeningHoursPerDay): TODO: type description here.
+        saturday (OpeningHoursPerDay): TODO: type description here.
+        sunday (OpeningHoursPerDay): TODO: type description here.
 
     """
 
@@ -99,13 +93,13 @@ class OpeningHours(object):
             return None
 
         # Extract variables from the dictionary
-        monday = Monday.from_dictionary(dictionary.get('Monday')) if 'Monday' in dictionary.keys() else APIHelper.SKIP
-        tuesday = Tuesday.from_dictionary(dictionary.get('Tuesday')) if 'Tuesday' in dictionary.keys() else APIHelper.SKIP
-        wednesday = Wednesday.from_dictionary(dictionary.get('Wednesday')) if 'Wednesday' in dictionary.keys() else APIHelper.SKIP
-        thursday = Thursday.from_dictionary(dictionary.get('Thursday')) if 'Thursday' in dictionary.keys() else APIHelper.SKIP
-        friday = Friday.from_dictionary(dictionary.get('Friday')) if 'Friday' in dictionary.keys() else APIHelper.SKIP
-        saturday = Saturday.from_dictionary(dictionary.get('Saturday')) if 'Saturday' in dictionary.keys() else APIHelper.SKIP
-        sunday = Sunday.from_dictionary(dictionary.get('Sunday')) if 'Sunday' in dictionary.keys() else APIHelper.SKIP
+        monday = OpeningHoursPerDay.from_dictionary(dictionary.get('Monday')) if 'Monday' in dictionary.keys() else APIHelper.SKIP
+        tuesday = OpeningHoursPerDay.from_dictionary(dictionary.get('Tuesday')) if 'Tuesday' in dictionary.keys() else APIHelper.SKIP
+        wednesday = OpeningHoursPerDay.from_dictionary(dictionary.get('Wednesday')) if 'Wednesday' in dictionary.keys() else APIHelper.SKIP
+        thursday = OpeningHoursPerDay.from_dictionary(dictionary.get('Thursday')) if 'Thursday' in dictionary.keys() else APIHelper.SKIP
+        friday = OpeningHoursPerDay.from_dictionary(dictionary.get('Friday')) if 'Friday' in dictionary.keys() else APIHelper.SKIP
+        saturday = OpeningHoursPerDay.from_dictionary(dictionary.get('Saturday')) if 'Saturday' in dictionary.keys() else APIHelper.SKIP
+        sunday = OpeningHoursPerDay.from_dictionary(dictionary.get('Sunday')) if 'Sunday' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(monday,
                    tuesday,

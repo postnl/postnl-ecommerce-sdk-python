@@ -11,8 +11,8 @@ The expected delivery timeframe
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `eta_from` | [`str`](../../doc/models/string-enum.md) | Optional | The start of the timeframe |
-| `eta_to` | [`str`](../../doc/models/string-enum.md) | Optional | The end of the timeframe |
+| `eta_from` | `str` | Optional | The start of the timeframe |
+| `eta_to` | `str` | Optional | The end of the timeframe |
 
 ## Example (as JSON)
 

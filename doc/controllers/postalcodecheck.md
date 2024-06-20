@@ -32,13 +32,13 @@ def checkout_postalcode_check(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `postalcode` | [`str`](../../doc/models/string-enum.md) | Query, Required | - |
-| `housenumber` | [`str`](../../doc/models/string-enum.md) | Query, Required | - |
-| `housenumberaddition` | [`str`](../../doc/models/string-enum.md) | Query, Optional | - |
+| `postalcode` | `str` | Query, Required | - |
+| `housenumber` | `str` | Query, Required | - |
+| `housenumberaddition` | `str` | Query, Optional | - |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[CpcResponse]`](../../doc/models/cpc-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[PostalcodeCheckAddress]`](../../doc/models/postalcode-check-address.md).
 
 ## Example Usage
 
@@ -79,9 +79,9 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`BarcodeResponseInvalidException`](../../doc/models/barcode-response-invalid-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Bad request | [`PostalcodeCheckResponseInvalidException`](../../doc/models/postalcode-check-response-invalid-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

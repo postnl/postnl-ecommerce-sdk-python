@@ -38,15 +38,15 @@ def retrieve_delivery_timeframes(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `allow_sunday_sorting` | `bool` | Query, Required | Whether or not the requesting party allows for Sunday sorting (which leads to delivery on Monday). |
-| `start_date` | [`str`](../../doc/models/string-enum.md) | Query, Required | Date of the beginning of the timeframe. Format: dd-MM-yyyy |
-| `end_date` | [`str`](../../doc/models/string-enum.md) | Query, Required | Date of the enddate of the timeframe. Format:dd-MM-yyyy. Enddate may not be before StartDate. |
+| `start_date` | `str` | Query, Required | Date of the beginning of the timeframe. Format: dd-MM-yyyy |
+| `end_date` | `str` | Query, Required | Date of the enddate of the timeframe. Format:dd-MM-yyyy. Enddate may not be before StartDate. |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The ISO2 country code of the delivery address |
-| `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Zipcode of the delivery address |
+| `postal_code` | `str` | Query, Required | Zipcode of the delivery address |
 | `house_number` | `int` | Query, Required | The house number of the delivery address |
-| `options` | [`List[Options2Enum]`](../../doc/models/options-2-enum.md) | Query, Required | The delivery options for which expected timeframes should be calculated. At least one delivery option must be specified. Multiple values should be comma-separated. |
-| `house_nr_ext` | [`str`](../../doc/models/string-enum.md) | Query, Optional | House number extension of the delivery address |
-| `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | City of the delivery address |
-| `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the delivery address |
+| `options` | [`List[TimeframeOptionsEnum]`](../../doc/models/timeframe-options-enum.md) | Query, Required | The delivery options for which expected timeframes should be calculated. At least one delivery option must be specified. Multiple values should be comma-separated. |
+| `house_nr_ext` | `str` | Query, Optional | House number extension of the delivery address |
+| `city` | `str` | Query, Optional | City of the delivery address |
+| `street` | `str` | Query, Optional | The street name of the delivery address |
 
 ## Response Type
 
@@ -68,9 +68,9 @@ postal_code = '2132WT'
 house_number = 42
 
 options = [
-    Options2Enum.DAYTIME,
-    Options2Enum.EVENING,
-    Options2Enum.SUNDAY
+    TimeframeOptionsEnum.DAYTIME,
+    TimeframeOptionsEnum.EVENING,
+    TimeframeOptionsEnum.SUNDAY
 ]
 
 house_nr_ext = 'A'
@@ -94,13 +94,58 @@ result = timeframes_controller.retrieve_delivery_timeframes(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "Timeframes": {
+    "Timeframe": [
+      {
+        "Date": "02-07-2022",
+        "Timeframes": {
+          "TimeframeTimeframe": [
+            {
+              "From": "12:30:00",
+              "Options": {
+                "string": "Daytime"
+              },
+              "To": "14:30:00",
+              "Sustainability": {
+                "Code": "02",
+                "Description": "Sustainable option"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ReasonNoTimeframes": {
+    "ReasonNoTimeframe": [
+      {
+        "Code": "1",
+        "Date": "02-07-2022",
+        "Description": "Delivery date not allowed",
+        "Options": {
+          "string": "Evening"
+        },
+        "Sustainability": {
+          "Code": "02",
+          "Description": "Sustainable option"
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`TimeframeResponseInvalidException`](../../doc/models/timeframe-response-invalid-exception.md) |
-| 401 | Unauthorized | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

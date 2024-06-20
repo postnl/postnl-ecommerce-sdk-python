@@ -9,11 +9,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `barcode` | [`str`](../../doc/models/string-enum.md) | Optional | The barcode belonging to the status update |
-| `creation_date` | [`str`](../../doc/models/string-enum.md) | Optional | The date of the update |
-| `customer_number` | [`str`](../../doc/models/string-enum.md) | Optional | The customer number |
-| `customer_code` | [`str`](../../doc/models/string-enum.md) | Optional | The customer code |
-| `status` | [`Status2`](../../doc/models/status-2.md) | Optional | The status update. See [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values. |
+| `barcode` | `str` | Optional | The barcode belonging to the status update |
+| `creation_date` | `str` | Optional | The date of the update |
+| `customer_number` | `str` | Optional | The customer number |
+| `customer_code` | `str` | Optional | The customer code |
+| `status` | [`UpdatedShipmentStatus`](../../doc/models/updated-shipment-status.md) | Optional | The status update. See [Status codes](https://developer.postnl.nl/docs/#/http/reference-data/error-codes) for possible values. |
 
 ## Example (as JSON)
 

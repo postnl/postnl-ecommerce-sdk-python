@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `faultstring` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `faultstring` | `str` | Optional | - |
 | `detail` | [`Detail`](../../doc/models/detail.md) | Optional | - |
 
 ## Example (as JSON)

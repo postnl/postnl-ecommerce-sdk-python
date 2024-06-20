@@ -9,7 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 from postnlecommerce.api_helper import APIHelper
 import postnlecommerce.exceptions.api_exception
-from postnlecommerce.models.error import Error
+from postnlecommerce.models.barcode_error import BarcodeError
 
 
 class BarcodeResponseInvalidException(postnlecommerce.exceptions.api_exception.APIException):
@@ -38,6 +38,6 @@ class BarcodeResponseInvalidException(postnlecommerce.exceptions.api_exception.A
         """
         self.errors = None
         if dictionary.get('errors') is not None:
-            self.errors = [Error.from_dictionary(x) for x in dictionary.get('errors')]
+            self.errors = [BarcodeError.from_dictionary(x) for x in dictionary.get('errors')]
         else:
             self.errors = None

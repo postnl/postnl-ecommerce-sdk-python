@@ -6,9 +6,9 @@ postnlecommerce
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+from postnlecommerce.models.confirming_message import ConfirmingMessage
+from postnlecommerce.models.confirming_shipment import ConfirmingShipment
 from postnlecommerce.models.customer import Customer
-from postnlecommerce.models.message import Message
-from postnlecommerce.models.shipment import Shipment
 
 
 class ConfirmingRequest(object):
@@ -19,9 +19,9 @@ class ConfirmingRequest(object):
 
     Attributes:
         customer (Customer): TODO: type description here.
-        message (Message): TODO: type description here.
-        shipments (List[Shipment]): List of 1 or more Shipments. At least 1
-            shipment is required.
+        message (ConfirmingMessage): TODO: type description here.
+        shipments (List[ConfirmingShipment]): List of 1 or more Shipments. At
+            least 1 shipment is required.
 
     """
 
@@ -63,10 +63,10 @@ class ConfirmingRequest(object):
 
         # Extract variables from the dictionary
         customer = Customer.from_dictionary(dictionary.get('Customer')) if dictionary.get('Customer') else None
-        message = Message.from_dictionary(dictionary.get('Message')) if dictionary.get('Message') else None
+        message = ConfirmingMessage.from_dictionary(dictionary.get('Message')) if dictionary.get('Message') else None
         shipments = None
         if dictionary.get('Shipments') is not None:
-            shipments = [Shipment.from_dictionary(x) for x in dictionary.get('Shipments')]
+            shipments = [ConfirmingShipment.from_dictionary(x) for x in dictionary.get('Shipments')]
         # Return an object of this model
         return cls(customer,
                    message,

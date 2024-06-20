@@ -11,7 +11,7 @@ The options belonging to the pickup location. The delivery options RETA, UL, PU,
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `string` | [`List[str]`](../../doc/models/string-enum.md) | Optional | - |
+| `string` | `List[str]` | Optional | - |
 
 ## Example (as JSON)
 

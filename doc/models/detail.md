@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errorcode` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `errorcode` | `str` | Optional | - |
 
 ## Example (as JSON)
 

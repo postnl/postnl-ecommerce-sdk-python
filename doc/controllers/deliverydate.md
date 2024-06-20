@@ -57,35 +57,35 @@ def calculate_delivery_date(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `shipping_date` | [`str`](../../doc/models/string-enum.md) | Query, Required | Date/time of preparing the shipment for sending. Format: dd-MM-yyyy hh:mm:ss |
+| `shipping_date` | `str` | Query, Required | Date/time of preparing the shipment for sending. Format: dd-MM-yyyy hh:mm:ss |
 | `shipping_duration` | `int` | Query, Required | The duration it takes for the shipment to be delivered to PostNL in days. A value of 1 means that the parcel will be delivered to PostNL on the same day as the date specified in ShippingDate. A value of 2 means the parcel will arrive at PostNL a day later etc. |
-| `cut_off_time` | [`str`](../../doc/models/string-enum.md) | Query, Required | Default cutoff time |
-| `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Zipcode of the destination address |
+| `cut_off_time` | `str` | Query, Required | Default cutoff time |
+| `postal_code` | `str` | Query, Required | Zipcode of the destination address |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The ISO2 destination country code |
-| `options` | [`List[Option3Enum]`](../../doc/models/option-3-enum.md) | Query, Required | The delivery options that you want to take into account when calculating the expected delivery date |
-| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 origin country code |
-| `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | City of the destination address |
-| `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the destination address. |
+| `options` | [`List[DeliverydateOptionEnum]`](../../doc/models/deliverydate-option-enum.md) | Query, Required | The delivery options that you want to take into account when calculating the expected delivery date |
+| `origin_country_code` | [`OriginCountryCodeEnum`](../../doc/models/origin-country-code-enum.md) | Query, Optional | The ISO2 origin country code |
+| `city` | `str` | Query, Optional | City of the destination address |
+| `street` | `str` | Query, Optional | The street name of the destination address. |
 | `house_number` | `int` | Query, Optional | The house number of the destination address |
-| `house_nr_ext` | [`str`](../../doc/models/string-enum.md) | Query, Optional | House number extension of the delivery address |
-| `cut_off_time_monday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for mondays specifically |
+| `house_nr_ext` | `str` | Query, Optional | House number extension of the delivery address |
+| `cut_off_time_monday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for mondays specifically |
 | `available_monday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on mondays |
-| `cut_off_time_tuesday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for tuesdays specifically |
+| `cut_off_time_tuesday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for tuesdays specifically |
 | `available_tuesday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on tuesdays |
-| `cut_off_time_wednesday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for wednesdays specifically |
+| `cut_off_time_wednesday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for wednesdays specifically |
 | `available_wednesday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on wednesdays |
-| `cut_off_time_thursday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for thursdays specifically |
+| `cut_off_time_thursday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for thursdays specifically |
 | `available_thursday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on thursdays |
-| `cut_off_time_friday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for fridays specifically |
+| `cut_off_time_friday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for fridays specifically |
 | `available_friday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on fridays |
-| `cut_off_time_saturday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for saturdays specifically |
+| `cut_off_time_saturday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for saturdays specifically |
 | `available_saturday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on saturdays |
-| `cut_off_time_sunday` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for sundays specifically |
+| `cut_off_time_sunday` | `str` | Query, Optional | Overrides default cutoff time specified in the CutOffTime parameter for sundays specifically |
 | `available_sunday` | `bool` | Query, Optional | Specifies if you are available to ship to PostNL on sundays |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ShipmentV22CalculateDateDeliveryResponse`](../../doc/models/shipment-v22-calculate-date-delivery-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeliverydateDeliveryResponse`](../../doc/models/deliverydate-delivery-response.md).
 
 ## Example Usage
 
@@ -101,12 +101,12 @@ postal_code = '2132WT'
 country_code = CountrycodeEnum.NL
 
 options = [
-    Option3Enum.SUNDAY,
-    Option3Enum.TODAY,
-    Option3Enum.AFTERNOON
+    DeliverydateOptionEnum.SUNDAY,
+    DeliverydateOptionEnum.TODAY,
+    DeliverydateOptionEnum.AFTERNOON
 ]
 
-origin_country_code = CountrycodeEnum.NL
+origin_country_code = OriginCountryCodeEnum.NL
 
 city = 'Hoofddorp'
 
@@ -132,15 +132,30 @@ result = deliverydate_controller.calculate_delivery_date(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "DeliveryDate": "30-05-2022",
+  "Options": {
+    "string": "Daytime"
+  },
+  "Sustainability": {
+    "Code": "02",
+    "Description": "Sustainable option"
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`DeliverydateResponseInvalidException`](../../doc/models/deliverydate-response-invalid-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Bad request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Calculate Shipping Date
@@ -171,19 +186,19 @@ def calculate_shipping_date(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `delivery_date` | [`str`](../../doc/models/string-enum.md) | Query, Required | Date of the expected delivery (to the final destination) of the shipment. |
+| `delivery_date` | `str` | Query, Required | Date of the expected delivery (to the final destination) of the shipment. |
 | `shipping_duration` | `int` | Query, Required | The duration it takes for the shipment to be delivered to PostNL in days. A value of 1 means that the parcel will be delivered to PostNL on the same day as the date specified in ShippingDate. A value of 2 means the parcel will arrive at PostNL a day later etc. |
-| `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Zipcode of the address |
+| `postal_code` | `str` | Query, Required | Zipcode of the address |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The ISO2 destination country code |
-| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 country code of the origin country |
-| `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | City of the destination address |
-| `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the destination address |
+| `origin_country_code` | [`OriginCountryCodeEnum`](../../doc/models/origin-country-code-enum.md) | Query, Optional | The ISO2 country code of the origin country |
+| `city` | `str` | Query, Optional | City of the destination address |
+| `street` | `str` | Query, Optional | The street name of the destination address |
 | `house_number` | `int` | Query, Optional | The house number of the destination address |
-| `house_nr_ext` | [`str`](../../doc/models/string-enum.md) | Query, Optional | House number extension of the destination address |
+| `house_nr_ext` | `str` | Query, Optional | House number extension of the destination address |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ShipmentV22CalculateDateShippingResponse`](../../doc/models/shipment-v22-calculate-date-shipping-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeliverydateShippingResponse`](../../doc/models/deliverydate-shipping-response.md).
 
 ## Example Usage
 
@@ -196,7 +211,7 @@ postal_code = '2132WT'
 
 country_code = CountrycodeEnum.NL
 
-origin_country_code = CountrycodeEnum.NL
+origin_country_code = OriginCountryCodeEnum.NL
 
 city = 'Hoofddorp'
 
@@ -220,13 +235,21 @@ result = deliverydate_controller.calculate_shipping_date(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "SentDate": "29-06-2022"
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`DeliverydateResponseInvalidException`](../../doc/models/deliverydate-response-invalid-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Bad request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

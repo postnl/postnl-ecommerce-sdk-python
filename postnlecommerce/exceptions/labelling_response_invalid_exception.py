@@ -9,7 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 from postnlecommerce.api_helper import APIHelper
 import postnlecommerce.exceptions.api_exception
-from postnlecommerce.models.error_3 import Error3
+from postnlecommerce.models.labelling_error import LabellingError
 
 
 class LabellingResponseInvalidException(postnlecommerce.exceptions.api_exception.APIException):
@@ -38,6 +38,6 @@ class LabellingResponseInvalidException(postnlecommerce.exceptions.api_exception
         """
         self.errors = None
         if dictionary.get('Errors') is not None:
-            self.errors = [Error3.from_dictionary(x) for x in dictionary.get('Errors')]
+            self.errors = [LabellingError.from_dictionary(x) for x in dictionary.get('Errors')]
         else:
             self.errors = None

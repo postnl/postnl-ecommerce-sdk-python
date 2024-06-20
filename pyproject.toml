@@ -4,13 +4,13 @@ requires = ["setuptools>=61.0"]
 [project]
 name = "postnl-ecommerce-sdk"
 description = "Collection of PostNL API's for ecommerce processes."
-version = "1.0.3"
+version = "1.0.4"
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = ["PostNL", "SDK", "API", "ecommerce"]
 authors = [{name = "PostNL", email = "apimatic@postnl.nl"}]
 urls = {Documentation = "https://developer.postnl.nl/docs"}
-dependencies = ["apimatic-core~=0.2.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0", "enum34~=1.1, >=1.1.10"]
+dependencies = ["apimatic-core~=0.2.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0"]
 classifiers = []
 [project.optional-dependencies]
 testutils = ["pytest>=7.2.2"]

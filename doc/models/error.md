@@ -9,15 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `error_msg` | [`str`](../../doc/models/string-enum.md) | Optional | The error message |
-| `error_number` | [`str`](../../doc/models/string-enum.md) | Optional | The error code |
+| `error_code` | `str` | Optional | - |
+| `error_description` | `str` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "ErrorMsg": "Too many numbers in series",
-  "ErrorNumber": "8"
+  "ErrorCode": "3000",
+  "ErrorDescription": "Request format is invalid"
 }
 ```
 

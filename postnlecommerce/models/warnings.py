@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.warning_11 import Warning11
+from postnlecommerce.models.shippingstatus_warning import ShippingstatusWarning
 
 
 class Warnings(object):
@@ -17,7 +17,7 @@ class Warnings(object):
     TODO: type model description here.
 
     Attributes:
-        warning (Warning11): TODO: type description here.
+        warning (ShippingstatusWarning): TODO: type description here.
 
     """
 
@@ -57,6 +57,6 @@ class Warnings(object):
             return None
 
         # Extract variables from the dictionary
-        warning = Warning11.from_dictionary(dictionary.get('Warning')) if 'Warning' in dictionary.keys() else APIHelper.SKIP
+        warning = ShippingstatusWarning.from_dictionary(dictionary.get('Warning')) if 'Warning' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(warning)

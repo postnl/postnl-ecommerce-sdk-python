@@ -56,4 +56,10 @@ class DeliverydateControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"SentDate":"29-06-2022"}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 

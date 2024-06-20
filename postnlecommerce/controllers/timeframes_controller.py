@@ -17,9 +17,11 @@ from apimatic_core.types.parameter import Parameter
 from postnlecommerce.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
 from postnlecommerce.models.timeframe_response import TimeframeResponse
-from postnlecommerce.exceptions.timeframe_response_invalid_exception import TimeframeResponseInvalidException
-from postnlecommerce.exceptions.barcode_method_not_allowed_exception import BarcodeMethodNotAllowedException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+from postnlecommerce.exceptions.invalid_request_exception import InvalidRequestException
+from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
+from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
 
 class TimeframesController(BaseController):
@@ -64,8 +66,8 @@ class TimeframesController(BaseController):
                 delivery address
             postal_code (str): Zipcode of the delivery address
             house_number (int): The house number of the delivery address
-            options (List[Options2Enum]): The delivery options for which
-                expected timeframes should be calculated. At least one
+            options (List[TimeframeOptionsEnum]): The delivery options for
+                which expected timeframes should be calculated. At least one
                 delivery option must be specified. Multiple values should be
                 comma-separated.
             house_nr_ext (str, optional): House number extension of the
@@ -129,9 +131,9 @@ class TimeframesController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TimeframeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', TimeframeResponseInvalidException)
-            .local_error('401', 'Unauthorized', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Invalid request', BarcodeResponseErrorException)
+            .local_error('400', 'Invalid request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

@@ -16,10 +16,12 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from postnlecommerce.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.labelling_response_1 import LabellingResponse1
+from postnlecommerce.models.labelling_response import LabellingResponse
 from postnlecommerce.exceptions.labelling_response_invalid_exception import LabellingResponseInvalidException
-from postnlecommerce.exceptions.barcode_method_not_allowed_exception import BarcodeMethodNotAllowedException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
+from postnlecommerce.exceptions.method_not_allowed_only_post_exception import MethodNotAllowedOnlyPostException
+from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
+from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
 
 class ShipmentController(BaseController):
@@ -75,11 +77,11 @@ class ShipmentController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LabellingResponse1.from_dictionary)
+            .deserialize_into(LabellingResponse.from_dictionary)
             .is_api_response(True)
             .local_error('400', 'Error payload', LabellingResponseInvalidException)
-            .local_error('401', 'Invalid apikey', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

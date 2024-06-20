@@ -12,7 +12,7 @@ Sustainability score; see [Sustainability codes](https://developer.postnl.nl/doc
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `code` | [`CodeEnum`](../../doc/models/code-enum.md) | Optional | Sustainability score code |
-| `description` | [`str`](../../doc/models/string-enum.md) | Optional | Sustainability score code description |
+| `description` | `str` | Optional | Sustainability score code description |
 
 ## Example (as JSON)
 

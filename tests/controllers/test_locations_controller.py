@@ -55,6 +55,16 @@ class LocationsControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"GetLocationsResult":{"ResponseLocation":[{"Address":{"City":"Cit'
+            'y6","Countrycode":"Countrycode2","HouseNr":136,"HouseNrExt":"House'
+            'NrExt4","Remark":"Remark8"},"DeliveryOptions":{"string":["string6"'
+            ',"string7"]},"Distance":244,"Latitude":103.5,"LocationCode":102}]}'
+            '}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 
     # Request example:
     #```
@@ -84,6 +94,16 @@ class LocationsControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"GetLocationsResult":{"ResponseLocation":[{"Address":{"City":"Cit'
+            'y6","Countrycode":"Countrycode2","HouseNr":136,"HouseNrExt":"House'
+            'NrExt4","Remark":"Remark8"},"DeliveryOptions":{"string":["string6"'
+            ',"string7"]},"Distance":244,"Latitude":103.5,"LocationCode":102}]}'
+            '}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 
     # Request example:
     #```
@@ -115,6 +135,16 @@ class LocationsControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"GetLocationsResult":{"ResponseLocation":[{"Address":{"City":"Cit'
+            'y6","Countrycode":"Countrycode2","HouseNr":136,"HouseNrExt":"House'
+            'NrExt4","Remark":"Remark8"},"DeliveryOptions":{"string":["string6"'
+            ',"string7"]},"Distance":244,"Latitude":103.5,"LocationCode":102}]}'
+            '}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 
     # Request example:
     #```
@@ -139,4 +169,13 @@ class LocationsControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"GetLocationsResult":{"ResponseLocation":{"Address":{"City":"City'
+            '6","Countrycode":"Countrycode2","HouseNr":136,"HouseNrExt":"HouseN'
+            'rExt4","Remark":"Remark8"},"DeliveryOptions":{"string":["string6",'
+            '"string7"]},"Distance":244,"Latitude":103.5,"LocationCode":102}}}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 

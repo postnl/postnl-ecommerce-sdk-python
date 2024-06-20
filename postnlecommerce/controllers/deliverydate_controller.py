@@ -16,11 +16,13 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from postnlecommerce.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.shipment_v_22_calculate_date_delivery_response import ShipmentV22CalculateDateDeliveryResponse
-from postnlecommerce.models.shipment_v_22_calculate_date_shipping_response import ShipmentV22CalculateDateShippingResponse
-from postnlecommerce.exceptions.deliverydate_response_invalid_exception import DeliverydateResponseInvalidException
-from postnlecommerce.exceptions.barcode_method_not_allowed_exception import BarcodeMethodNotAllowedException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+from postnlecommerce.models.deliverydate_delivery_response import DeliverydateDeliveryResponse
+from postnlecommerce.models.deliverydate_shipping_response import DeliverydateShippingResponse
+from postnlecommerce.exceptions.invalid_request_exception import InvalidRequestException
+from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
+from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
 
 class DeliverydateController(BaseController):
@@ -79,10 +81,11 @@ class DeliverydateController(BaseController):
             cut_off_time (str): Default cutoff time
             postal_code (str): Zipcode of the destination address
             country_code (CountrycodeEnum): The ISO2 destination country code
-            options (List[Option3Enum]): The delivery options that you want to
-                take into account when calculating the expected delivery date
-            origin_country_code (CountrycodeEnum, optional): The ISO2 origin
-                country code
+            options (List[DeliverydateOptionEnum]): The delivery options that
+                you want to take into account when calculating the expected
+                delivery date
+            origin_country_code (OriginCountryCodeEnum, optional): The ISO2
+                origin country code
             city (str, optional): City of the destination address
             street (str, optional): The street name of the destination
                 address.
@@ -225,13 +228,13 @@ class DeliverydateController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ShipmentV22CalculateDateDeliveryResponse.from_dictionary)
+            .deserialize_into(DeliverydateDeliveryResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Bad request', DeliverydateResponseInvalidException)
-            .local_error('401', 'Invalid apikey', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Bad request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()
 
     def calculate_shipping_date(self,
@@ -267,8 +270,8 @@ class DeliverydateController(BaseController):
                 arrive at PostNL a day later etc.
             postal_code (str): Zipcode of the address
             country_code (CountrycodeEnum): The ISO2 destination country code
-            origin_country_code (CountrycodeEnum, optional): The ISO2 country
-                code of the origin country
+            origin_country_code (OriginCountryCodeEnum, optional): The ISO2
+                country code of the origin country
             city (str, optional): City of the destination address
             street (str, optional): The street name of the destination
                 address
@@ -328,11 +331,11 @@ class DeliverydateController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ShipmentV22CalculateDateShippingResponse.from_dictionary)
+            .deserialize_into(DeliverydateShippingResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Bad request', DeliverydateResponseInvalidException)
-            .local_error('401', 'Invalid apikey', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Bad request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

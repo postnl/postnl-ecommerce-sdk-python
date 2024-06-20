@@ -9,10 +9,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer` | [`Customer1`](../../doc/models/customer-1.md) | Required | - |
-| `label_signature` | [`str`](../../doc/models/string-enum.md) | Optional | GIF image of the signature (as a base64 encoded string) max size: 280x60 mm (1058x226 pixels). This can be used to automatically sign the customs forms. The value of this element can have a maximum size of 65536 characters. Note that the total request can have a maximum size of 200KB. Larger requests will not be accepted by the server for performance reasons. Requests that exceed this limit will not return a validation error,but a HTTP 404 error. |
-| `message` | [`Message1`](../../doc/models/message-1.md) | Required | - |
-| `shipments` | [`List[Shipment1]`](../../doc/models/shipment-1.md) | Required | List of 1 or more Shipments. At least 1 shipment is required. |
+| `customer` | [`LabellingCustomer`](../../doc/models/labelling-customer.md) | Required | - |
+| `label_signature` | `str` | Optional | GIF image of the signature (as a base64 encoded string) max size: 280x60 mm (1058x226 pixels). This can be used to automatically sign the customs forms. The value of this element can have a maximum size of 65536 characters. Note that the total request can have a maximum size of 200KB. Larger requests will not be accepted by the server for performance reasons. Requests that exceed this limit will not return a validation error,but a HTTP 404 error. |
+| `message` | [`LabellingCustomerMessage`](../../doc/models/labelling-customer-message.md) | Required | - |
+| `shipments` | [`List[LabellingCustomerShipment]`](../../doc/models/labelling-customer-shipment.md) | Required | List of 1 or more Shipments. At least 1 shipment is required. |
 
 ## Example (as JSON)
 
@@ -63,7 +63,7 @@
           "Zipcode": "3571ZZ"
         }
       ],
-      "Barcode": "Barcode0",
+      "Barcode": "3SDEVC201611214",
       "CodingText": "#2426A3A#03#0306#",
       "CollectionTimeStampStart": "04-12-2022 17:00:00",
       "CollectionTimeStampEnd": "04-12-2022 19:00:00",

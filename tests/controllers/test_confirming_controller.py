@@ -56,8 +56,8 @@ class ConfirmingControllerTests(ControllerTestBase):
         
         # Test whether the captured response is as we expected
         assert result is not None
-        expected_body = APIHelper.json_deserialize('{"ResponseShipments":[{"Errors":[],"Warnings":[{"code":"1280103","'
-            'description":"Address is unknown"}],"Barcode":"3SDEVC281677095"}]}'
+        expected_body = APIHelper.json_deserialize('{"ResponseShipments":[{"Errors":[],"Warnings":[{"Code":"1280103","'
+            'Description":"Address is unknown"}],"Barcode":"3SDEVC281677095"}]}'
             '')
         received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
         assert ComparisonHelper.match_body(expected_body, received_body)

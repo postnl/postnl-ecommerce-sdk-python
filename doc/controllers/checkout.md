@@ -32,30 +32,30 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = CheckoutRequest(
     order_date='24-02-2021 12:00:00',
     cut_off_times=[
-        CutOffTime(
-            day=DayEnum.ENUM_00,
+        CheckoutCutOffTime(
+            day=CheckoutCutOffDayEnum.ENUM_00,
             available=True,
-            mtype=Type1Enum.REGULAR,
+            mtype=CheckoutCutOffTypeEnum.REGULAR,
             time='20:00:00'
         ),
-        CutOffTime(
-            day=DayEnum.ENUM_00,
+        CheckoutCutOffTime(
+            day=CheckoutCutOffDayEnum.ENUM_00,
             available=True,
-            mtype=Type1Enum.TODAY,
+            mtype=CheckoutCutOffTypeEnum.TODAY,
             time='12:00:00'
         )
     ],
     options=[
-        OptionEnum.DAYTIME,
-        OptionEnum.EVENING,
-        OptionEnum.TODAY,
-        OptionEnum.SUNDAY,
-        OptionEnum.PICKUP
+        CheckoutOptionEnum.DAYTIME,
+        CheckoutOptionEnum.EVENING,
+        CheckoutOptionEnum.TODAY,
+        CheckoutOptionEnum.SUNDAY,
+        CheckoutOptionEnum.PICKUP
     ],
     locations=2,
     days=3,
     addresses=[
-        Address(
+        CheckoutAddress(
             address_type=AddressTypeEnum.ENUM_01,
             house_nr=74,
             zipcode='3571ZZ',
@@ -72,13 +72,104 @@ result = checkout_controller.checkout(body)
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "DeliveryOptions": [
+    {
+      "DeliveryDate": "09-07-2019",
+      "Timeframe": [
+        {
+          "From": "18:00:00",
+          "To": "22:30:00",
+          "Options": [
+            "Daytime"
+          ],
+          "ShippingDate": "08-07-2019",
+          "Sustainability": {
+            "Code": "02",
+            "Description": "Sustainable option"
+          }
+        }
+      ]
+    }
+  ],
+  "PickupOptions": [
+    {
+      "PickupDate": "09-07-2019",
+      "ShippingDate": "08-07-2019",
+      "Option": "Pickup",
+      "Locations": [
+        {
+          "Address": {
+            "Street": "Siriusdreef",
+            "Zipcode": "2132WT",
+            "HouseNr": 42,
+            "HouseNrExt": "-60",
+            "Countrycode": "NL",
+            "CompanyName": "Pickup company BV"
+          },
+          "PickupTime": "15:00",
+          "OpeningHours": {
+            "Monday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Tuesday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Wednesday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Thursday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Friday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Saturday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            },
+            "Sunday": {
+              "From": "08:30:00",
+              "To": "22:30:00"
+            }
+          },
+          "Distance": 234,
+          "LocationCode": "8101163043",
+          "PartnerID": "PNPNL-01",
+          "Sustainability": {
+            "Code": "02",
+            "Description": "Sustainable option"
+          }
+        }
+      ]
+    }
+  ],
+  "Warnings": [
+    {
+      "DeliveryDate": "07-07-2019",
+      "Code": "5034",
+      "Description": "No delivery option found on date",
+      "Options": "Daytime"
+    }
+  ]
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`CheckoutResponseInvalidException`](../../doc/models/checkout-response-invalid-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyPostException`](../../doc/models/method-not-allowed-only-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

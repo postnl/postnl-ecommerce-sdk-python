@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `barcode` | [`str`](../../doc/models/string-enum.md) | Optional | The barcode of the shipment for which the signature is returned |
-| `signature_date` | [`str`](../../doc/models/string-enum.md) | Optional | The date of the signature |
-| `signature_image` | [`str`](../../doc/models/string-enum.md) | Optional | The signature content; base64 encoded GIF format. |
+| `barcode` | `str` | Optional | The barcode of the shipment for which the signature is returned |
+| `signature_date` | `str` | Optional | The date of the signature |
+| `signature_image` | `str` | Optional | The signature content; base64 encoded GIF format. |
 
 ## Example (as JSON)
 

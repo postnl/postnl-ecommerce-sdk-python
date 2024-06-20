@@ -7,8 +7,8 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.address import Address
-from postnlecommerce.models.cut_off_time import CutOffTime
+from postnlecommerce.models.checkout_address import CheckoutAddress
+from postnlecommerce.models.checkout_cut_off_time import CheckoutCutOffTime
 
 
 class CheckoutRequest(object):
@@ -25,16 +25,16 @@ class CheckoutRequest(object):
             the order is placed on the webshop, please use the value of 1. A
             value of 2 means the parcel will arrive at PostNL a day later
             etc.
-        cut_off_times (List[CutOffTime]): Array of CutOffTimes
+        cut_off_times (List[CheckoutCutOffTime]): Array of CutOffTimes
         holiday_sorting (bool): Specifies whether you are available to ship
             parcels to PostNL during holidays
-        options (List[OptionEnum]): Specifies the delivery and pickup
+        options (List[CheckoutOptionEnum]): Specifies the delivery and pickup
             options.
         locations (int): Specifies the number of locations you want returned.
             This can be a value of 1-3
         days (int): Specifies the number of days for which the timeframes are
             returned. This can be a value of 1-9
-        addresses (List[Address]): Array of addresses
+        addresses (List[CheckoutAddress]): Array of addresses
 
     """
 
@@ -100,13 +100,13 @@ class CheckoutRequest(object):
         order_date = dictionary.get("OrderDate") if dictionary.get("OrderDate") else None
         cut_off_times = None
         if dictionary.get('CutOffTimes') is not None:
-            cut_off_times = [CutOffTime.from_dictionary(x) for x in dictionary.get('CutOffTimes')]
+            cut_off_times = [CheckoutCutOffTime.from_dictionary(x) for x in dictionary.get('CutOffTimes')]
         options = dictionary.get("Options") if dictionary.get("Options") else None
         locations = dictionary.get("Locations") if dictionary.get("Locations") else None
         days = dictionary.get("Days") if dictionary.get("Days") else None
         addresses = None
         if dictionary.get('Addresses') is not None:
-            addresses = [Address.from_dictionary(x) for x in dictionary.get('Addresses')]
+            addresses = [CheckoutAddress.from_dictionary(x) for x in dictionary.get('Addresses')]
         shipping_duration = dictionary.get("ShippingDuration") if dictionary.get("ShippingDuration") else APIHelper.SKIP
         holiday_sorting = dictionary.get("HolidaySorting") if "HolidaySorting" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model

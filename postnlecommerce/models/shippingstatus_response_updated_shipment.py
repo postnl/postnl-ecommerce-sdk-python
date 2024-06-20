@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.status_2 import Status2
+from postnlecommerce.models.updated_shipment_status import UpdatedShipmentStatus
 
 
 class ShippingstatusResponseUpdatedShipment(object):
@@ -21,7 +21,7 @@ class ShippingstatusResponseUpdatedShipment(object):
         creation_date (str): The date of the update
         customer_number (str): The customer number
         customer_code (str): The customer code
-        status (Status2): The status update. See [Status
+        status (UpdatedShipmentStatus): The status update. See [Status
             codes](https://developer.postnl.nl/docs/#/http/reference-data/error
             -codes) for possible values.
 
@@ -87,7 +87,7 @@ class ShippingstatusResponseUpdatedShipment(object):
         creation_date = dictionary.get("CreationDate") if dictionary.get("CreationDate") else APIHelper.SKIP
         customer_number = dictionary.get("CustomerNumber") if dictionary.get("CustomerNumber") else APIHelper.SKIP
         customer_code = dictionary.get("CustomerCode") if dictionary.get("CustomerCode") else APIHelper.SKIP
-        status = Status2.from_dictionary(dictionary.get('Status')) if 'Status' in dictionary.keys() else APIHelper.SKIP
+        status = UpdatedShipmentStatus.from_dictionary(dictionary.get('Status')) if 'Status' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(barcode,
                    creation_date,

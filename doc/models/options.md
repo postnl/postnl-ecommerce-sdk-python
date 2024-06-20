@@ -1,7 +1,7 @@
 
 # Options
 
-The delivery options for which a delivery date is returned. Only one delivery option is specified. See [Delivery Options](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/delivery-options) for possible values.
+The delivery option for which the timeframe is calculated. See [Delivery Options](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/delivery-options) for possible values.
 
 ## Structure
 
@@ -11,13 +11,13 @@ The delivery options for which a delivery date is returned. Only one delivery op
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `string` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `string` | [`TimeframeOptionsEnum`](../../doc/models/timeframe-options-enum.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "string": "Today"
+  "string": "Daytime"
 }
 ```
 

@@ -9,7 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 from postnlecommerce.api_helper import APIHelper
 from postnlecommerce.models.complete_status import CompleteStatus
 from postnlecommerce.models.current_status import CurrentStatus
-from postnlecommerce.models.warning_2 import Warning2
+from postnlecommerce.models.shippingstatus_warning import ShippingstatusWarning
 
 
 class ShippingstatusResponse(object):
@@ -23,7 +23,7 @@ class ShippingstatusResponse(object):
             of the shipment
         current_status (CurrentStatus): The current status and old statuses of
             the shipment
-        warnings (List[Warning2]): Possible warnings (see [Error
+        warnings (List[ShippingstatusWarning]): Possible warnings (see [Error
             Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
             -codes) for possible values)
 
@@ -79,7 +79,7 @@ class ShippingstatusResponse(object):
         current_status = CurrentStatus.from_dictionary(dictionary.get('CurrentStatus')) if 'CurrentStatus' in dictionary.keys() else APIHelper.SKIP
         warnings = None
         if dictionary.get('Warnings') is not None:
-            warnings = [Warning2.from_dictionary(x) for x in dictionary.get('Warnings')]
+            warnings = [ShippingstatusWarning.from_dictionary(x) for x in dictionary.get('Warnings')]
         else:
             warnings = APIHelper.SKIP
         # Return an object of this model

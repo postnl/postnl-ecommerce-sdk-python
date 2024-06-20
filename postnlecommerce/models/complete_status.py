@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.shipment_2 import Shipment2
+from postnlecommerce.models.complete_status_shipment import CompleteStatusShipment
 
 
 class CompleteStatus(object):
@@ -17,7 +17,7 @@ class CompleteStatus(object):
     The current status and old statuses of the shipment
 
     Attributes:
-        shipment (List[Shipment2]): TODO: type description here.
+        shipment (CompleteStatusShipment): TODO: type description here.
 
     """
 
@@ -57,10 +57,6 @@ class CompleteStatus(object):
             return None
 
         # Extract variables from the dictionary
-        shipment = None
-        if dictionary.get('Shipment') is not None:
-            shipment = [Shipment2.from_dictionary(x) for x in dictionary.get('Shipment')]
-        else:
-            shipment = APIHelper.SKIP
+        shipment = CompleteStatusShipment.from_dictionary(dictionary.get('Shipment')) if 'Shipment' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(shipment)

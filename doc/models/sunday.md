@@ -9,15 +9,13 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mfrom` | [`str`](../../doc/models/string-enum.md) | Optional | - |
-| `to` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `string` | `str` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "From": "08:30:00",
-  "To": "12:30:00"
+  "string": "10:00-14:00"
 }
 ```
 

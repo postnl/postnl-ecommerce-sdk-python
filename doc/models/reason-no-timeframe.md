@@ -9,11 +9,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `code` | [`str`](../../doc/models/string-enum.md) | Optional | The reason code |
-| `date` | [`str`](../../doc/models/string-enum.md) | Optional | The date associated with the reason no timeframe was calculated |
-| `description` | [`str`](../../doc/models/string-enum.md) | Optional | The description associated with the reason no timeframe was calculated |
-| `options` | [`Options`](../../doc/models/options.md) | Optional | The option for which no timeframe was calculated for a specific date |
-| `sustainability` | [`Warning1`](../../doc/models/warning-1.md) | Optional | Sustainability score |
+| `code` | `str` | Optional | The reason code |
+| `date` | `str` | Optional | The date associated with the reason no timeframe was calculated |
+| `description` | `str` | Optional | The description associated with the reason no timeframe was calculated |
+| `options` | [`NoTimeframesOptions`](../../doc/models/no-timeframes-options.md) | Optional | The option for which no timeframe was calculated for a specific date |
+| `sustainability` | [`Sustainability`](../../doc/models/sustainability.md) | Optional | Sustainability score; see [Sustainability codes](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes) for possible values. |
 
 ## Example (as JSON)
 
@@ -23,10 +23,10 @@
   "Date": "02-07-2022",
   "Description": "Delivery date not allowed",
   "Options": {
-    "string": "Today"
+    "string": "Morning"
   },
   "Sustainability": {
-    "Code": "Code2",
+    "Code": "02",
     "Description": "Description4"
   }
 }

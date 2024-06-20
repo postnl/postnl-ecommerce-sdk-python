@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.timeframe_1 import Timeframe1
+from postnlecommerce.models.timeframe import Timeframe
 
 
 class Timeframes(object):
@@ -17,7 +17,7 @@ class Timeframes(object):
     TODO: type model description here.
 
     Attributes:
-        timeframe (List[Timeframe1]): A calculated delivery timeframe
+        timeframe (List[Timeframe]): A calculated delivery timeframe
 
     """
 
@@ -59,7 +59,7 @@ class Timeframes(object):
         # Extract variables from the dictionary
         timeframe = None
         if dictionary.get('Timeframe') is not None:
-            timeframe = [Timeframe1.from_dictionary(x) for x in dictionary.get('Timeframe')]
+            timeframe = [Timeframe.from_dictionary(x) for x in dictionary.get('Timeframe')]
         else:
             timeframe = APIHelper.SKIP
         # Return an object of this model

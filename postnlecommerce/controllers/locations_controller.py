@@ -16,11 +16,13 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from postnlecommerce.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.locations_response import LocationsResponse
-from postnlecommerce.models.location_response import LocationResponse
-from postnlecommerce.exceptions.locations_response_invalid_exception import LocationsResponseInvalidException
-from postnlecommerce.exceptions.barcode_method_not_allowed_exception import BarcodeMethodNotAllowedException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+from postnlecommerce.models.locations_response_multiple import LocationsResponseMultiple
+from postnlecommerce.models.location_response_single import LocationResponseSingle
+from postnlecommerce.exceptions.invalid_request_exception import InvalidRequestException
+from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
+from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
 
 class LocationsController(BaseController):
@@ -72,12 +74,12 @@ class LocationsController(BaseController):
                 are closed at the time provided. If no opening time is
                 provided all locations will be returned regardless of their
                 opening times.
-            delivery_options (List[DeliveryOptions1Enum], optional): The
-                pickup location types for which locations should be filtered.
-                By default all location types are returned (PG = Retail points
-                and parcel lockers). This can be used to filter on only parcel
-                lockers (PA) or specifically exclude parcel lockers from the
-                response (PG_EX).
+            delivery_options (List[LocationsDeliveryOptionEnum], optional):
+                The pickup location types for which locations should be
+                filtered. By default all location types are returned (PG =
+                Retail points and parcel lockers). This can be used to filter
+                on only parcel lockers (PA) or specifically exclude parcel
+                lockers from the response (PG_EX).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -130,13 +132,13 @@ class LocationsController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LocationsResponse.from_dictionary)
+            .deserialize_into(LocationsResponseMultiple.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
-            .local_error('401', 'Unauthorized', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Invalid request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()
 
     def get_pickup_locations_by_coordinates(self,
@@ -169,12 +171,12 @@ class LocationsController(BaseController):
             opening_time (str, optional): Opening time filter. Format:
                 hh:mm:ss. This field will be used to filter out locations that
                 are closed at the time provided.
-            delivery_options (List[DeliveryOptions1Enum], optional): The
-                pickup location types for which locations should be filtered.
-                By default all location types are returned (PG = Retail points
-                and parcel lockers). This can be used to filter on only parcel
-                lockers (PA) or specifically exclude parcel lockers from the
-                response (PG_EX).
+            delivery_options (List[LocationsDeliveryOptionEnum], optional):
+                The pickup location types for which locations should be
+                filtered. By default all location types are returned (PG =
+                Retail points and parcel lockers). This can be used to filter
+                on only parcel lockers (PA) or specifically exclude parcel
+                lockers from the response (PG_EX).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -218,13 +220,13 @@ class LocationsController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LocationsResponse.from_dictionary)
+            .deserialize_into(LocationsResponseMultiple.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
-            .local_error('401', 'Unauthorized', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Invalid request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()
 
     def get_pickup_locations_within_area(self,
@@ -261,12 +263,12 @@ class LocationsController(BaseController):
             opening_time (str, optional): Opening time filter. Format:
                 hh:mm:ss. This field will be used to filter out locations that
                 are closed at the time provided.
-            delivery_options (List[DeliveryOptions1Enum], optional): The
-                pickup location types for which locations should be filtered.
-                By default all location types are returned (PG = Retail points
-                and parcel lockers). This can be used to filter on only parcel
-                lockers (PA) or specifically exclude parcel lockers from the
-                response (PG_EX).
+            delivery_options (List[LocationsDeliveryOptionEnum], optional):
+                The pickup location types for which locations should be
+                filtered. By default all location types are returned (PG =
+                Retail points and parcel lockers). This can be used to filter
+                on only parcel lockers (PA) or specifically exclude parcel
+                lockers from the response (PG_EX).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -316,13 +318,13 @@ class LocationsController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LocationsResponse.from_dictionary)
+            .deserialize_into(LocationsResponseMultiple.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
-            .local_error('401', 'Unauthorized', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Invalid request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()
 
     def get_pickup_location(self,
@@ -368,11 +370,11 @@ class LocationsController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LocationResponse.from_dictionary)
+            .deserialize_into(LocationResponseSingle.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
-            .local_error('401', 'Unauthorized', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Invalid request', BarcodeResponseErrorException)
+            .local_error('400', 'Invalid request', InvalidRequestException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

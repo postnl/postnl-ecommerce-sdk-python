@@ -16,32 +16,26 @@ class Friday(object):
     TODO: type model description here.
 
     Attributes:
-        mfrom (str): TODO: type description here.
-        to (str): TODO: type description here.
+        string (str): TODO: type description here.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "mfrom": 'From',
-        "to": 'To'
+        "string": 'string'
     }
 
     _optionals = [
-        'mfrom',
-        'to',
+        'string',
     ]
 
     def __init__(self,
-                 mfrom=APIHelper.SKIP,
-                 to=APIHelper.SKIP):
+                 string=APIHelper.SKIP):
         """Constructor for the Friday class"""
 
         # Initialize members of the class
-        if mfrom is not APIHelper.SKIP:
-            self.mfrom = mfrom 
-        if to is not APIHelper.SKIP:
-            self.to = to 
+        if string is not APIHelper.SKIP:
+            self.string = string 
 
     @classmethod
     def from_dictionary(cls,
@@ -62,8 +56,6 @@ class Friday(object):
             return None
 
         # Extract variables from the dictionary
-        mfrom = dictionary.get("From") if dictionary.get("From") else APIHelper.SKIP
-        to = dictionary.get("To") if dictionary.get("To") else APIHelper.SKIP
+        string = dictionary.get("string") if dictionary.get("string") else APIHelper.SKIP
         # Return an object of this model
-        return cls(mfrom,
-                   to)
+        return cls(string)

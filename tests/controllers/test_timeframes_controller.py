@@ -56,4 +56,16 @@ class TimeframesControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"Timeframes":{"Timeframe":[{"Date":"02-07-2022","Timeframes":{"Ti'
+            'meframeTimeframe":[{"From":"12:30:00","Options":{"string":"Daytime'
+            '"},"To":"14:30:00","Sustainability":{"Code":"02","Description":"Su'
+            'stainable option"}}]}}]},"ReasonNoTimeframes":{"ReasonNoTimeframe"'
+            ':[{"Code":"1","Date":"02-07-2022","Description":"Delivery date not'
+            ' allowed","Options":{"string":"Evening"},"Sustainability":{"Code":'
+            '"02","Description":"Sustainable option"}}]}}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 

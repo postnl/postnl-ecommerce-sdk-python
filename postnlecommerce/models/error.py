@@ -16,32 +16,32 @@ class Error(object):
     TODO: type model description here.
 
     Attributes:
-        error_msg (str): The error message
-        error_number (str): The error code
+        error_code (str): TODO: type description here.
+        error_description (str): TODO: type description here.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "error_msg": 'ErrorMsg',
-        "error_number": 'ErrorNumber'
+        "error_code": 'ErrorCode',
+        "error_description": 'ErrorDescription'
     }
 
     _optionals = [
-        'error_msg',
-        'error_number',
+        'error_code',
+        'error_description',
     ]
 
     def __init__(self,
-                 error_msg=APIHelper.SKIP,
-                 error_number=APIHelper.SKIP):
+                 error_code=APIHelper.SKIP,
+                 error_description=APIHelper.SKIP):
         """Constructor for the Error class"""
 
         # Initialize members of the class
-        if error_msg is not APIHelper.SKIP:
-            self.error_msg = error_msg 
-        if error_number is not APIHelper.SKIP:
-            self.error_number = error_number 
+        if error_code is not APIHelper.SKIP:
+            self.error_code = error_code 
+        if error_description is not APIHelper.SKIP:
+            self.error_description = error_description 
 
     @classmethod
     def from_dictionary(cls,
@@ -62,8 +62,8 @@ class Error(object):
             return None
 
         # Extract variables from the dictionary
-        error_msg = dictionary.get("ErrorMsg") if dictionary.get("ErrorMsg") else APIHelper.SKIP
-        error_number = dictionary.get("ErrorNumber") if dictionary.get("ErrorNumber") else APIHelper.SKIP
+        error_code = dictionary.get("ErrorCode") if dictionary.get("ErrorCode") else APIHelper.SKIP
+        error_description = dictionary.get("ErrorDescription") if dictionary.get("ErrorDescription") else APIHelper.SKIP
         # Return an object of this model
-        return cls(error_msg,
-                   error_number)
+        return cls(error_code,
+                   error_description)

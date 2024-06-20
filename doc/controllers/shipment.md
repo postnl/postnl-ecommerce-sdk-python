@@ -26,16 +26,16 @@ def generate_shipment_label(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LabellingResponse1`](../../doc/models/labelling-response-1.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LabellingResponse`](../../doc/models/labelling-response.md).
 
 ## Example Usage
 
 ```python
 body = LabellingRequest(
-    customer=Customer1(
+    customer=LabellingCustomer(
         customer_code='DEVC',
         customer_number='11223344',
-        address=Address2(
+        address=CustomerAddress(
             address_type='02',
             city='Den Haag',
             countrycode='NL',
@@ -49,15 +49,15 @@ body = LabellingRequest(
         email='email@company.com',
         name='Janssen'
     ),
-    message=Message1(
+    message=LabellingCustomerMessage(
         message_id='1',
         message_time_stamp='08-09-2022 12:00:00',
         printertype='GraphicFile|PDF'
     ),
     shipments=[
-        Shipment1(
+        LabellingCustomerShipment(
             addresses=[
-                Address11(
+                Address(
                     address_type='01',
                     countrycode='NL',
                     city='Utrecht',
@@ -118,8 +118,8 @@ print(result)
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
 | 400 | Error payload | [`LabellingResponseInvalidException`](../../doc/models/labelling-response-invalid-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyPostException`](../../doc/models/method-not-allowed-only-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

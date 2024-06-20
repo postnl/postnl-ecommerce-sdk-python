@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merged_labels` | [`List[MergedLabel]`](../../doc/models/merged-label.md) | Optional | The merged label output; only returned if the printer type selected in your request merges the pdf labels into a single file (e.g. using GraphicFile\|Merge). |
-| `response_shipments` | [`List[ResponseShipment1]`](../../doc/models/response-shipment-1.md) | Optional | - |
+| `merged_labels` | [`List[LabellingMergedLabel]`](../../doc/models/labelling-merged-label.md) | Optional | The merged label output; only returned if the printer type selected in your request merges the pdf labels into a single file (e.g. using GraphicFile\|Merge). |
+| `response_shipments` | [`List[LabellingResponseShipment]`](../../doc/models/labelling-response-shipment.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -53,6 +53,16 @@
         }
       ],
       "Barcode": "Barcode0",
+      "Errors": [
+        {
+          "key1": "val1",
+          "key2": "val2"
+        },
+        {
+          "key1": "val1",
+          "key2": "val2"
+        }
+      ],
       "Warnings": [
         {
           "Code": "Code4",
@@ -70,6 +80,16 @@
         }
       ],
       "Barcode": "Barcode0",
+      "Errors": [
+        {
+          "key1": "val1",
+          "key2": "val2"
+        },
+        {
+          "key1": "val1",
+          "key2": "val2"
+        }
+      ],
       "Warnings": [
         {
           "Code": "Code4",

@@ -44,18 +44,18 @@ def get_pickup_locations_by_address(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The country of the recipient's address |
-| `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | The zipcode of the recipient's address |
-| `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The city of the recipient's address |
-| `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the recipient's address |
+| `postal_code` | `str` | Query, Required | The zipcode of the recipient's address |
+| `city` | `str` | Query, Optional | The city of the recipient's address |
+| `street` | `str` | Query, Optional | The street name of the recipient's address |
 | `house_number` | `int` | Query, Optional | The house number of the recipient's address |
-| `house_number_extension` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The house number extension of the recipient's address |
-| `delivery_date` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The date of the earliest delivery date at the pickup location. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. If not provided, the present day is used as a default |
-| `opening_time` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. If no opening time is provided all locations will be returned regardless of their opening times. |
-| `delivery_options` | [`List[DeliveryOptions1Enum]`](../../doc/models/delivery-options-1-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
+| `house_number_extension` | `str` | Query, Optional | The house number extension of the recipient's address |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date at the pickup location. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. If not provided, the present day is used as a default |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. If no opening time is provided all locations will be returned regardless of their opening times. |
+| `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponse`](../../doc/models/locations-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -89,15 +89,44 @@ result = locations_controller.get_pickup_locations_by_address(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "GetLocationsResult": {
+    "ResponseLocation": [
+      {
+        "Address": {
+          "City": "City6",
+          "Countrycode": "Countrycode2",
+          "HouseNr": 136,
+          "HouseNrExt": "HouseNrExt4",
+          "Remark": "Remark8"
+        },
+        "DeliveryOptions": {
+          "string": [
+            "string6",
+            "string7"
+          ]
+        },
+        "Distance": 244,
+        "Latitude": 103.5,
+        "LocationCode": 102
+      }
+    ]
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`LocationsResponseInvalidException`](../../doc/models/locations-response-invalid-exception.md) |
-| 401 | Unauthorized | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Pickup Locations by Coordinates
@@ -127,13 +156,13 @@ def get_pickup_locations_by_coordinates(self,
 | `latitude` | `float` | Query, Required | The latitude of the location |
 | `longitude` | `float` | Query, Required | The longitude of the location |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The coutry for which the coordinates are provided |
-| `delivery_date` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
-| `opening_time` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
-| `delivery_options` | [`List[DeliveryOptions1Enum]`](../../doc/models/delivery-options-1-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
+| `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponse`](../../doc/models/locations-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -158,15 +187,44 @@ result = locations_controller.get_pickup_locations_by_coordinates(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "GetLocationsResult": {
+    "ResponseLocation": [
+      {
+        "Address": {
+          "City": "City6",
+          "Countrycode": "Countrycode2",
+          "HouseNr": 136,
+          "HouseNrExt": "HouseNrExt4",
+          "Remark": "Remark8"
+        },
+        "DeliveryOptions": {
+          "string": [
+            "string6",
+            "string7"
+          ]
+        },
+        "Distance": 244,
+        "Latitude": 103.5,
+        "LocationCode": 102
+      }
+    ]
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`LocationsResponseInvalidException`](../../doc/models/locations-response-invalid-exception.md) |
-| 401 | Unauthorized | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Pickup Locations Within Area
@@ -200,13 +258,13 @@ def get_pickup_locations_within_area(self,
 | `latitude_south` | `float` | Query, Required | The southmost coordinates of the area |
 | `longitude_east` | `float` | Query, Required | The eastmost coordinates of the area |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | - |
-| `delivery_date` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
-| `opening_time` | [`str`](../../doc/models/string-enum.md) | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
-| `delivery_options` | [`List[DeliveryOptions1Enum]`](../../doc/models/delivery-options-1-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
+| `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponse`](../../doc/models/locations-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -237,15 +295,44 @@ result = locations_controller.get_pickup_locations_within_area(
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "GetLocationsResult": {
+    "ResponseLocation": [
+      {
+        "Address": {
+          "City": "City6",
+          "Countrycode": "Countrycode2",
+          "HouseNr": 136,
+          "HouseNrExt": "HouseNrExt4",
+          "Remark": "Remark8"
+        },
+        "DeliveryOptions": {
+          "string": [
+            "string6",
+            "string7"
+          ]
+        },
+        "Distance": 244,
+        "Latitude": 103.5,
+        "LocationCode": 102
+      }
+    ]
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`LocationsResponseInvalidException`](../../doc/models/locations-response-invalid-exception.md) |
-| 401 | Unauthorized | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 
 
 # Get Pickup Location
@@ -267,11 +354,11 @@ def get_pickup_location(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | LocationCode information |
+| `location_code` | `str` | Query, Required | LocationCode information |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationResponse`](../../doc/models/location-response.md).
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationResponseSingle`](../../doc/models/location-response-single.md).
 
 ## Example Usage
 
@@ -282,13 +369,40 @@ result = locations_controller.get_pickup_location(location_code)
 print(result)
 ```
 
+## Example Response *(as JSON)*
+
+```json
+{
+  "GetLocationsResult": {
+    "ResponseLocation": {
+      "Address": {
+        "City": "City6",
+        "Countrycode": "Countrycode2",
+        "HouseNr": 136,
+        "HouseNrExt": "HouseNrExt4",
+        "Remark": "Remark8"
+      },
+      "DeliveryOptions": {
+        "string": [
+          "string6",
+          "string7"
+        ]
+      },
+      "Distance": 244,
+      "Latitude": 103.5,
+      "LocationCode": 102
+    }
+  }
+}
+```
+
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Invalid request | [`LocationsResponseInvalidException`](../../doc/models/locations-response-invalid-exception.md) |
-| 401 | Unauthorized | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Invalid request | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Invalid request | [`InvalidRequestException`](../../doc/models/invalid-request-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

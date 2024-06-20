@@ -16,10 +16,12 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from postnlecommerce.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.cpc_response import CpcResponse
-from postnlecommerce.exceptions.barcode_response_invalid_exception import BarcodeResponseInvalidException
-from postnlecommerce.exceptions.barcode_method_not_allowed_exception import BarcodeMethodNotAllowedException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+from postnlecommerce.models.postalcode_check_address import PostalcodeCheckAddress
+from postnlecommerce.exceptions.postalcode_check_response_invalid_exception import PostalcodeCheckResponseInvalidException
+from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
+from postnlecommerce.exceptions.method_not_allowed_only_get_exception import MethodNotAllowedOnlyGetException
+from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
+from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
 
 class PostalcodeCheckController(BaseController):
@@ -82,11 +84,11 @@ class PostalcodeCheckController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CpcResponse.from_dictionary)
+            .deserialize_into(PostalcodeCheckAddress.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Bad request', BarcodeResponseInvalidException)
-            .local_error('401', 'Invalid apikey', BarcodeMethodNotAllowedException)
-            .local_error('405', 'Method not allowed', BarcodeMethodNotAllowedException)
-            .local_error('429', 'Too many requests', BarcodeMethodNotAllowedException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error('400', 'Bad request', PostalcodeCheckResponseInvalidException)
+            .local_error('401', 'Invalid apikey', UnauthorizedException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetException)
+            .local_error('429', 'Too many requests', TooManyRequestsException)
+            .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

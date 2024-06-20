@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.address_2 import Address2
+from postnlecommerce.models.customer_address import CustomerAddress
 
 
 class Customer(object):
@@ -17,7 +17,7 @@ class Customer(object):
     TODO: type model description here.
 
     Attributes:
-        address (Address2): TODO: type description here.
+        address (CustomerAddress): TODO: type description here.
         collection_location (str): Code of delivery location at PostNL
             Pakketten
         contact_person (str): Name of customer contact person
@@ -93,7 +93,7 @@ class Customer(object):
         # Extract variables from the dictionary
         customer_code = dictionary.get("CustomerCode") if dictionary.get("CustomerCode") else None
         customer_number = dictionary.get("CustomerNumber") if dictionary.get("CustomerNumber") else None
-        address = Address2.from_dictionary(dictionary.get('Address')) if 'Address' in dictionary.keys() else APIHelper.SKIP
+        address = CustomerAddress.from_dictionary(dictionary.get('Address')) if 'Address' in dictionary.keys() else APIHelper.SKIP
         collection_location = dictionary.get("CollectionLocation") if dictionary.get("CollectionLocation") else APIHelper.SKIP
         contact_person = dictionary.get("ContactPerson") if dictionary.get("ContactPerson") else APIHelper.SKIP
         email = dictionary.get("Email") if dictionary.get("Email") else APIHelper.SKIP

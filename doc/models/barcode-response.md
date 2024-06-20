@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `barcode` | [`str`](../../doc/models/string-enum.md) | Optional | - |
+| `barcode` | `str` | Optional | - |
 
 ## Example (as JSON)
 

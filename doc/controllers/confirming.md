@@ -33,7 +33,7 @@ body = ConfirmingRequest(
     customer=Customer(
         customer_code='DEVC',
         customer_number='11223344',
-        address=Address2(
+        address=CustomerAddress(
             address_type='02',
             city='Den Haag',
             countrycode='NL',
@@ -47,14 +47,14 @@ body = ConfirmingRequest(
         email='email@company.com',
         name='Janssen'
     ),
-    message=Message(
+    message=ConfirmingMessage(
         message_id='1',
         message_time_stamp='08-09-2022 12:00:00'
     ),
     shipments=[
-        Shipment(
+        ConfirmingShipment(
             addresses=[
-                Address11(
+                Address(
                     address_type='01',
                     countrycode='NL',
                     city='Utrecht',
@@ -96,8 +96,8 @@ print(result)
       "Errors": [],
       "Warnings": [
         {
-          "code": "1280103",
-          "description": "Address is unknown"
+          "Code": "1280103",
+          "Description": "Address is unknown"
         }
       ],
       "Barcode": "3SDEVC281677095"
@@ -110,9 +110,9 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Error payload | [`ConfirmingResponseError1Exception`](../../doc/models/confirming-response-error-1-exception.md) |
-| 401 | Invalid apikey | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 405 | Method not allowed | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 429 | Too many requests | [`BarcodeMethodNotAllowedException`](../../doc/models/barcode-method-not-allowed-exception.md) |
-| 500 | Internal server error | [`BarcodeResponseErrorException`](../../doc/models/barcode-response-error-exception.md) |
+| 400 | Error payload | [`ConfirmingResponseErrorException`](../../doc/models/confirming-response-error-exception.md) |
+| 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostException`](../../doc/models/method-not-allowed-only-get-post-exception.md) |
+| 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
+| 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

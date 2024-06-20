@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `delivery_options` | [`List[DeliveryOption]`](../../doc/models/delivery-option.md) | Optional | Array of delivery options |
-| `pickup_options` | [`List[PickupOption]`](../../doc/models/pickup-option.md) | Optional | Array of possible pickup options |
-| `warnings` | [`List[Warning]`](../../doc/models/warning.md) | Optional | An array of warnings |
+| `delivery_options` | [`List[CheckoutDeliveryOption]`](../../doc/models/checkout-delivery-option.md) | Optional | Array of delivery options |
+| `pickup_options` | [`List[CheckoutPickupOption]`](../../doc/models/checkout-pickup-option.md) | Optional | Array of possible pickup options |
+| `warnings` | [`List[CheckoutWarning]`](../../doc/models/checkout-warning.md) | Optional | An array of warnings |
 
 ## Example (as JSON)
 
@@ -494,9 +494,7 @@
       "DeliveryDate": "DeliveryDate2",
       "Code": "Code4",
       "Description": "Description8",
-      "Options": [
-        "08:00-12:00"
-      ]
+      "Options": "Sameday"
     }
   ]
 }

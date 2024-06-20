@@ -7,7 +7,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.response_shipment import ResponseShipment
+from postnlecommerce.models.confirming_response_shipment import ConfirmingResponseShipment
 
 
 class ConfirmingResponse(object):
@@ -17,8 +17,8 @@ class ConfirmingResponse(object):
     TODO: type model description here.
 
     Attributes:
-        response_shipments (List[ResponseShipment]): TODO: type description
-            here.
+        response_shipments (List[ConfirmingResponseShipment]): TODO: type
+            description here.
 
     """
 
@@ -60,7 +60,7 @@ class ConfirmingResponse(object):
         # Extract variables from the dictionary
         response_shipments = None
         if dictionary.get('ResponseShipments') is not None:
-            response_shipments = [ResponseShipment.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
+            response_shipments = [ConfirmingResponseShipment.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
         else:
             response_shipments = APIHelper.SKIP
         # Return an object of this model

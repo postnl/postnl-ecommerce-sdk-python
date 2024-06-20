@@ -11,13 +11,13 @@ The standard opening hours of the pickup location
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `monday` | [`Monday`](../../doc/models/monday.md) | Optional | - |
-| `tuesday` | [`Tuesday`](../../doc/models/tuesday.md) | Optional | - |
-| `wednesday` | [`Wednesday`](../../doc/models/wednesday.md) | Optional | - |
-| `thursday` | [`Thursday`](../../doc/models/thursday.md) | Optional | - |
-| `friday` | [`Friday`](../../doc/models/friday.md) | Optional | - |
-| `saturday` | [`Saturday`](../../doc/models/saturday.md) | Optional | - |
-| `sunday` | [`Sunday`](../../doc/models/sunday.md) | Optional | - |
+| `monday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `tuesday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `wednesday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `thursday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `friday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `saturday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
+| `sunday` | [`OpeningHoursPerDay`](../../doc/models/opening-hours-per-day.md) | Optional | - |
 
 ## Example (as JSON)
 

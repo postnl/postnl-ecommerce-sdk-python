@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `timeframe` | [`List[Timeframe1]`](../../doc/models/timeframe-1.md) | Optional | A calculated delivery timeframe |
+| `timeframe` | [`List[Timeframe]`](../../doc/models/timeframe.md) | Optional | A calculated delivery timeframe |
 
 ## Example (as JSON)
 
@@ -23,22 +23,22 @@
           {
             "From": "From8",
             "Options": {
-              "string": "Today"
+              "string": "Morning"
             },
             "To": "To2",
             "Sustainability": {
-              "Code": "Code2",
+              "Code": "02",
               "Description": "Description4"
             }
           },
           {
             "From": "From8",
             "Options": {
-              "string": "Today"
+              "string": "Morning"
             },
             "To": "To2",
             "Sustainability": {
-              "Code": "Code2",
+              "Code": "02",
               "Description": "Description4"
             }
           }

@@ -36,7 +36,7 @@ class BarcodeControllerTests(ControllerTestBase):
         customer_code = 'DEVC'
         customer_number = '11223344'
         mtype = '3S'
-        serie = None
+        serie = '100000000'
         range = None
 
         # Perform the API call through the SDK function
@@ -51,4 +51,10 @@ class BarcodeControllerTests(ControllerTestBase):
 
         assert ComparisonHelper.match_headers(expected_headers, self.response_catcher.response.headers)
 
+        
+        # Test whether the captured response is as we expected
+        assert result is not None
+        expected_body = APIHelper.json_deserialize('{"Barcode":"3SDEVC903942795"}')
+        received_body = APIHelper.json_deserialize(self.response_catcher.response.text)
+        assert ComparisonHelper.match_body(expected_body, received_body)
 

@@ -9,11 +9,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `time_stamp` | [`str`](../../doc/models/string-enum.md) | Optional | The status timestamp |
-| `status_code` | [`str`](../../doc/models/string-enum.md) | Optional | The status code |
-| `status_description` | [`str`](../../doc/models/string-enum.md) | Optional | The status description |
-| `phase_code` | [`str`](../../doc/models/string-enum.md) | Optional | The phase code |
-| `phase_description` | [`str`](../../doc/models/string-enum.md) | Optional | The phase description |
+| `time_stamp` | `str` | Optional | The status timestamp |
+| `status_code` | `str` | Optional | The status code |
+| `status_description` | `str` | Optional | The status description |
+| `phase_code` | `str` | Optional | The phase code |
+| `phase_description` | `str` | Optional | The phase description |
 
 ## Example (as JSON)
 
