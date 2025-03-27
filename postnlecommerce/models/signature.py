@@ -13,8 +13,6 @@ class Signature(object):
 
     """Implementation of the 'Signature' model.
 
-    TODO: type model description here.
-
     Attributes:
         barcode (str): The barcode of the shipment for which the signature is
             returned
@@ -66,7 +64,7 @@ class Signature(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +75,15 @@ class Signature(object):
         return cls(barcode,
                    signature_date,
                    signature_image)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
+                f'signature_date={(self.signature_date if hasattr(self, "signature_date") else None)!r}, '
+                f'signature_image={(self.signature_image if hasattr(self, "signature_image") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
+                f'signature_date={(self.signature_date if hasattr(self, "signature_date") else None)!s}, '
+                f'signature_image={(self.signature_image if hasattr(self, "signature_image") else None)!s})')

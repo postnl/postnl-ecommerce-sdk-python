@@ -13,8 +13,6 @@ class Event(object):
 
     """Implementation of the 'Event' model.
 
-    TODO: type model description here.
-
     Attributes:
         code (str): The event code
         description (str): The event description
@@ -88,7 +86,7 @@ class Event(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -107,3 +105,23 @@ class Event(object):
                    route_code,
                    route_number,
                    time_stamp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'destination_location_code={(self.destination_location_code if hasattr(self, "destination_location_code") else None)!r}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!r}, '
+                f'route_code={(self.route_code if hasattr(self, "route_code") else None)!r}, '
+                f'route_number={(self.route_number if hasattr(self, "route_number") else None)!r}, '
+                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'destination_location_code={(self.destination_location_code if hasattr(self, "destination_location_code") else None)!s}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!s}, '
+                f'route_code={(self.route_code if hasattr(self, "route_code") else None)!s}, '
+                f'route_number={(self.route_number if hasattr(self, "route_number") else None)!s}, '
+                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!s})')

@@ -16,8 +16,6 @@ class CheckoutResponse(object):
 
     """Implementation of the 'checkoutResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         delivery_options (List[CheckoutDeliveryOption]): Array of delivery
             options
@@ -69,7 +67,7 @@ class CheckoutResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -92,3 +90,15 @@ class CheckoutResponse(object):
         return cls(delivery_options,
                    pickup_options,
                    warnings)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!r}, '
+                f'pickup_options={(self.pickup_options if hasattr(self, "pickup_options") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!s}, '
+                f'pickup_options={(self.pickup_options if hasattr(self, "pickup_options") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

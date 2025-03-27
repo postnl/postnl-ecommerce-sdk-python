@@ -14,8 +14,6 @@ class CheckoutTimeFrame(object):
 
     """Implementation of the 'checkoutTimeFrame' model.
 
-    TODO: type model description here.
-
     Attributes:
         mfrom (str): Format hh:mm:ss
         to (str): Format hh:mm:ss
@@ -85,7 +83,7 @@ class CheckoutTimeFrame(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -100,3 +98,19 @@ class CheckoutTimeFrame(object):
                    options,
                    shipping_date,
                    sustainability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!r}, '
+                f'to={(self.to if hasattr(self, "to") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!s}, '
+                f'to={(self.to if hasattr(self, "to") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

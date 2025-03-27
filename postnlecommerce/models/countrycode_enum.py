@@ -15,8 +15,8 @@ class CountrycodeEnum(object):
     ISO2 country code. Limited to NL and BE.
 
     Attributes:
-        NL: TODO: type description here.
-        BE: TODO: type description here.
+        NL: The enum member of type str.
+        BE: The enum member of type str.
 
     """
     NL = 'NL'

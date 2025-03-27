@@ -15,12 +15,10 @@ class TimeframeResponse(object):
 
     """Implementation of the 'timeframeResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        timeframes (Timeframes): TODO: type description here.
-        reason_no_timeframes (ReasonNoTimeframes): TODO: type description
-            here.
+        timeframes (Timeframes): The model property of type Timeframes.
+        reason_no_timeframes (ReasonNoTimeframes): The model property of type
+            ReasonNoTimeframes.
 
     """
 
@@ -61,7 +59,7 @@ class TimeframeResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -70,3 +68,13 @@ class TimeframeResponse(object):
         # Return an object of this model
         return cls(timeframes,
                    reason_no_timeframes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!r}, '
+                f'reason_no_timeframes={(self.reason_no_timeframes if hasattr(self, "reason_no_timeframes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!s}, '
+                f'reason_no_timeframes={(self.reason_no_timeframes if hasattr(self, "reason_no_timeframes") else None)!s})')

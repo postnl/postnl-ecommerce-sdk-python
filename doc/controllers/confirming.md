@@ -24,7 +24,7 @@ def confirm_shipment(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConfirmingResponse`](../../doc/models/confirming-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConfirmingResponse`](../../doc/models/confirming-response.md).
 
 ## Example Usage
 
@@ -84,7 +84,6 @@ body = ConfirmingRequest(
 )
 
 result = confirming_controller.confirm_shipment(body)
-print(result)
 ```
 
 ## Example Response *(as JSON)*

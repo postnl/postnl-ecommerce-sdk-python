@@ -13,8 +13,6 @@ class ShippingstatusAddress(object):
 
     """Implementation of the 'shippingstatusAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
         first_name (str): The first name
         last_name (str): The last name
@@ -136,7 +134,7 @@ class ShippingstatusAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -171,3 +169,39 @@ class ShippingstatusAddress(object):
                    building,
                    floor,
                    remark)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!r}, '
+                f'department_name={(self.department_name if hasattr(self, "department_name") else None)!r}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r}, '
+                f'region={(self.region if hasattr(self, "region") else None)!r}, '
+                f'district={(self.district if hasattr(self, "district") else None)!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!r}, '
+                f'house_number_suffix={(self.house_number_suffix if hasattr(self, "house_number_suffix") else None)!r}, '
+                f'building={(self.building if hasattr(self, "building") else None)!r}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!r}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!s}, '
+                f'department_name={(self.department_name if hasattr(self, "department_name") else None)!s}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s}, '
+                f'region={(self.region if hasattr(self, "region") else None)!s}, '
+                f'district={(self.district if hasattr(self, "district") else None)!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!s}, '
+                f'house_number_suffix={(self.house_number_suffix if hasattr(self, "house_number_suffix") else None)!s}, '
+                f'building={(self.building if hasattr(self, "building") else None)!s}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!s}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!s})')

@@ -13,8 +13,6 @@ class ConfirmingCustomContent(object):
 
     """Implementation of the 'confirmingCustomContent' model.
 
-    TODO: type model description here.
-
     Attributes:
         description (str): Description of goods
         quantity (int): Fill in the total of the item(s)
@@ -80,7 +78,7 @@ class ConfirmingCustomContent(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -97,3 +95,21 @@ class ConfirmingCustomContent(object):
                    value,
                    hs_tariff_nr,
                    country_of_origin)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'description={self.description!r}, '
+                f'quantity={self.quantity!r}, '
+                f'weight={self.weight!r}, '
+                f'value={self.value!r}, '
+                f'hs_tariff_nr={(self.hs_tariff_nr if hasattr(self, "hs_tariff_nr") else None)!r}, '
+                f'country_of_origin={(self.country_of_origin if hasattr(self, "country_of_origin") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'description={self.description!s}, '
+                f'quantity={self.quantity!s}, '
+                f'weight={self.weight!s}, '
+                f'value={self.value!s}, '
+                f'hs_tariff_nr={(self.hs_tariff_nr if hasattr(self, "hs_tariff_nr") else None)!s}, '
+                f'country_of_origin={(self.country_of_origin if hasattr(self, "country_of_origin") else None)!s})')

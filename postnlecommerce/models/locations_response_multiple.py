@@ -14,11 +14,9 @@ class LocationsResponseMultiple(object):
 
     """Implementation of the 'locationsResponseMultiple' model.
 
-    TODO: type model description here.
-
     Attributes:
-        get_locations_result (GetLocationsResultMultiple): TODO: type
-            description here.
+        get_locations_result (GetLocationsResultMultiple): The model property
+            of type GetLocationsResultMultiple.
 
     """
 
@@ -54,10 +52,18 @@ class LocationsResponseMultiple(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         get_locations_result = GetLocationsResultMultiple.from_dictionary(dictionary.get('GetLocationsResult')) if 'GetLocationsResult' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(get_locations_result)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'get_locations_result={(self.get_locations_result if hasattr(self, "get_locations_result") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'get_locations_result={(self.get_locations_result if hasattr(self, "get_locations_result") else None)!s})')

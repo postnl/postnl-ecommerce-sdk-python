@@ -15,8 +15,6 @@ class TimeframeTimeframe(object):
 
     """Implementation of the 'TimeframeTimeframe' model.
 
-    TODO: type model description here.
-
     Attributes:
         mfrom (str): The start time of the expected delivery window
         options (Options): The delivery option for which the timeframe is
@@ -78,7 +76,7 @@ class TimeframeTimeframe(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +89,17 @@ class TimeframeTimeframe(object):
                    options,
                    to,
                    sustainability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'to={(self.to if hasattr(self, "to") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'to={(self.to if hasattr(self, "to") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

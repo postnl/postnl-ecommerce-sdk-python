@@ -10,7 +10,7 @@ requires-python = ">=3.7"
 keywords = ["PostNL", "SDK", "API", "ecommerce"]
 authors = [{name = "PostNL", email = "apimatic@postnl.nl"}]
 urls = {Documentation = "https://developer.postnl.nl/docs"}
-dependencies = ["apimatic-core~=0.2.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0"]
+dependencies = ["apimatic-core~=0.2.0, >= 0.2.17", "apimatic-core-interfaces~=0.1.0, >= 0.1.5", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.6"]
 classifiers = []
 [project.optional-dependencies]
 testutils = ["pytest>=7.2.2"]

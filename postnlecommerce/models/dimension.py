@@ -84,7 +84,7 @@ class Dimension(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +99,19 @@ class Dimension(object):
                    length,
                    volume,
                    width)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'height={(self.height if hasattr(self, "height") else None)!r}, '
+                f'length={(self.length if hasattr(self, "length") else None)!r}, '
+                f'volume={(self.volume if hasattr(self, "volume") else None)!r}, '
+                f'weight={self.weight!r}, '
+                f'width={(self.width if hasattr(self, "width") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'height={(self.height if hasattr(self, "height") else None)!s}, '
+                f'length={(self.length if hasattr(self, "length") else None)!s}, '
+                f'volume={(self.volume if hasattr(self, "volume") else None)!s}, '
+                f'weight={self.weight!s}, '
+                f'width={(self.width if hasattr(self, "width") else None)!s})')

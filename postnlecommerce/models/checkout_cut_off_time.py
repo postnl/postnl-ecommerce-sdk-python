@@ -13,8 +13,6 @@ class CheckoutCutOffTime(object):
 
     """Implementation of the 'checkoutCutOffTime' model.
 
-    TODO: type model description here.
-
     Attributes:
         day (CheckoutCutOffDayEnum): The day for which the cutoff time
             applies. 00 is your default cutoff that applies to all otherwise
@@ -73,7 +71,7 @@ class CheckoutCutOffTime(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -86,3 +84,17 @@ class CheckoutCutOffTime(object):
                    available,
                    mtype,
                    time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'day={self.day!r}, '
+                f'available={(self.available if hasattr(self, "available") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'time={(self.time if hasattr(self, "time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'day={self.day!s}, '
+                f'available={(self.available if hasattr(self, "available") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'time={(self.time if hasattr(self, "time") else None)!s})')

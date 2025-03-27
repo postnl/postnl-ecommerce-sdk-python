@@ -14,8 +14,6 @@ class ReasonNoTimeframes(object):
 
     """Implementation of the 'ReasonNoTimeframes' model.
 
-    TODO: type model description here.
-
     Attributes:
         reason_no_timeframe (List[ReasonNoTimeframe]): The reason why no
             timeframe was returned
@@ -54,7 +52,7 @@ class ReasonNoTimeframes(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +63,11 @@ class ReasonNoTimeframes(object):
             reason_no_timeframe = APIHelper.SKIP
         # Return an object of this model
         return cls(reason_no_timeframe)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'reason_no_timeframe={(self.reason_no_timeframe if hasattr(self, "reason_no_timeframe") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'reason_no_timeframe={(self.reason_no_timeframe if hasattr(self, "reason_no_timeframe") else None)!s})')

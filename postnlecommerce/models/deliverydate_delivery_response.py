@@ -15,10 +15,8 @@ class DeliverydateDeliveryResponse(object):
 
     """Implementation of the 'deliverydateDeliveryResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        delivery_date (str): TODO: type description here.
+        delivery_date (str): The model property of type str.
         options (DeliverydateOptions): The delivery options for which a
             delivery date is returned. Only one delivery option is specified.
             See [Delivery
@@ -73,7 +71,7 @@ class DeliverydateDeliveryResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -84,3 +82,15 @@ class DeliverydateDeliveryResponse(object):
         return cls(delivery_date,
                    options,
                    sustainability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

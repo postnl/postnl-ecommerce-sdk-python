@@ -14,10 +14,9 @@ class GetLocationsResultMultiple(object):
 
     """Implementation of the 'getLocationsResultMultiple' model.
 
-    TODO: type model description here.
-
     Attributes:
-        response_location (List[Location]): TODO: type description here.
+        response_location (List[Location]): The model property of type
+            List[Location].
 
     """
 
@@ -53,7 +52,7 @@ class GetLocationsResultMultiple(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +63,11 @@ class GetLocationsResultMultiple(object):
             response_location = APIHelper.SKIP
         # Return an object of this model
         return cls(response_location)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!s})')

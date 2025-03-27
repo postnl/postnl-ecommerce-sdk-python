@@ -39,13 +39,13 @@ def get_status_by_barcode(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `barcode` | `str` | Template, Required | Barcode of the shipment. This is a unique value. |
-| `detail` | `bool` | Query, Optional | Option to include old statuses in the response |
+| `detail` | `bool` | Query, Optional | Option to include old statuses in the response<br>**Default**: `False` |
 | `language` | [`LanguageEnum`](../../doc/models/language-enum.md) | Query, Optional | Language of the returned shipment and status descriptions (default is Dutch). |
 | `max_days` | `str` | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponse`](../../doc/models/shippingstatus-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponse`](../../doc/models/shippingstatus-response.md).
 
 ## Example Usage
 
@@ -64,7 +64,6 @@ result = shipping_status_controller.get_status_by_barcode(
     language=language,
     max_days=max_days
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -187,13 +186,13 @@ def get_status_by_reference(self,
 | `customer_code` | `str` | Query, Required | Customer code as known at PostNL Pakketten |
 | `customer_number` | `str` | Query, Required | Customer number as known at PostNL Pakketten |
 | `reference_id` | `str` | Template, Required | The customer reference belonging to the shipment |
-| `detail` | `bool` | Query, Optional | Option to include old statuses in the response |
+| `detail` | `bool` | Query, Optional | Option to include old statuses in the response<br>**Default**: `False` |
 | `language` | [`LanguageEnum`](../../doc/models/language-enum.md) | Query, Optional | Language of the returned shipment and status descriptions (default is Dutch). |
 | `max_days` | `str` | Query, Optional | Limit the number of days that will be searched (decrease this amount for better performance). By default this is 90 days in the past. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponse`](../../doc/models/shippingstatus-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponse`](../../doc/models/shippingstatus-response.md).
 
 ## Example Usage
 
@@ -218,7 +217,6 @@ result = shipping_status_controller.get_status_by_reference(
     language=language,
     max_days=max_days
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -337,7 +335,7 @@ def get_shipment_signature(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponseSignature`](../../doc/models/shippingstatus-response-signature.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ShippingstatusResponseSignature`](../../doc/models/shippingstatus-response-signature.md).
 
 ## Example Usage
 
@@ -345,7 +343,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 barcode = '3SDEVC172649258'
 
 result = shipping_status_controller.get_shipment_signature(barcode)
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -392,11 +389,11 @@ def get_updated_status_by_customer_number(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `customernumber` | `str` | Template, Required | Your customer number |
-| `period` | `List[str]` | Query, Optional | Optional array which defines a specific period in which to return updated shipments. For optimal results, schedule calls at a frequency between 5-15 minutes and align the requested period accordingly to ensure complete coverage of past updates. Shorter periods yield improved response times. The API accommodates a maximum requested period of 2 hours, granting access to shipment data up to 48 hours in the past. Please use the following format: YYYY-MM-DDTHH:MM:SS and repeat this variable to define the period (e.g. /updatedshipments?period=2022-11-07T12:00:00.000&period=2022-11-07T12:05:00.000). |
+| `period` | `List[str]` | Query, Optional | Optional array which defines a specific period in which to return updated shipments. For optimal results, schedule calls at a frequency between 5-15 minutes and align the requested period accordingly to ensure complete coverage of past updates. Shorter periods yield improved response times. The API accommodates a maximum requested period of 2 hours, granting access to shipment data up to 48 hours in the past. Please use the following format: YYYY-MM-DDTHH:MM:SS and repeat this variable to define the period (e.g. /updatedshipments?period=2022-11-07T12:00:00.000&period=2022-11-07T12:05:00.000).<br>**Constraints**: *Maximum Items*: `2` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[ShippingstatusResponseUpdatedShipment]`](../../doc/models/shippingstatus-response-updated-shipment.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[ShippingstatusResponseUpdatedShipment]`](../../doc/models/shippingstatus-response-updated-shipment.md).
 
 ## Example Usage
 
@@ -412,7 +409,6 @@ result = shipping_status_controller.get_updated_status_by_customer_number(
     customernumber,
     period=period
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*

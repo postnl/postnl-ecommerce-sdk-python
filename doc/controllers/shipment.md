@@ -22,11 +22,11 @@ def generate_shipment_label(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`LabellingRequest`](../../doc/models/labelling-request.md) | Body, Required | - |
-| `confirm` | `bool` | Query, Optional | With the Confirm boolean in the request, you can determine if you want to confirm the shipment in the same call or not. If the Boolean variable is true the shipment will be preannounced. If this is set to false, then an additional Confirming API request needs to be made. |
+| `confirm` | `bool` | Query, Optional | With the Confirm boolean in the request, you can determine if you want to confirm the shipment in the same call or not. If the Boolean variable is true the shipment will be preannounced. If this is set to false, then an additional Confirming API request needs to be made.<br>**Default**: `True` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LabellingResponse`](../../doc/models/labelling-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LabellingResponse`](../../doc/models/labelling-response.md).
 
 ## Example Usage
 
@@ -87,7 +87,6 @@ body = LabellingRequest(
 )
 
 result = shipment_controller.generate_shipment_label(body)
-print(result)
 ```
 
 ## Example Response *(as JSON)*

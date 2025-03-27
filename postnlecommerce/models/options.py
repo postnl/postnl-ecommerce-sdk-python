@@ -18,7 +18,8 @@ class Options(object):
     odes/delivery-options) for possible values.
 
     Attributes:
-        string (TimeframeOptionsEnum): TODO: type description here.
+        string (TimeframeOptionsEnum): The model property of type
+            TimeframeOptionsEnum.
 
     """
 
@@ -54,10 +55,18 @@ class Options(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         string = dictionary.get("string") if dictionary.get("string") else APIHelper.SKIP
         # Return an object of this model
         return cls(string)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'string={(self.string if hasattr(self, "string") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'string={(self.string if hasattr(self, "string") else None)!s})')

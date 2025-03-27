@@ -13,18 +13,17 @@ class CheckoutCutOffDayEnum(object):
     """Implementation of the 'checkoutCutOffDay' enum.
 
     The day for which the cutoff time applies. 00 is your default cutoff that
-    applies to all otherwise not specified days, 01 to 07 is Monday to
-    Sunday.
+    applies to all otherwise not specified days, 01 to 07 is Monday to Sunday.
 
     Attributes:
-        ENUM_00: TODO: type description here.
-        ENUM_01: TODO: type description here.
-        ENUM_02: TODO: type description here.
-        ENUM_03: TODO: type description here.
-        ENUM_04: TODO: type description here.
-        ENUM_05: TODO: type description here.
-        ENUM_06: TODO: type description here.
-        ENUM_07: TODO: type description here.
+        ENUM_00: The enum member of type str.
+        ENUM_01: The enum member of type str.
+        ENUM_02: The enum member of type str.
+        ENUM_03: The enum member of type str.
+        ENUM_04: The enum member of type str.
+        ENUM_05: The enum member of type str.
+        ENUM_06: The enum member of type str.
+        ENUM_07: The enum member of type str.
 
     """
     ENUM_00 = '00'

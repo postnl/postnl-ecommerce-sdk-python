@@ -13,8 +13,6 @@ class LabellingError(object):
 
     """Implementation of the 'labellingError' model.
 
-    TODO: type model description here.
-
     Attributes:
         error (str): The error reason
         code (str): The error code
@@ -64,7 +62,7 @@ class LabellingError(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class LabellingError(object):
         return cls(error,
                    code,
                    description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s})')

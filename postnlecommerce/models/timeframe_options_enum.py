@@ -12,17 +12,15 @@ class TimeframeOptionsEnum(object):
 
     """Implementation of the 'timeframeOptions' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        DAYTIME: TODO: type description here.
-        TODAY: TODO: type description here.
-        SAMEDAY: TODO: type description here.
-        EVENING: TODO: type description here.
-        MORNING: TODO: type description here.
-        NOON: TODO: type description here.
-        SUNDAY: TODO: type description here.
-        AFTERNOON: TODO: type description here.
+        DAYTIME: The enum member of type str.
+        TODAY: The enum member of type str.
+        SAMEDAY: The enum member of type str.
+        EVENING: The enum member of type str.
+        MORNING: The enum member of type str.
+        NOON: The enum member of type str.
+        SUNDAY: The enum member of type str.
+        AFTERNOON: The enum member of type str.
 
     """
     DAYTIME = 'Daytime'

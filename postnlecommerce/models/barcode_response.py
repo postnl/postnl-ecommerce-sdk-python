@@ -13,10 +13,8 @@ class BarcodeResponse(object):
 
     """Implementation of the 'barcodeResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        barcode (str): TODO: type description here.
+        barcode (str): The model property of type str.
 
     """
 
@@ -52,10 +50,18 @@ class BarcodeResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         barcode = dictionary.get("Barcode") if dictionary.get("Barcode") else APIHelper.SKIP
         # Return an object of this model
         return cls(barcode)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s})')

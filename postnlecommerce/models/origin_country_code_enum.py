@@ -12,11 +12,9 @@ class OriginCountryCodeEnum(object):
 
     """Implementation of the 'OriginCountryCode' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        NL: TODO: type description here.
-        BE: TODO: type description here.
+        NL: The enum member of type str.
+        BE: The enum member of type str.
 
     """
     NL = 'NL'

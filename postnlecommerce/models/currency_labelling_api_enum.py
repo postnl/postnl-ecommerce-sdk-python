@@ -15,8 +15,8 @@ class CurrencyLabellingAPIEnum(object):
     Currency code,only EUR and USS are allowed
 
     Attributes:
-        EUR: TODO: type description here.
-        USS: TODO: type description here.
+        EUR: The enum member of type str.
+        USS: The enum member of type str.
 
     """
     EUR = 'EUR'

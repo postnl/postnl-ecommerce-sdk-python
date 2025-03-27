@@ -12,14 +12,12 @@ class LanguageEnum(object):
 
     """Implementation of the 'language' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        NL: TODO: type description here.
-        EN: TODO: type description here.
-        CN: TODO: type description here.
-        DE: TODO: type description here.
-        FR: TODO: type description here.
+        NL: The enum member of type str.
+        EN: The enum member of type str.
+        CN: The enum member of type str.
+        DE: The enum member of type str.
+        FR: The enum member of type str.
 
     """
     NL = 'NL'

@@ -13,8 +13,6 @@ class ShippingstatusDimension(object):
 
     """Implementation of the 'shippingstatusDimension' model.
 
-    TODO: type model description here.
-
     Attributes:
         weight (str): The weight of the shipment
         height (str): The height of the shipment
@@ -76,7 +74,7 @@ class ShippingstatusDimension(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +89,19 @@ class ShippingstatusDimension(object):
                    length,
                    width,
                    volume)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'weight={(self.weight if hasattr(self, "weight") else None)!r}, '
+                f'height={(self.height if hasattr(self, "height") else None)!r}, '
+                f'length={(self.length if hasattr(self, "length") else None)!r}, '
+                f'width={(self.width if hasattr(self, "width") else None)!r}, '
+                f'volume={(self.volume if hasattr(self, "volume") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'weight={(self.weight if hasattr(self, "weight") else None)!s}, '
+                f'height={(self.height if hasattr(self, "height") else None)!s}, '
+                f'length={(self.length if hasattr(self, "length") else None)!s}, '
+                f'width={(self.width if hasattr(self, "width") else None)!s}, '
+                f'volume={(self.volume if hasattr(self, "volume") else None)!s})')

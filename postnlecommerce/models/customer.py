@@ -14,10 +14,8 @@ class Customer(object):
 
     """Implementation of the 'Customer' model.
 
-    TODO: type model description here.
-
     Attributes:
-        address (CustomerAddress): TODO: type description here.
+        address (CustomerAddress): The model property of type CustomerAddress.
         collection_location (str): Code of delivery location at PostNL
             Pakketten
         contact_person (str): Name of customer contact person
@@ -87,7 +85,7 @@ class Customer(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -106,3 +104,23 @@ class Customer(object):
                    contact_person,
                    email,
                    name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'collection_location={(self.collection_location if hasattr(self, "collection_location") else None)!r}, '
+                f'contact_person={(self.contact_person if hasattr(self, "contact_person") else None)!r}, '
+                f'customer_code={self.customer_code!r}, '
+                f'customer_number={self.customer_number!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'collection_location={(self.collection_location if hasattr(self, "collection_location") else None)!s}, '
+                f'contact_person={(self.contact_person if hasattr(self, "contact_person") else None)!s}, '
+                f'customer_code={self.customer_code!s}, '
+                f'customer_number={self.customer_number!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s})')

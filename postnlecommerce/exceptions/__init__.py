@@ -10,5 +10,6 @@ __all__ = [
     'confirming_response_error_exception',
     'labelling_response_invalid_exception',
     'postalcode_check_response_invalid_exception',
+    'method_not_allowed_only_get_post_error_checkout_postalcode_check_api_exception',
     'method_not_allowed_only_get_exception',
 ]

@@ -12,17 +12,15 @@ class ProductOption(object):
 
     """Implementation of the 'ProductOption' model.
 
-    TODO: type model description here.
-
     Attributes:
         characteristic (str): The characteristic of the ProductOption.
             Mandatory for some products, please see the [Products
             page](https://developer.postnl.nl/docs/#/http/reference-data/produc
-            t-codes)
+            t-codes-dutch-domestic)
         option (str): The product option code for this ProductOption.
             Mandatory for some products, please see the [Products
             page](https://developer.postnl.nl/docs/#/http/reference-data/produc
-            t-codes)
+            t-codes-dutch-domestic)
 
     """
 
@@ -56,7 +54,7 @@ class ProductOption(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +63,13 @@ class ProductOption(object):
         # Return an object of this model
         return cls(characteristic,
                    option)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'characteristic={self.characteristic!r}, '
+                f'option={self.option!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'characteristic={self.characteristic!s}, '
+                f'option={self.option!s})')

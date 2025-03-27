@@ -12,19 +12,17 @@ class CheckoutWarningOptionEnum(object):
 
     """Implementation of the 'checkoutWarningOption' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        DAYTIME: TODO: type description here.
-        EVENING: TODO: type description here.
-        SAMEDAY: TODO: type description here.
-        SUNDAY: TODO: type description here.
-        TODAY: TODO: type description here.
-        ENUM_08001000: TODO: type description here.
-        ENUM_08001200: TODO: type description here.
-        ENUM_08001700: TODO: type description here.
-        ENUM_08000900: TODO: type description here.
-        PICKUP: TODO: type description here.
+        DAYTIME: The enum member of type str.
+        EVENING: The enum member of type str.
+        SAMEDAY: The enum member of type str.
+        SUNDAY: The enum member of type str.
+        TODAY: The enum member of type str.
+        ENUM_08001000: The enum member of type str.
+        ENUM_08001200: The enum member of type str.
+        ENUM_08001700: The enum member of type str.
+        ENUM_08000900: The enum member of type str.
+        PICKUP: The enum member of type str.
 
     """
     DAYTIME = 'Daytime'

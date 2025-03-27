@@ -44,18 +44,18 @@ def get_pickup_locations_by_address(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The country of the recipient's address |
-| `postal_code` | `str` | Query, Required | The zipcode of the recipient's address |
+| `postal_code` | `str` | Query, Required | The zipcode of the recipient's address<br>**Constraints**: *Pattern*: `^[0-9]{4}([A-Z]{2})?$` |
 | `city` | `str` | Query, Optional | The city of the recipient's address |
 | `street` | `str` | Query, Optional | The street name of the recipient's address |
 | `house_number` | `int` | Query, Optional | The house number of the recipient's address |
 | `house_number_extension` | `str` | Query, Optional | The house number extension of the recipient's address |
-| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date at the pickup location. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. If not provided, the present day is used as a default |
-| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. If no opening time is provided all locations will be returned regardless of their opening times. |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date at the pickup location. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. If not provided, the present day is used as a default<br>**Constraints**: *Pattern*: `^[0-3]\d-[0-1]\d-[1-2]\d{3}$` |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. If no opening time is provided all locations will be returned regardless of their opening times.<br>**Constraints**: *Pattern*: `^[0-2]\d:[0-5]\d:[0-5]\d$` |
 | `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -86,7 +86,6 @@ result = locations_controller.get_pickup_locations_by_address(
     delivery_date=delivery_date,
     opening_time=opening_time
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -156,13 +155,13 @@ def get_pickup_locations_by_coordinates(self,
 | `latitude` | `float` | Query, Required | The latitude of the location |
 | `longitude` | `float` | Query, Required | The longitude of the location |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The coutry for which the coordinates are provided |
-| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
-| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned.<br>**Constraints**: *Pattern*: `^[0-3]\d-[0-1]\d-[1-2]\d{3}$` |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided.<br>**Constraints**: *Pattern*: `^[0-2]\d:[0-5]\d:[0-5]\d$` |
 | `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -184,7 +183,6 @@ result = locations_controller.get_pickup_locations_by_coordinates(
     delivery_date=delivery_date,
     opening_time=opening_time
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -258,13 +256,13 @@ def get_pickup_locations_within_area(self,
 | `latitude_south` | `float` | Query, Required | The southmost coordinates of the area |
 | `longitude_east` | `float` | Query, Required | The eastmost coordinates of the area |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | - |
-| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned. |
-| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided. |
+| `delivery_date` | `str` | Query, Optional | The date of the earliest delivery date. Format:  dd-MM-yyyy. Note: this date cannot be in the past, otherwise an error is returned.<br>**Constraints**: *Pattern*: `^[0-3]\d-[0-1]\d-[1-2]\d{3}$` |
+| `opening_time` | `str` | Query, Optional | Opening time filter. Format: hh:mm:ss. This field will be used to filter out locations that are closed at the time provided.<br>**Constraints**: *Pattern*: `^[0-2]\d:[0-5]\d:[0-5]\d$` |
 | `delivery_options` | [`List[LocationsDeliveryOptionEnum]`](../../doc/models/locations-delivery-option-enum.md) | Query, Optional | The pickup location types for which locations should be filtered. By default all location types are returned (PG = Retail points and parcel lockers). This can be used to filter on only parcel lockers (PA) or specifically exclude parcel lockers from the response (PG_EX). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationsResponseMultiple`](../../doc/models/locations-response-multiple.md).
 
 ## Example Usage
 
@@ -292,7 +290,6 @@ result = locations_controller.get_pickup_locations_within_area(
     delivery_date=delivery_date,
     opening_time=opening_time
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -358,7 +355,7 @@ def get_pickup_location(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationResponseSingle`](../../doc/models/location-response-single.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationResponseSingle`](../../doc/models/location-response-single.md).
 
 ## Example Usage
 
@@ -366,7 +363,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_code = '216877'
 
 result = locations_controller.get_pickup_location(location_code)
-print(result)
 ```
 
 ## Example Response *(as JSON)*

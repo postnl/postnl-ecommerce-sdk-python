@@ -13,12 +13,10 @@ class PostalcodeCheckError(object):
 
     """Implementation of the 'postalcodeCheckError' model.
 
-    TODO: type model description here.
-
     Attributes:
-        status (str): TODO: type description here.
-        title (str): TODO: type description here.
-        detail (str): TODO: type description here.
+        status (str): The model property of type str.
+        title (str): The model property of type str.
+        detail (str): The model property of type str.
 
     """
 
@@ -64,7 +62,7 @@ class PostalcodeCheckError(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class PostalcodeCheckError(object):
         return cls(status,
                    title,
                    detail)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'title={(self.title if hasattr(self, "title") else None)!r}, '
+                f'detail={(self.detail if hasattr(self, "detail") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'title={(self.title if hasattr(self, "title") else None)!s}, '
+                f'detail={(self.detail if hasattr(self, "detail") else None)!s})')

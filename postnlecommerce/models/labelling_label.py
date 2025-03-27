@@ -13,8 +13,6 @@ class LabellingLabel(object):
 
     """Implementation of the 'labellingLabel' model.
 
-    TODO: type model description here.
-
     Attributes:
         content (str): Base64 encoded label content
         labeltype (str): Type of the label. See possible [Label
@@ -66,7 +64,7 @@ class LabellingLabel(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +75,15 @@ class LabellingLabel(object):
         return cls(content,
                    labeltype,
                    output_type)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'content={(self.content if hasattr(self, "content") else None)!r}, '
+                f'labeltype={(self.labeltype if hasattr(self, "labeltype") else None)!r}, '
+                f'output_type={(self.output_type if hasattr(self, "output_type") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'content={(self.content if hasattr(self, "content") else None)!s}, '
+                f'labeltype={(self.labeltype if hasattr(self, "labeltype") else None)!s}, '
+                f'output_type={(self.output_type if hasattr(self, "output_type") else None)!s})')

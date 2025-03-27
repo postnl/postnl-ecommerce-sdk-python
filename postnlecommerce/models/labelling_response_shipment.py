@@ -15,14 +15,12 @@ class LabellingResponseShipment(object):
 
     """Implementation of the 'labellingResponseShipment' model.
 
-    TODO: type model description here.
-
     Attributes:
         product_code_delivery (str): The product code of the shipment
         labels (List[LabellingLabel]): All labels belonging to the selected
             product
         barcode (str): The barcode used on the label
-        errors (List[object]): TODO: type description here.
+        errors (List[Any]): The model property of type List[Any].
         warnings (List[Warning]): Possible warnings. See the [Error
             Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
             -codes) for possible values
@@ -81,7 +79,7 @@ class LabellingResponseShipment(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -104,3 +102,19 @@ class LabellingResponseShipment(object):
                    barcode,
                    errors,
                    warnings)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_code_delivery={(self.product_code_delivery if hasattr(self, "product_code_delivery") else None)!r}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!r}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
+                f'errors={(self.errors if hasattr(self, "errors") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_code_delivery={(self.product_code_delivery if hasattr(self, "product_code_delivery") else None)!s}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!s}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
+                f'errors={(self.errors if hasattr(self, "errors") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

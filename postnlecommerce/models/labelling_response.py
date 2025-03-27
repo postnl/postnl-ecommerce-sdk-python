@@ -15,14 +15,12 @@ class LabellingResponse(object):
 
     """Implementation of the 'labellingResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         merged_labels (List[LabellingMergedLabel]): The merged label output;
             only returned if the printer type selected in your request merges
             the pdf labels into a single file (e.g. using GraphicFile|Merge).
-        response_shipments (List[LabellingResponseShipment]): TODO: type
-            description here.
+        response_shipments (List[LabellingResponseShipment]): The model
+            property of type List[LabellingResponseShipment].
 
     """
 
@@ -63,7 +61,7 @@ class LabellingResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +78,13 @@ class LabellingResponse(object):
         # Return an object of this model
         return cls(merged_labels,
                    response_shipments)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'merged_labels={(self.merged_labels if hasattr(self, "merged_labels") else None)!r}, '
+                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'merged_labels={(self.merged_labels if hasattr(self, "merged_labels") else None)!s}, '
+                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')

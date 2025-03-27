@@ -17,11 +17,11 @@ class ShipmentTypeEnum(object):
     customs form on the shipment label.
 
     Attributes:
-        GIFT: TODO: type description here.
-        DOCUMENTS: TODO: type description here.
-        ENUM_COMMERCIAL GOODS: TODO: type description here.
-        ENUM_COMMERCIAL SAMPLE: TODO: type description here.
-        ENUM_RETURNED GOODS: TODO: type description here.
+        GIFT: The enum member of type str.
+        DOCUMENTS: The enum member of type str.
+        ENUM_COMMERCIAL GOODS: The enum member of type str.
+        ENUM_COMMERCIAL SAMPLE: The enum member of type str.
+        ENUM_RETURNED GOODS: The enum member of type str.
 
     """
     GIFT = 'Gift'

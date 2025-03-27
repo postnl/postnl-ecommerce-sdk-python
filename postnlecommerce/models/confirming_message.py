@@ -12,8 +12,6 @@ class ConfirmingMessage(object):
 
     """Implementation of the 'confirmingMessage' model.
 
-    TODO: type model description here.
-
     Attributes:
         message_id (str): ID of the message
         message_time_stamp (str): Date/time of sending the message. Format:
@@ -51,7 +49,7 @@ class ConfirmingMessage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -60,3 +58,13 @@ class ConfirmingMessage(object):
         # Return an object of this model
         return cls(message_id,
                    message_time_stamp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'message_id={self.message_id!r}, '
+                f'message_time_stamp={self.message_time_stamp!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'message_id={self.message_id!s}, '
+                f'message_time_stamp={self.message_time_stamp!s})')

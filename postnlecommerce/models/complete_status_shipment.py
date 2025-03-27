@@ -22,8 +22,6 @@ class CompleteStatusShipment(object):
 
     """Implementation of the 'completeStatusShipment' model.
 
-    TODO: type model description here.
-
     Attributes:
         main_barcode (str): The main barcode of the shipment
         barcode (str): The barcode of the shipment
@@ -31,12 +29,14 @@ class CompleteStatusShipment(object):
             shipment
         shipment_counter (str): The sequence of this parcel in the multi-collo
             shipment
-        customer (ShippingstatusCustomer): TODO: type description here.
+        customer (ShippingstatusCustomer): The model property of type
+            ShippingstatusCustomer.
         product_code (str): The product code of the shipment
         product_description (str): The description of the product code
         reference (str): The customer reference belonging to the shipment
         delivery_date (str): The expected delivery date of the shipment
-        dimension (ShippingstatusDimension): TODO: type description here.
+        dimension (ShippingstatusDimension): The model property of type
+            ShippingstatusDimension.
         amount (ShippingstatusAmount): The amounts belonging to the shipment
         address (List[ShippingstatusAddress]): A list of addresses belonging
             to the shipment
@@ -168,7 +168,7 @@ class CompleteStatusShipment(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -223,3 +223,43 @@ class CompleteStatusShipment(object):
                    product_options,
                    status,
                    old_status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'main_barcode={(self.main_barcode if hasattr(self, "main_barcode") else None)!r}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
+                f'shipment_amount={(self.shipment_amount if hasattr(self, "shipment_amount") else None)!r}, '
+                f'shipment_counter={(self.shipment_counter if hasattr(self, "shipment_counter") else None)!r}, '
+                f'customer={(self.customer if hasattr(self, "customer") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_description={(self.product_description if hasattr(self, "product_description") else None)!r}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'dimension={(self.dimension if hasattr(self, "dimension") else None)!r}, '
+                f'amount={(self.amount if hasattr(self, "amount") else None)!r}, '
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'event={(self.event if hasattr(self, "event") else None)!r}, '
+                f'expectation={(self.expectation if hasattr(self, "expectation") else None)!r}, '
+                f'product_options={(self.product_options if hasattr(self, "product_options") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'old_status={(self.old_status if hasattr(self, "old_status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'main_barcode={(self.main_barcode if hasattr(self, "main_barcode") else None)!s}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
+                f'shipment_amount={(self.shipment_amount if hasattr(self, "shipment_amount") else None)!s}, '
+                f'shipment_counter={(self.shipment_counter if hasattr(self, "shipment_counter") else None)!s}, '
+                f'customer={(self.customer if hasattr(self, "customer") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_description={(self.product_description if hasattr(self, "product_description") else None)!s}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'dimension={(self.dimension if hasattr(self, "dimension") else None)!s}, '
+                f'amount={(self.amount if hasattr(self, "amount") else None)!s}, '
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'event={(self.event if hasattr(self, "event") else None)!s}, '
+                f'expectation={(self.expectation if hasattr(self, "expectation") else None)!s}, '
+                f'product_options={(self.product_options if hasattr(self, "product_options") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'old_status={(self.old_status if hasattr(self, "old_status") else None)!s})')

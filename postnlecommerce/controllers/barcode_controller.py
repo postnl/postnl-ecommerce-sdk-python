@@ -62,13 +62,11 @@ class BarcodeController(BaseController):
                 nts/send-track/barcode/guidelines) for more information.
             range (str, optional): Only used for International Mail and Packet
                 products (PEPS) shipments (with type LA, RI, UE). Identifying
-                the issuing postal administration's country (NL in this
-                case).
+                the issuing postal administration's country (NL in this case).
 
         Returns:
             ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers. A
-                barcode
+                useful information such as status codes and headers. A barcode
 
         Raises:
             APIException: When an error occurs while fetching the data from

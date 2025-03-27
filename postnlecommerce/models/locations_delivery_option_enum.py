@@ -12,12 +12,10 @@ class LocationsDeliveryOptionEnum(object):
 
     """Implementation of the 'locationsDeliveryOption' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        PG: TODO: type description here.
-        PA: TODO: type description here.
-        PG_EX: TODO: type description here.
+        PG: The enum member of type str.
+        PA: The enum member of type str.
+        PG_EX: The enum member of type str.
 
     """
     PG = 'PG'

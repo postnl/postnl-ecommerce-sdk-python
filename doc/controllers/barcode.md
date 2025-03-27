@@ -35,12 +35,12 @@ def generate_barcode(self,
 | `customer_code` | `str` | Query, Required | The customer code for which you want a barcode to be generated |
 | `customer_number` | `str` | Query, Required | The customer code for which you want a barcode to be generated |
 | `mtype` | [`TypeEnum`](../../doc/models/type-enum.md) | Query, Required | The barcode type that you want to be generated |
-| `serie` | `str` | Query, Optional | Barcode serie in the format '###000000-###000000', for example 100000-20000. The range must consist of a minimal difference of 100.000. It is allowed to add extra leading zeros at the beginning of the serie. See [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/send-track/barcode/guidelines) for more information. |
+| `serie` | `str` | Query, Optional | Barcode serie in the format '###000000-###000000', for example 100000-20000. The range must consist of a minimal difference of 100.000. It is allowed to add extra leading zeros at the beginning of the serie. See [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/send-track/barcode/guidelines) for more information.<br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `9` |
 | `range` | `str` | Query, Optional | Only used for International Mail and Packet products (PEPS) shipments (with type LA, RI, UE). Identifying the issuing postal administration's country (NL in this case). |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`BarcodeResponse`](../../doc/models/barcode-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BarcodeResponse`](../../doc/models/barcode-response.md).
 
 ## Example Usage
 
@@ -59,7 +59,6 @@ result = barcode_controller.generate_barcode(
     mtype,
     serie=serie
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*

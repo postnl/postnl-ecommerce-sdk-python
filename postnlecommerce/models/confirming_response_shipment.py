@@ -15,8 +15,6 @@ class ConfirmingResponseShipment(object):
 
     """Implementation of the 'confirmingResponseShipment' model.
 
-    TODO: type model description here.
-
     Attributes:
         errors (List[ConfirmingError]): Possible errors. See the [Error
             Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
@@ -70,7 +68,7 @@ class ConfirmingResponseShipment(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -89,3 +87,15 @@ class ConfirmingResponseShipment(object):
         return cls(errors,
                    warnings,
                    barcode)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'errors={(self.errors if hasattr(self, "errors") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'errors={(self.errors if hasattr(self, "errors") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s}, '
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s})')

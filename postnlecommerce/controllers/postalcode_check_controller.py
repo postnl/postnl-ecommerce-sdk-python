@@ -19,7 +19,7 @@ from apimatic_core.authentication.multiple.single_auth import Single
 from postnlecommerce.models.postalcode_check_address import PostalcodeCheckAddress
 from postnlecommerce.exceptions.postalcode_check_response_invalid_exception import PostalcodeCheckResponseInvalidException
 from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
-from postnlecommerce.exceptions.method_not_allowed_only_get_exception import MethodNotAllowedOnlyGetException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_error_checkout_postalcode_check_api_exception import MethodNotAllowedOnlyGetPostErrorCheckoutPostalcodeCheckAPIException
 from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
 from postnlecommerce.exceptions.internal_server_error_exception import InternalServerErrorException
 
@@ -36,8 +36,7 @@ class PostalcodeCheckController(BaseController):
                                   housenumberaddition=None):
         """Does a GET request to /shipment/checkout/v1/postalcodecheck.
 
-        Please note that this API is not available on the sandbox
-        environment.
+        Please note that this API is not available on the sandbox environment.
         Request example:
         ```
         curl -X GET
@@ -48,9 +47,9 @@ class PostalcodeCheckController(BaseController):
         ```
 
         Args:
-            postalcode (str): TODO: type description here.
-            housenumber (str): TODO: type description here.
-            housenumberaddition (str, optional): TODO: type description here.
+            postalcode (str): The request query parameter.
+            housenumber (str): The request query parameter.
+            housenumberaddition (str, optional): The request query parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -88,7 +87,7 @@ class PostalcodeCheckController(BaseController):
             .is_api_response(True)
             .local_error('400', 'Bad request', PostalcodeCheckResponseInvalidException)
             .local_error('401', 'Invalid apikey', UnauthorizedException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostErrorCheckoutPostalcodeCheckAPIException)
             .local_error('429', 'Too many requests', TooManyRequestsException)
             .local_error('500', 'Internal server error', InternalServerErrorException)
         ).execute()

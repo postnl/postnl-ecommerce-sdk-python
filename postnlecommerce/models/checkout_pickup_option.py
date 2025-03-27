@@ -14,8 +14,6 @@ class CheckoutPickupOption(object):
 
     """Implementation of the 'checkoutPickupOption' model.
 
-    TODO: type model description here.
-
     Attributes:
         pickup_date (str): Date from which the parcel can be picked up at the
             PostNL location
@@ -74,7 +72,7 @@ class CheckoutPickupOption(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +89,17 @@ class CheckoutPickupOption(object):
                    shipping_date,
                    option,
                    locations)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'pickup_date={(self.pickup_date if hasattr(self, "pickup_date") else None)!r}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!r}, '
+                f'option={(self.option if hasattr(self, "option") else None)!r}, '
+                f'locations={(self.locations if hasattr(self, "locations") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'pickup_date={(self.pickup_date if hasattr(self, "pickup_date") else None)!s}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!s}, '
+                f'option={(self.option if hasattr(self, "option") else None)!s}, '
+                f'locations={(self.locations if hasattr(self, "locations") else None)!s})')

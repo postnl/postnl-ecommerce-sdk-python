@@ -58,7 +58,7 @@ class Expectation(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class Expectation(object):
         # Return an object of this model
         return cls(eta_from,
                    eta_to)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'eta_from={(self.eta_from if hasattr(self, "eta_from") else None)!r}, '
+                f'eta_to={(self.eta_to if hasattr(self, "eta_to") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'eta_from={(self.eta_from if hasattr(self, "eta_from") else None)!s}, '
+                f'eta_to={(self.eta_to if hasattr(self, "eta_to") else None)!s})')

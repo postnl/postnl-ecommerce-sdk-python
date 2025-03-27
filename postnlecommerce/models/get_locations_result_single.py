@@ -14,10 +14,8 @@ class GetLocationsResultSingle(object):
 
     """Implementation of the 'getLocationsResultSingle' model.
 
-    TODO: type model description here.
-
     Attributes:
-        response_location (Location): TODO: type description here.
+        response_location (Location): The model property of type Location.
 
     """
 
@@ -53,10 +51,18 @@ class GetLocationsResultSingle(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         response_location = Location.from_dictionary(dictionary.get('ResponseLocation')) if 'ResponseLocation' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(response_location)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!s})')

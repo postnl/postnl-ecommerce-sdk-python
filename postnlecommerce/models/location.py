@@ -17,10 +17,9 @@ class Location(object):
 
     """Implementation of the 'location' model.
 
-    TODO: type model description here.
-
     Attributes:
-        address (LocationsAddress): TODO: type description here.
+        address (LocationsAddress): The model property of type
+            LocationsAddress.
         delivery_options (DeliveryOptions): The options belonging to the
             pickup location. The delivery options RETA, UL, PU, DO, BW, RT and
             BWUL can be shown in the response. Please ignore these codes.
@@ -126,7 +125,7 @@ class Location(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -153,3 +152,31 @@ class Location(object):
                    sustainability,
                    partner_name,
                    retail_network_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!r}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!r}, '
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!r}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!r}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r}, '
+                f'partner_name={(self.partner_name if hasattr(self, "partner_name") else None)!r}, '
+                f'retail_network_id={(self.retail_network_id if hasattr(self, "retail_network_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!s}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!s}, '
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!s}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!s}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s}, '
+                f'partner_name={(self.partner_name if hasattr(self, "partner_name") else None)!s}, '
+                f'retail_network_id={(self.retail_network_id if hasattr(self, "retail_network_id") else None)!s})')

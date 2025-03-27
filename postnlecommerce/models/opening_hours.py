@@ -17,13 +17,20 @@ class OpeningHours(object):
     The standard opening hours of the pickup location
 
     Attributes:
-        monday (OpeningHoursPerDay): TODO: type description here.
-        tuesday (OpeningHoursPerDay): TODO: type description here.
-        wednesday (OpeningHoursPerDay): TODO: type description here.
-        thursday (OpeningHoursPerDay): TODO: type description here.
-        friday (OpeningHoursPerDay): TODO: type description here.
-        saturday (OpeningHoursPerDay): TODO: type description here.
-        sunday (OpeningHoursPerDay): TODO: type description here.
+        monday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        tuesday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        wednesday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        thursday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        friday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        saturday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
+        sunday (OpeningHoursPerDay): The model property of type
+            OpeningHoursPerDay.
 
     """
 
@@ -89,7 +96,7 @@ class OpeningHours(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -108,3 +115,23 @@ class OpeningHours(object):
                    friday,
                    saturday,
                    sunday)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'monday={(self.monday if hasattr(self, "monday") else None)!r}, '
+                f'tuesday={(self.tuesday if hasattr(self, "tuesday") else None)!r}, '
+                f'wednesday={(self.wednesday if hasattr(self, "wednesday") else None)!r}, '
+                f'thursday={(self.thursday if hasattr(self, "thursday") else None)!r}, '
+                f'friday={(self.friday if hasattr(self, "friday") else None)!r}, '
+                f'saturday={(self.saturday if hasattr(self, "saturday") else None)!r}, '
+                f'sunday={(self.sunday if hasattr(self, "sunday") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'monday={(self.monday if hasattr(self, "monday") else None)!s}, '
+                f'tuesday={(self.tuesday if hasattr(self, "tuesday") else None)!s}, '
+                f'wednesday={(self.wednesday if hasattr(self, "wednesday") else None)!s}, '
+                f'thursday={(self.thursday if hasattr(self, "thursday") else None)!s}, '
+                f'friday={(self.friday if hasattr(self, "friday") else None)!s}, '
+                f'saturday={(self.saturday if hasattr(self, "saturday") else None)!s}, '
+                f'sunday={(self.sunday if hasattr(self, "sunday") else None)!s})')

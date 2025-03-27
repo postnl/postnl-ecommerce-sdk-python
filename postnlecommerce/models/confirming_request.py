@@ -15,11 +15,10 @@ class ConfirmingRequest(object):
 
     """Implementation of the 'confirmingRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        customer (Customer): TODO: type description here.
-        message (ConfirmingMessage): TODO: type description here.
+        customer (Customer): The model property of type Customer.
+        message (ConfirmingMessage): The model property of type
+            ConfirmingMessage.
         shipments (List[ConfirmingShipment]): List of 1 or more Shipments. At
             least 1 shipment is required.
 
@@ -58,7 +57,7 @@ class ConfirmingRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -71,3 +70,15 @@ class ConfirmingRequest(object):
         return cls(customer,
                    message,
                    shipments)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!r}, '
+                f'message={self.message!r}, '
+                f'shipments={self.shipments!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!s}, '
+                f'message={self.message!s}, '
+                f'shipments={self.shipments!s})')

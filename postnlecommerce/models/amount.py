@@ -13,8 +13,6 @@ class Amount(object):
 
     """Implementation of the 'Amount' model.
 
-    TODO: type model description here.
-
     Attributes:
         amount_type (str): Amount type. Please see [Amount
             types](https://developer.postnl.nl/docs/#/http/reference-data/refer
@@ -22,8 +20,7 @@ class Amount(object):
         account_name (str): Name of bank account owner
         bic (str): BIC number,optional for COD shipments (mandatory for bank
             account number other than originating in The Netherlands)
-        currency (str): Currency code. only EUR, GBP, USD and CNY are
-            allowed.
+        currency (str): Currency code. only EUR, GBP, USD and CNY are allowed.
         iban (str): IBAN bank account number,mandatory for COD shipments.
             Dutch IBAN numbers are 18 characters
         reference (str): Personal payment reference
@@ -31,8 +28,7 @@ class Amount(object):
         value (float): Money value in EUR (unless value Currency is specified
             for another currency). Value format (N6.2): #####0.00 (2 digits
             behind decimal dot). Mandatory for COD, Insured products (with the
-            exception of certain productcodes with a standard insured
-            amount).
+            exception of certain productcodes with a standard insured amount).
 
     """
 
@@ -99,7 +95,7 @@ class Amount(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -120,3 +116,25 @@ class Amount(object):
                    iban,
                    reference,
                    transaction_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_type={self.amount_type!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'bic={(self.bic if hasattr(self, "bic") else None)!r}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!r}, '
+                f'iban={(self.iban if hasattr(self, "iban") else None)!r}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'transaction_number={(self.transaction_number if hasattr(self, "transaction_number") else None)!r}, '
+                f'value={self.value!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_type={self.amount_type!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'bic={(self.bic if hasattr(self, "bic") else None)!s}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!s}, '
+                f'iban={(self.iban if hasattr(self, "iban") else None)!s}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'transaction_number={(self.transaction_number if hasattr(self, "transaction_number") else None)!s}, '
+                f'value={self.value!s})')

@@ -41,8 +41,7 @@ class Customs(object):
         invoice_nr (str): Mandatory when Invoice is true
         handle_as_non_deliverable (bool): Determines what to do when the
             shipment cannot be delivered the first time (if this is set to
-            true,the shipment will be returned after the first failed
-            attempt)
+            true,the shipment will be returned after the first failed attempt)
         currency (CurrencyLabellingAPIEnum): Currency code,only EUR and USS
             are allowed
         shipment_type (ShipmentTypeEnum): Type of shipment,possible values:
@@ -158,7 +157,7 @@ class Customs(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -193,3 +192,37 @@ class Customs(object):
                    importer_reference_code,
                    transaction_code,
                    transaction_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'certificate={(self.certificate if hasattr(self, "certificate") else None)!r}, '
+                f'certificate_nr={(self.certificate_nr if hasattr(self, "certificate_nr") else None)!r}, '
+                f'license={(self.license if hasattr(self, "license") else None)!r}, '
+                f'license_nr={(self.license_nr if hasattr(self, "license_nr") else None)!r}, '
+                f'invoice={(self.invoice if hasattr(self, "invoice") else None)!r}, '
+                f'invoice_nr={(self.invoice_nr if hasattr(self, "invoice_nr") else None)!r}, '
+                f'handle_as_non_deliverable={(self.handle_as_non_deliverable if hasattr(self, "handle_as_non_deliverable") else None)!r}, '
+                f'currency={self.currency!r}, '
+                f'shipment_type={self.shipment_type!r}, '
+                f'trusted_shipper_id={(self.trusted_shipper_id if hasattr(self, "trusted_shipper_id") else None)!r}, '
+                f'importer_reference_code={(self.importer_reference_code if hasattr(self, "importer_reference_code") else None)!r}, '
+                f'transaction_code={(self.transaction_code if hasattr(self, "transaction_code") else None)!r}, '
+                f'transaction_description={(self.transaction_description if hasattr(self, "transaction_description") else None)!r}, '
+                f'content={self.content!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'certificate={(self.certificate if hasattr(self, "certificate") else None)!s}, '
+                f'certificate_nr={(self.certificate_nr if hasattr(self, "certificate_nr") else None)!s}, '
+                f'license={(self.license if hasattr(self, "license") else None)!s}, '
+                f'license_nr={(self.license_nr if hasattr(self, "license_nr") else None)!s}, '
+                f'invoice={(self.invoice if hasattr(self, "invoice") else None)!s}, '
+                f'invoice_nr={(self.invoice_nr if hasattr(self, "invoice_nr") else None)!s}, '
+                f'handle_as_non_deliverable={(self.handle_as_non_deliverable if hasattr(self, "handle_as_non_deliverable") else None)!s}, '
+                f'currency={self.currency!s}, '
+                f'shipment_type={self.shipment_type!s}, '
+                f'trusted_shipper_id={(self.trusted_shipper_id if hasattr(self, "trusted_shipper_id") else None)!s}, '
+                f'importer_reference_code={(self.importer_reference_code if hasattr(self, "importer_reference_code") else None)!s}, '
+                f'transaction_code={(self.transaction_code if hasattr(self, "transaction_code") else None)!s}, '
+                f'transaction_description={(self.transaction_description if hasattr(self, "transaction_description") else None)!s}, '
+                f'content={self.content!s})')

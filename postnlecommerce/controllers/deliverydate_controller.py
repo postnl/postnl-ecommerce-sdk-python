@@ -87,15 +87,13 @@ class DeliverydateController(BaseController):
             origin_country_code (OriginCountryCodeEnum, optional): The ISO2
                 origin country code
             city (str, optional): City of the destination address
-            street (str, optional): The street name of the destination
-                address.
+            street (str, optional): The street name of the destination address.
             house_number (int, optional): The house number of the destination
                 address
             house_nr_ext (str, optional): House number extension of the
                 delivery address
             cut_off_time_monday (str, optional): Overrides default cutoff time
-                specified in the CutOffTime parameter for mondays
-                specifically
+                specified in the CutOffTime parameter for mondays specifically
             available_monday (bool, optional): Specifies if you are available
                 to ship to PostNL on mondays
             cut_off_time_tuesday (str, optional): Overrides default cutoff
@@ -114,8 +112,7 @@ class DeliverydateController(BaseController):
             available_thursday (bool, optional): Specifies if you are
                 available to ship to PostNL on thursdays
             cut_off_time_friday (str, optional): Overrides default cutoff time
-                specified in the CutOffTime parameter for fridays
-                specifically
+                specified in the CutOffTime parameter for fridays specifically
             available_friday (bool, optional): Specifies if you are available
                 to ship to PostNL on fridays
             cut_off_time_saturday (str, optional): Overrides default cutoff
@@ -124,8 +121,7 @@ class DeliverydateController(BaseController):
             available_saturday (bool, optional): Specifies if you are
                 available to ship to PostNL on saturdays
             cut_off_time_sunday (str, optional): Overrides default cutoff time
-                specified in the CutOffTime parameter for sundays
-                specifically
+                specified in the CutOffTime parameter for sundays specifically
             available_sunday (bool, optional): Specifies if you are available
                 to ship to PostNL on sundays
 
@@ -273,8 +269,7 @@ class DeliverydateController(BaseController):
             origin_country_code (OriginCountryCodeEnum, optional): The ISO2
                 country code of the origin country
             city (str, optional): City of the destination address
-            street (str, optional): The street name of the destination
-                address
+            street (str, optional): The street name of the destination address
             house_number (int, optional): The house number of the destination
                 address
             house_nr_ext (str, optional): House number extension of the

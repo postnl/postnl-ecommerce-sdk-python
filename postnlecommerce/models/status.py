@@ -78,7 +78,7 @@ class Status(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -93,3 +93,19 @@ class Status(object):
                    status_description,
                    phase_code,
                    phase_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!r}, '
+                f'status_code={(self.status_code if hasattr(self, "status_code") else None)!r}, '
+                f'status_description={(self.status_description if hasattr(self, "status_description") else None)!r}, '
+                f'phase_code={(self.phase_code if hasattr(self, "phase_code") else None)!r}, '
+                f'phase_description={(self.phase_description if hasattr(self, "phase_description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!s}, '
+                f'status_code={(self.status_code if hasattr(self, "status_code") else None)!s}, '
+                f'status_description={(self.status_description if hasattr(self, "status_description") else None)!s}, '
+                f'phase_code={(self.phase_code if hasattr(self, "phase_code") else None)!s}, '
+                f'phase_description={(self.phase_description if hasattr(self, "phase_description") else None)!s})')

@@ -123,8 +123,7 @@ class ShippingStatusController(BaseController):
 
         Args:
             customer_code (str): Customer code as known at PostNL Pakketten
-            customer_number (str): Customer number as known at PostNL
-                Pakketten
+            customer_number (str): Customer number as known at PostNL Pakketten
             reference_id (str): The customer reference belonging to the
                 shipment
             detail (bool, optional): Option to include old statuses in the

@@ -14,10 +14,9 @@ class Warnings(object):
 
     """Implementation of the 'Warnings' model.
 
-    TODO: type model description here.
-
     Attributes:
-        warning (ShippingstatusWarning): TODO: type description here.
+        warning (ShippingstatusWarning): The model property of type
+            ShippingstatusWarning.
 
     """
 
@@ -53,10 +52,18 @@ class Warnings(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         warning = ShippingstatusWarning.from_dictionary(dictionary.get('Warning')) if 'Warning' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(warning)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'warning={(self.warning if hasattr(self, "warning") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'warning={(self.warning if hasattr(self, "warning") else None)!s})')

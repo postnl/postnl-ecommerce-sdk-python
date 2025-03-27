@@ -67,6 +67,7 @@ __all__ = [
     'wednesday',
     'postalcode_check_address',
     'postalcode_check_error',
+    'method_not_allowed_only_get_post_checkout_postalcode_check_api',
     'labelling_customer_labelling_api',
     'labelling_customer_shipment_labelling_api',
     'customs_labelling_api',

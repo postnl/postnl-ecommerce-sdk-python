@@ -22,8 +22,6 @@ class LabellingCustomerShipmentLabellingAPI(object):
 
     """Implementation of the 'labellingCustomerShipment_Labelling API' model.
 
-    TODO: type model description here.
-
     Attributes:
         addresses (List[Address]): List of 1 or more Address type elements. At
             least 1 address type is mandatory. See [Address
@@ -41,8 +39,7 @@ class LabellingCustomerShipmentLabellingAPI(object):
         coding_text (str): Code used for logistic purposes (usually generated
             by the service itself and returned in the response). Please note
             that this must be provided when  using the Confirm API to confirm
-            shipments where coding texts are required (e.g. letterbox
-            parcels).
+            shipments where coding texts are required (e.g. letterbox parcels).
         collection_time_stamp_start (str): Starting date/time of the
             collection of the shipment. Format: dd-MM-yyyy hh:mm:ss
         collection_time_stamp_end (str): Ending date/time of the collection of
@@ -93,11 +90,11 @@ class LabellingCustomerShipmentLabellingAPI(object):
         product_code_delivery (str): Product code of the shipment. See the
             [Products
             page](https://developer.postnl.nl/docs/#/http/reference-data/produc
-            t-codes) for possible products.
+            t-codes-dutch-domestic) for possible products.
         product_options (List[ProductOption]): Product options for the
             shipment, mandatory for certain products, see the [Products
             page](https://developer.postnl.nl/docs/#/http/reference-data/produc
-            t-codes).
+            t-codes-dutch-domestic).
         receiver_date_of_birth (str): Date of birth. Mandatory for Age check
             products
         reference (str): Your own reference of the shipment. Mandatory for
@@ -287,7 +284,7 @@ class LabellingCustomerShipmentLabellingAPI(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -378,3 +375,69 @@ class LabellingCustomerShipmentLabellingAPI(object):
                    return_reference,
                    timeslot_id,
                    extra_fields)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'addresses={self.addresses!r}, '
+                f'amounts={(self.amounts if hasattr(self, "amounts") else None)!r}, '
+                f'barcode={self.barcode!r}, '
+                f'coding_text={(self.coding_text if hasattr(self, "coding_text") else None)!r}, '
+                f'collection_time_stamp_start={(self.collection_time_stamp_start if hasattr(self, "collection_time_stamp_start") else None)!r}, '
+                f'collection_time_stamp_end={(self.collection_time_stamp_end if hasattr(self, "collection_time_stamp_end") else None)!r}, '
+                f'contacts={(self.contacts if hasattr(self, "contacts") else None)!r}, '
+                f'content={(self.content if hasattr(self, "content") else None)!r}, '
+                f'cost_center={(self.cost_center if hasattr(self, "cost_center") else None)!r}, '
+                f'customer_order_number={(self.customer_order_number if hasattr(self, "customer_order_number") else None)!r}, '
+                f'customs={(self.customs if hasattr(self, "customs") else None)!r}, '
+                f'delivery_address={(self.delivery_address if hasattr(self, "delivery_address") else None)!r}, '
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'dimension={self.dimension!r}, '
+                f'down_partner_barcode={(self.down_partner_barcode if hasattr(self, "down_partner_barcode") else None)!r}, '
+                f'down_partner_id={(self.down_partner_id if hasattr(self, "down_partner_id") else None)!r}, '
+                f'down_partner_location={(self.down_partner_location if hasattr(self, "down_partner_location") else None)!r}, '
+                f'groups={(self.groups if hasattr(self, "groups") else None)!r}, '
+                f'hazardous_material={(self.hazardous_material if hasattr(self, "hazardous_material") else None)!r}, '
+                f'product_code_collect={(self.product_code_collect if hasattr(self, "product_code_collect") else None)!r}, '
+                f'product_code_delivery={self.product_code_delivery!r}, '
+                f'product_options={(self.product_options if hasattr(self, "product_options") else None)!r}, '
+                f'receiver_date_of_birth={(self.receiver_date_of_birth if hasattr(self, "receiver_date_of_birth") else None)!r}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'reference_collect={(self.reference_collect if hasattr(self, "reference_collect") else None)!r}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!r}, '
+                f'return_barcode={(self.return_barcode if hasattr(self, "return_barcode") else None)!r}, '
+                f'return_reference={(self.return_reference if hasattr(self, "return_reference") else None)!r}, '
+                f'timeslot_id={(self.timeslot_id if hasattr(self, "timeslot_id") else None)!r}, '
+                f'extra_fields={(self.extra_fields if hasattr(self, "extra_fields") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'addresses={self.addresses!s}, '
+                f'amounts={(self.amounts if hasattr(self, "amounts") else None)!s}, '
+                f'barcode={self.barcode!s}, '
+                f'coding_text={(self.coding_text if hasattr(self, "coding_text") else None)!s}, '
+                f'collection_time_stamp_start={(self.collection_time_stamp_start if hasattr(self, "collection_time_stamp_start") else None)!s}, '
+                f'collection_time_stamp_end={(self.collection_time_stamp_end if hasattr(self, "collection_time_stamp_end") else None)!s}, '
+                f'contacts={(self.contacts if hasattr(self, "contacts") else None)!s}, '
+                f'content={(self.content if hasattr(self, "content") else None)!s}, '
+                f'cost_center={(self.cost_center if hasattr(self, "cost_center") else None)!s}, '
+                f'customer_order_number={(self.customer_order_number if hasattr(self, "customer_order_number") else None)!s}, '
+                f'customs={(self.customs if hasattr(self, "customs") else None)!s}, '
+                f'delivery_address={(self.delivery_address if hasattr(self, "delivery_address") else None)!s}, '
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'dimension={self.dimension!s}, '
+                f'down_partner_barcode={(self.down_partner_barcode if hasattr(self, "down_partner_barcode") else None)!s}, '
+                f'down_partner_id={(self.down_partner_id if hasattr(self, "down_partner_id") else None)!s}, '
+                f'down_partner_location={(self.down_partner_location if hasattr(self, "down_partner_location") else None)!s}, '
+                f'groups={(self.groups if hasattr(self, "groups") else None)!s}, '
+                f'hazardous_material={(self.hazardous_material if hasattr(self, "hazardous_material") else None)!s}, '
+                f'product_code_collect={(self.product_code_collect if hasattr(self, "product_code_collect") else None)!s}, '
+                f'product_code_delivery={self.product_code_delivery!s}, '
+                f'product_options={(self.product_options if hasattr(self, "product_options") else None)!s}, '
+                f'receiver_date_of_birth={(self.receiver_date_of_birth if hasattr(self, "receiver_date_of_birth") else None)!s}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'reference_collect={(self.reference_collect if hasattr(self, "reference_collect") else None)!s}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!s}, '
+                f'return_barcode={(self.return_barcode if hasattr(self, "return_barcode") else None)!s}, '
+                f'return_reference={(self.return_reference if hasattr(self, "return_reference") else None)!s}, '
+                f'timeslot_id={(self.timeslot_id if hasattr(self, "timeslot_id") else None)!s}, '
+                f'extra_fields={(self.extra_fields if hasattr(self, "extra_fields") else None)!s})')

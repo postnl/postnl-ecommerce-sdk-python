@@ -29,8 +29,8 @@
 | `groups` | [`List[Group]`](../../doc/models/group.md) | Optional | List of 0 or more Group types with data, grouping multiple shipments together. Mandatory for multicollo shipments. Please see [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/send-track/labelling/guidelines) (Multiple shipments) for more information. |
 | `hazardous_material` | [`List[HazardousMaterial]`](../../doc/models/hazardous-material.md) | Optional | Array of hazardous materials contained in the shipment |
 | `product_code_collect` | `str` | Optional | Deprecated. Collection product code of a shipment. |
-| `product_code_delivery` | `str` | Required | Product code of the shipment. See the [Products page](https://developer.postnl.nl/docs/#/http/reference-data/product-codes) for possible products.<br>**Default**: `'3085'`<br>**Constraints**: *Pattern*: `^\d{4,5}$` |
-| `product_options` | [`List[ProductOption]`](../../doc/models/product-option.md) | Optional | Product options for the shipment, mandatory for certain products, see the [Products page](https://developer.postnl.nl/docs/#/http/reference-data/product-codes). |
+| `product_code_delivery` | `str` | Required | Product code of the shipment. See the [Products page](https://developer.postnl.nl/docs/#/http/reference-data/product-codes-dutch-domestic) for possible products.<br>**Default**: `'3085'`<br>**Constraints**: *Pattern*: `^\d{4,5}$` |
+| `product_options` | [`List[ProductOption]`](../../doc/models/product-option.md) | Optional | Product options for the shipment, mandatory for certain products, see the [Products page](https://developer.postnl.nl/docs/#/http/reference-data/product-codes-dutch-domestic). |
 | `receiver_date_of_birth` | `str` | Optional | Date of birth. Mandatory for Age check products<br>**Constraints**: *Pattern*: `^([0-3]\d-[01]\d-[12]\d{3})$` |
 | `reference` | `str` | Optional | Your own reference of the shipment. Mandatory for Extra@Home shipments; for E@H this is used to create your order number, so this should be unique for each request. |
 | `reference_collect` | `str` | Optional | Additional reference of the collect order of the shipment |

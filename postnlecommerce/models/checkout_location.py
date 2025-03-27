@@ -16,8 +16,6 @@ class CheckoutLocation(object):
 
     """Implementation of the 'checkoutLocation' model.
 
-    TODO: type model description here.
-
     Attributes:
         address (CheckoutPickupAddress): The pickup location address
         pickup_time (str): Time from when the parcel can be retrieved at the
@@ -97,7 +95,7 @@ class CheckoutLocation(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -116,3 +114,23 @@ class CheckoutLocation(object):
                    location_code,
                    partner_id,
                    sustainability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'pickup_time={(self.pickup_time if hasattr(self, "pickup_time") else None)!r}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!r}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!r}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!r}, '
+                f'partner_id={(self.partner_id if hasattr(self, "partner_id") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'pickup_time={(self.pickup_time if hasattr(self, "pickup_time") else None)!s}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!s}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!s}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!s}, '
+                f'partner_id={(self.partner_id if hasattr(self, "partner_id") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

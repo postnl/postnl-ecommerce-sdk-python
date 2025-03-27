@@ -15,10 +15,10 @@ class CodeEnum(object):
     Sustainability score code
 
     Attributes:
-        ENUM_00: TODO: type description here.
-        ENUM_01: TODO: type description here.
-        ENUM_02: TODO: type description here.
-        ENUM_03: TODO: type description here.
+        ENUM_00: The enum member of type str.
+        ENUM_01: The enum member of type str.
+        ENUM_02: The enum member of type str.
+        ENUM_03: The enum member of type str.
 
     """
     ENUM_00 = '00'

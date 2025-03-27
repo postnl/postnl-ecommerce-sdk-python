@@ -59,8 +59,7 @@ class LocationsController(BaseController):
                 address
             postal_code (str): The zipcode of the recipient's address
             city (str, optional): The city of the recipient's address
-            street (str, optional): The street name of the recipient's
-                address
+            street (str, optional): The street name of the recipient's address
             house_number (int, optional): The house number of the recipient's
                 address
             house_number_extension (str, optional): The house number extension
@@ -256,7 +255,7 @@ class LocationsController(BaseController):
             longitude_west (float): The westmost coordinates of the area
             latitude_south (float): The southmost coordinates of the area
             longitude_east (float): The eastmost coordinates of the area
-            country_code (CountrycodeEnum): TODO: type description here.
+            country_code (CountrycodeEnum): The request query parameter.
             delivery_date (str, optional): The date of the earliest delivery
                 date. Format:  dd-MM-yyyy. Note: this date cannot be in the
                 past, otherwise an error is returned.

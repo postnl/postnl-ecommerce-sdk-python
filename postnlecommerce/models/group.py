@@ -13,8 +13,6 @@ class Group(object):
 
     """Implementation of the 'Group' model.
 
-    TODO: type model description here.
-
     Attributes:
         group_type (str): Group sort that determines the type of group that is
             indicated. This is a code. For possible values, please see
@@ -72,7 +70,7 @@ class Group(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +83,17 @@ class Group(object):
                    main_barcode,
                    group_sequence,
                    group_count)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'group_type={self.group_type!r}, '
+                f'group_sequence={(self.group_sequence if hasattr(self, "group_sequence") else None)!r}, '
+                f'group_count={(self.group_count if hasattr(self, "group_count") else None)!r}, '
+                f'main_barcode={self.main_barcode!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'group_type={self.group_type!s}, '
+                f'group_sequence={(self.group_sequence if hasattr(self, "group_sequence") else None)!s}, '
+                f'group_count={(self.group_count if hasattr(self, "group_count") else None)!s}, '
+                f'main_barcode={self.main_barcode!s})')

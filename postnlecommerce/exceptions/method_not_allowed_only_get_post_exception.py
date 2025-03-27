@@ -8,10 +8,10 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 """
 
 from postnlecommerce.api_helper import APIHelper
-import postnlecommerce.exceptions.api_exception
+from postnlecommerce.exceptions.api_exception import APIException
 
 
-class MethodNotAllowedOnlyGetPostException(postnlecommerce.exceptions.api_exception.APIException):
+class MethodNotAllowedOnlyGetPostException(APIException):
     def __init__(self, reason, response):
         """Constructor for the MethodNotAllowedOnlyGetPostException class
 
@@ -37,3 +37,10 @@ class MethodNotAllowedOnlyGetPostException(postnlecommerce.exceptions.api_except
         """
         self.message = dictionary.get("message") if dictionary.get("message") else None
         self.http_status_code = dictionary.get("http_status_code") if dictionary.get("http_status_code") else None
+
+    def __str__(self):
+        base_str = super().__str__()
+        return (f'{self.__class__.__name__}('
+                f'{base_str[base_str.find("(") + 1:-1]}, '
+                f'message={(self.message if hasattr(self, "message") else None)!s}, '
+                f'http_status_code={(self.http_status_code if hasattr(self, "http_status_code") else None)!s})')

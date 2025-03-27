@@ -13,8 +13,6 @@ class CustomerAddress(object):
 
     """Implementation of the 'customerAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
         address_type (str): Address 02 is mandatory. It can either be placed
             in the Customer segment or in the Shipment segment. Note that if
@@ -52,8 +50,7 @@ class CustomerAddress(object):
             [Guidelines](https://developer.postnl.nl/docs/#/http/api-endpoints/
             send-track/confirming/guidelines) for the explanation.
         zipcode (str): Zipcode of the address. Mandatory for shipments to
-            Benelux. Max length (NL) 6 characters,(BE;LU) 4 numeric
-            characters
+            Benelux. Max length (NL) 6 characters,(BE;LU) 4 numeric characters
 
     """
 
@@ -163,7 +160,7 @@ class CustomerAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -202,3 +199,43 @@ class CustomerAddress(object):
                    street,
                    street_house_nr_ext,
                    zipcode)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!r}, '
+                f'area={(self.area if hasattr(self, "area") else None)!r}, '
+                f'buildingname={(self.buildingname if hasattr(self, "buildingname") else None)!r}, '
+                f'city={self.city!r}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!r}, '
+                f'countrycode={self.countrycode!r}, '
+                f'department={(self.department if hasattr(self, "department") else None)!r}, '
+                f'doorcode={(self.doorcode if hasattr(self, "doorcode") else None)!r}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!r}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'region={(self.region if hasattr(self, "region") else None)!r}, '
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'street_house_nr_ext={(self.street_house_nr_ext if hasattr(self, "street_house_nr_ext") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!s}, '
+                f'area={(self.area if hasattr(self, "area") else None)!s}, '
+                f'buildingname={(self.buildingname if hasattr(self, "buildingname") else None)!s}, '
+                f'city={self.city!s}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!s}, '
+                f'countrycode={self.countrycode!s}, '
+                f'department={(self.department if hasattr(self, "department") else None)!s}, '
+                f'doorcode={(self.doorcode if hasattr(self, "doorcode") else None)!s}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!s}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'region={(self.region if hasattr(self, "region") else None)!s}, '
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'street_house_nr_ext={(self.street_house_nr_ext if hasattr(self, "street_house_nr_ext") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s})')

@@ -12,12 +12,11 @@ class AddressTypeEnum(object):
 
     """Implementation of the 'AddressType' enum.
 
-    Address type. 01 is for the receiver address, 02 is for the sender
-    address.
+    Address type. 01 is for the receiver address, 02 is for the sender address.
 
     Attributes:
-        ENUM_01: TODO: type description here.
-        ENUM_02: TODO: type description here.
+        ENUM_01: The enum member of type str.
+        ENUM_02: The enum member of type str.
 
     """
     ENUM_01 = '01'

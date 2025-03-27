@@ -15,8 +15,6 @@ class ReasonNoTimeframe(object):
 
     """Implementation of the 'ReasonNoTimeframe' model.
 
-    TODO: type model description here.
-
     Attributes:
         code (str): The reason code
         date (str): The date associated with the reason no timeframe was
@@ -84,7 +82,7 @@ class ReasonNoTimeframe(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +97,19 @@ class ReasonNoTimeframe(object):
                    description,
                    options,
                    sustainability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'date={(self.date if hasattr(self, "date") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'date={(self.date if hasattr(self, "date") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

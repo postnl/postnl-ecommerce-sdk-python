@@ -13,8 +13,6 @@ class Contact(object):
 
     """Implementation of the 'Contact' model.
 
-    TODO: type model description here.
-
     Attributes:
         contact_type (str): Type of the contact. This is a code. Please refer
             to the available [Contact
@@ -80,7 +78,7 @@ class Contact(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -93,3 +91,17 @@ class Contact(object):
                    email,
                    sms_nr,
                    tel_nr)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'contact_type={self.contact_type!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'sms_nr={(self.sms_nr if hasattr(self, "sms_nr") else None)!r}, '
+                f'tel_nr={(self.tel_nr if hasattr(self, "tel_nr") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'contact_type={self.contact_type!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'sms_nr={(self.sms_nr if hasattr(self, "sms_nr") else None)!s}, '
+                f'tel_nr={(self.tel_nr if hasattr(self, "tel_nr") else None)!s})')

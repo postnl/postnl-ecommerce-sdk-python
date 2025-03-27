@@ -13,8 +13,6 @@ class HazardousMaterial(object):
 
     """Implementation of the 'HazardousMaterial' model.
 
-    TODO: type model description here.
-
     Attributes:
         toxic_substance_code (str): Toxic substance code as stated in the ADR
             agreement
@@ -110,7 +108,7 @@ class HazardousMaterial(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -135,3 +133,29 @@ class HazardousMaterial(object):
                    undg_number,
                    transport_category_code,
                    chemical_technical_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'toxic_substance_code={self.toxic_substance_code!r}, '
+                f'additional_toxic_substance_code={(self.additional_toxic_substance_code if hasattr(self, "additional_toxic_substance_code") else None)!r}, '
+                f'adr_points={(self.adr_points if hasattr(self, "adr_points") else None)!r}, '
+                f'tunnel_code={(self.tunnel_code if hasattr(self, "tunnel_code") else None)!r}, '
+                f'packaging_group_code={(self.packaging_group_code if hasattr(self, "packaging_group_code") else None)!r}, '
+                f'packaging_group_description={(self.packaging_group_description if hasattr(self, "packaging_group_description") else None)!r}, '
+                f'gross_weight={(self.gross_weight if hasattr(self, "gross_weight") else None)!r}, '
+                f'undg_number={(self.undg_number if hasattr(self, "undg_number") else None)!r}, '
+                f'transport_category_code={(self.transport_category_code if hasattr(self, "transport_category_code") else None)!r}, '
+                f'chemical_technical_description={(self.chemical_technical_description if hasattr(self, "chemical_technical_description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'toxic_substance_code={self.toxic_substance_code!s}, '
+                f'additional_toxic_substance_code={(self.additional_toxic_substance_code if hasattr(self, "additional_toxic_substance_code") else None)!s}, '
+                f'adr_points={(self.adr_points if hasattr(self, "adr_points") else None)!s}, '
+                f'tunnel_code={(self.tunnel_code if hasattr(self, "tunnel_code") else None)!s}, '
+                f'packaging_group_code={(self.packaging_group_code if hasattr(self, "packaging_group_code") else None)!s}, '
+                f'packaging_group_description={(self.packaging_group_description if hasattr(self, "packaging_group_description") else None)!s}, '
+                f'gross_weight={(self.gross_weight if hasattr(self, "gross_weight") else None)!s}, '
+                f'undg_number={(self.undg_number if hasattr(self, "undg_number") else None)!s}, '
+                f'transport_category_code={(self.transport_category_code if hasattr(self, "transport_category_code") else None)!s}, '
+                f'chemical_technical_description={(self.chemical_technical_description if hasattr(self, "chemical_technical_description") else None)!s})')

@@ -15,11 +15,9 @@ class ShippingstatusResponseSignature(object):
 
     """Implementation of the 'shippingstatusResponseSignature' model.
 
-    TODO: type model description here.
-
     Attributes:
-        signature (Signature): TODO: type description here.
-        warnings (Warnings): TODO: type description here.
+        signature (Signature): The model property of type Signature.
+        warnings (Warnings): The model property of type Warnings.
 
     """
 
@@ -60,7 +58,7 @@ class ShippingstatusResponseSignature(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +67,13 @@ class ShippingstatusResponseSignature(object):
         # Return an object of this model
         return cls(signature,
                    warnings)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'signature={(self.signature if hasattr(self, "signature") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'signature={(self.signature if hasattr(self, "signature") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

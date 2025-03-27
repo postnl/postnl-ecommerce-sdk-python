@@ -13,8 +13,6 @@ class BarcodeError(object):
 
     """Implementation of the 'barcodeError' model.
 
-    TODO: type model description here.
-
     Attributes:
         error_msg (str): The error message
         error_number (str): The error code
@@ -58,7 +56,7 @@ class BarcodeError(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class BarcodeError(object):
         # Return an object of this model
         return cls(error_msg,
                    error_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_msg={(self.error_msg if hasattr(self, "error_msg") else None)!r}, '
+                f'error_number={(self.error_number if hasattr(self, "error_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_msg={(self.error_msg if hasattr(self, "error_msg") else None)!s}, '
+                f'error_number={(self.error_number if hasattr(self, "error_number") else None)!s})')

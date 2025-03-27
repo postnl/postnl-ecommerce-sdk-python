@@ -14,11 +14,9 @@ class ShippingstatusProductOptions(object):
 
     """Implementation of the 'shippingstatusProductOptions' model.
 
-    TODO: type model description here.
-
     Attributes:
-        product_option (ShippingstatusProductOption): TODO: type description
-            here.
+        product_option (ShippingstatusProductOption): The model property of
+            type ShippingstatusProductOption.
 
     """
 
@@ -54,10 +52,18 @@ class ShippingstatusProductOptions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         product_option = ShippingstatusProductOption.from_dictionary(dictionary.get('ProductOption')) if 'ProductOption' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(product_option)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_option={(self.product_option if hasattr(self, "product_option") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_option={(self.product_option if hasattr(self, "product_option") else None)!s})')

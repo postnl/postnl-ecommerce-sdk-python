@@ -13,11 +13,9 @@ class OpeningHoursPerDay(object):
 
     """Implementation of the 'openingHoursPerDay' model.
 
-    TODO: type model description here.
-
     Attributes:
-        mfrom (str): TODO: type description here.
-        to (str): TODO: type description here.
+        mfrom (str): The model property of type str.
+        to (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class OpeningHoursPerDay(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class OpeningHoursPerDay(object):
         # Return an object of this model
         return cls(mfrom,
                    to)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!r}, '
+                f'to={(self.to if hasattr(self, "to") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!s}, '
+                f'to={(self.to if hasattr(self, "to") else None)!s})')

@@ -17,7 +17,8 @@ class CompleteStatus(object):
     The current status and old statuses of the shipment
 
     Attributes:
-        shipment (CompleteStatusShipment): TODO: type description here.
+        shipment (CompleteStatusShipment): The model property of type
+            CompleteStatusShipment.
 
     """
 
@@ -53,10 +54,18 @@ class CompleteStatus(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         shipment = CompleteStatusShipment.from_dictionary(dictionary.get('Shipment')) if 'Shipment' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(shipment)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'shipment={(self.shipment if hasattr(self, "shipment") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'shipment={(self.shipment if hasattr(self, "shipment") else None)!s})')

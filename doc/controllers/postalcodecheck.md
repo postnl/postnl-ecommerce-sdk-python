@@ -32,13 +32,13 @@ def checkout_postalcode_check(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `postalcode` | `str` | Query, Required | - |
-| `housenumber` | `str` | Query, Required | - |
-| `housenumberaddition` | `str` | Query, Optional | - |
+| `postalcode` | `str` | Query, Required | **Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6` |
+| `housenumber` | `str` | Query, Required | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `5` |
+| `housenumberaddition` | `str` | Query, Optional | **Constraints**: *Maximum Length*: `6` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[PostalcodeCheckAddress]`](../../doc/models/postalcode-check-address.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[PostalcodeCheckAddress]`](../../doc/models/postalcode-check-address.md).
 
 ## Example Usage
 
@@ -54,7 +54,6 @@ result = postalcode_check_controller.checkout_postalcode_check(
     housenumber,
     housenumberaddition=housenumberaddition
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -81,7 +80,7 @@ print(result)
 |  --- | --- | --- |
 | 400 | Bad request | [`PostalcodeCheckResponseInvalidException`](../../doc/models/postalcode-check-response-invalid-exception.md) |
 | 401 | Invalid apikey | [`UnauthorizedException`](../../doc/models/unauthorized-exception.md) |
-| 405 | Method not allowed | [`MethodNotAllowedOnlyGetException`](../../doc/models/method-not-allowed-only-get-exception.md) |
+| 405 | Method not allowed | [`MethodNotAllowedOnlyGetPostErrorCheckoutPostalcodeCheckAPIException`](../../doc/models/method-not-allowed-only-get-post-error-checkout-postalcode-check-api-exception.md) |
 | 429 | Too many requests | [`TooManyRequestsException`](../../doc/models/too-many-requests-exception.md) |
 | 500 | Internal server error | [`InternalServerErrorException`](../../doc/models/internal-server-error-exception.md) |
 

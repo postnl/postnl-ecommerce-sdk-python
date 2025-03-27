@@ -13,10 +13,8 @@ class DeliverydateShippingResponse(object):
 
     """Implementation of the 'deliverydateShippingResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        sent_date (str): TODO: type description here.
+        sent_date (str): The model property of type str.
 
     """
 
@@ -52,10 +50,18 @@ class DeliverydateShippingResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         sent_date = dictionary.get("SentDate") if dictionary.get("SentDate") else APIHelper.SKIP
         # Return an object of this model
         return cls(sent_date)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'sent_date={(self.sent_date if hasattr(self, "sent_date") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'sent_date={(self.sent_date if hasattr(self, "sent_date") else None)!s})')

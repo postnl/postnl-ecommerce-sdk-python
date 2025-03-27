@@ -34,10 +34,8 @@ class CheckoutController(BaseController):
                  body):
         """Does a POST request to /shipment/v1/checkout.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (CheckoutRequest): TODO: type description here.
+            body (CheckoutRequest): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

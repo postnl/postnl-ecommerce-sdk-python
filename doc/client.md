@@ -14,7 +14,7 @@ The following parameters are configurable for the API Client:
 | `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
 | `retry_statuses` | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
-| `custom_header_authentication_credentials` | [`CustomHeaderAuthenticationCredentials`]($a/custom-header-signature.md) | The credential object for Custom Header Signature |
+| `custom_header_authentication_credentials` | [`CustomHeaderAuthenticationCredentials`](auth/custom-header-signature.md) | The credential object for Custom Header Signature |
 
 The API client can be initialized as follows:
 
@@ -22,21 +22,10 @@ The API client can be initialized as follows:
 client = PostnlecommerceClient(
     custom_header_authentication_credentials=CustomHeaderAuthenticationCredentials(
         apikey='apikey'
-    )
+    ),
+    environment=Environment.PRODUCTION_SERVER
 )
 ```
-
-API calls return an `ApiResponse` object that includes the following fields:
-
-| Field | Description |
-|  --- | --- |
-| `status_code` | Status code of the HTTP response |
-| `reason_phrase` | Reason phrase of the HTTP response |
-| `headers` | Headers of the HTTP response as a dictionary |
-| `text` | The body of the HTTP response as a string |
-| `request` | HTTP request info |
-| `errors` | Errors, if they exist |
-| `body` | The deserialized body of the HTTP response |
 
 ## Postnl-Ecommerce Client
 

@@ -16,8 +16,6 @@ class ShippingstatusResponse(object):
 
     """Implementation of the 'shippingstatusResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         complete_status (CompleteStatus): The current status and old statuses
             of the shipment
@@ -71,7 +69,7 @@ class ShippingstatusResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -86,3 +84,15 @@ class ShippingstatusResponse(object):
         return cls(complete_status,
                    current_status,
                    warnings)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'complete_status={(self.complete_status if hasattr(self, "complete_status") else None)!r}, '
+                f'current_status={(self.current_status if hasattr(self, "current_status") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'complete_status={(self.complete_status if hasattr(self, "complete_status") else None)!s}, '
+                f'current_status={(self.current_status if hasattr(self, "current_status") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

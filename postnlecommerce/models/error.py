@@ -13,11 +13,9 @@ class Error(object):
 
     """Implementation of the 'Error' model.
 
-    TODO: type model description here.
-
     Attributes:
-        error_code (str): TODO: type description here.
-        error_description (str): TODO: type description here.
+        error_code (str): The model property of type str.
+        error_description (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class Error(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class Error(object):
         # Return an object of this model
         return cls(error_code,
                    error_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!r}, '
+                f'error_description={(self.error_description if hasattr(self, "error_description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!s}, '
+                f'error_description={(self.error_description if hasattr(self, "error_description") else None)!s})')

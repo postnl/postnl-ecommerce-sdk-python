@@ -15,16 +15,13 @@ class CheckoutRequest(object):
 
     """Implementation of the 'checkoutRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         order_date (str): The order date of the shipment. Format dd-MM-YYYY
             HH:mm:ss
         shipping_duration (int): The amount of days it takes for a parcel to
             be received by PostN. If you delivery the parcel the same day as
             the order is placed on the webshop, please use the value of 1. A
-            value of 2 means the parcel will arrive at PostNL a day later
-            etc.
+            value of 2 means the parcel will arrive at PostNL a day later etc.
         cut_off_times (List[CheckoutCutOffTime]): Array of CutOffTimes
         holiday_sorting (bool): Specifies whether you are available to ship
             parcels to PostNL during holidays
@@ -93,7 +90,7 @@ class CheckoutRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -118,3 +115,25 @@ class CheckoutRequest(object):
                    addresses,
                    shipping_duration,
                    holiday_sorting)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'order_date={self.order_date!r}, '
+                f'shipping_duration={(self.shipping_duration if hasattr(self, "shipping_duration") else None)!r}, '
+                f'cut_off_times={self.cut_off_times!r}, '
+                f'holiday_sorting={(self.holiday_sorting if hasattr(self, "holiday_sorting") else None)!r}, '
+                f'options={self.options!r}, '
+                f'locations={self.locations!r}, '
+                f'days={self.days!r}, '
+                f'addresses={self.addresses!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'order_date={self.order_date!s}, '
+                f'shipping_duration={(self.shipping_duration if hasattr(self, "shipping_duration") else None)!s}, '
+                f'cut_off_times={self.cut_off_times!s}, '
+                f'holiday_sorting={(self.holiday_sorting if hasattr(self, "holiday_sorting") else None)!s}, '
+                f'options={self.options!s}, '
+                f'locations={self.locations!s}, '
+                f'days={self.days!s}, '
+                f'addresses={self.addresses!s})')

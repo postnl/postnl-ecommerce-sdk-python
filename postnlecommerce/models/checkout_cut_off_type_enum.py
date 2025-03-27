@@ -15,9 +15,9 @@ class CheckoutCutOffTypeEnum(object):
     Specifies the type belonging to the cutoff time.
 
     Attributes:
-        REGULAR: TODO: type description here.
-        SAMEDAY: TODO: type description here.
-        TODAY: TODO: type description here.
+        REGULAR: The enum member of type str.
+        SAMEDAY: The enum member of type str.
+        TODAY: The enum member of type str.
 
     """
     REGULAR = 'Regular'

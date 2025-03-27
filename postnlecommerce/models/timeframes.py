@@ -14,8 +14,6 @@ class Timeframes(object):
 
     """Implementation of the 'Timeframes' model.
 
-    TODO: type model description here.
-
     Attributes:
         timeframe (List[Timeframe]): A calculated delivery timeframe
 
@@ -53,7 +51,7 @@ class Timeframes(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +62,11 @@ class Timeframes(object):
             timeframe = APIHelper.SKIP
         # Return an object of this model
         return cls(timeframe)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!s})')

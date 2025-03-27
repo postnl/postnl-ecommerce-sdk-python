@@ -35,10 +35,8 @@ class LabellingController(BaseController):
                        confirm=True):
         """Does a POST request to /shipment/v2_2/label.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (LabellingRequest): TODO: type description here.
+            body (LabellingRequest): The request body parameter.
             confirm (bool, optional): With the Confirm boolean in the request,
                 you can determine if you want to confirm the shipment in the
                 same call or not. If the Boolean variable is true the shipment

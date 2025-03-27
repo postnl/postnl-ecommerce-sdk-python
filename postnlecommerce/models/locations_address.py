@@ -13,8 +13,6 @@ class LocationsAddress(object):
 
     """Implementation of the 'locationsAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
         city (str): The city of the pickup location address
         countrycode (str): The country of the pickup location address
@@ -89,7 +87,7 @@ class LocationsAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -108,3 +106,23 @@ class LocationsAddress(object):
                    remark,
                    street,
                    zipcode)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!r}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!r}, '
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!s}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'remark={(self.remark if hasattr(self, "remark") else None)!s}, '
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s})')

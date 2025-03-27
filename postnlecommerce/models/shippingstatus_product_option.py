@@ -13,8 +13,6 @@ class ShippingstatusProductOption(object):
 
     """Implementation of the 'shippingstatusProductOption' model.
 
-    TODO: type model description here.
-
     Attributes:
         option_code (str): The product option code for this ProductOption.
         characteristic_code (str): The characteristic of the ProductOption.
@@ -58,7 +56,7 @@ class ShippingstatusProductOption(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class ShippingstatusProductOption(object):
         # Return an object of this model
         return cls(option_code,
                    characteristic_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'option_code={(self.option_code if hasattr(self, "option_code") else None)!r}, '
+                f'characteristic_code={(self.characteristic_code if hasattr(self, "characteristic_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'option_code={(self.option_code if hasattr(self, "option_code") else None)!s}, '
+                f'characteristic_code={(self.characteristic_code if hasattr(self, "characteristic_code") else None)!s})')

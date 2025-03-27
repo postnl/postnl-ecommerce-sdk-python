@@ -13,8 +13,6 @@ class PostalcodeCheckAddress(object):
 
     """Implementation of the 'postalcodeCheckAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
         city (str): City of requested address
         postal_code (str): Postalcode of requested address
@@ -83,7 +81,7 @@ class PostalcodeCheckAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -100,3 +98,21 @@ class PostalcodeCheckAddress(object):
                    house_number,
                    house_number_addition,
                    formatted_address)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'postal_code={(self.postal_code if hasattr(self, "postal_code") else None)!r}, '
+                f'street_name={(self.street_name if hasattr(self, "street_name") else None)!r}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!r}, '
+                f'house_number_addition={(self.house_number_addition if hasattr(self, "house_number_addition") else None)!r}, '
+                f'formatted_address={(self.formatted_address if hasattr(self, "formatted_address") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'postal_code={(self.postal_code if hasattr(self, "postal_code") else None)!s}, '
+                f'street_name={(self.street_name if hasattr(self, "street_name") else None)!s}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!s}, '
+                f'house_number_addition={(self.house_number_addition if hasattr(self, "house_number_addition") else None)!s}, '
+                f'formatted_address={(self.formatted_address if hasattr(self, "formatted_address") else None)!s})')

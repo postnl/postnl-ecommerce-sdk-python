@@ -13,8 +13,6 @@ class ShippingstatusCustomer(object):
 
     """Implementation of the 'shippingstatusCustomer' model.
 
-    TODO: type model description here.
-
     Attributes:
         customer_code (str): The customer code of the shipment
         customer_number (str): The customer number of the shipment
@@ -64,7 +62,7 @@ class ShippingstatusCustomer(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class ShippingstatusCustomer(object):
         return cls(customer_code,
                    customer_number,
                    name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!r}, '
+                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!s}, '
+                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s})')

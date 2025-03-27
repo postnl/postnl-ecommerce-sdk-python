@@ -13,8 +13,6 @@ class CheckoutAddress(object):
 
     """Implementation of the 'checkoutAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
         address_type (AddressTypeEnum): Address type. 01 is for the receiver
             address, 02 is for the sender address.
@@ -24,8 +22,7 @@ class CheckoutAddress(object):
         house_nr_ext (str): House number extension
         zipcode (str): Zipcode of the address
         city (str): City of the address
-        countrycode (CountrycodeEnum): ISO2 country code. Limited to NL and
-            BE.
+        countrycode (CountrycodeEnum): ISO2 country code. Limited to NL and BE.
 
     """
 
@@ -83,7 +80,7 @@ class CheckoutAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -102,3 +99,23 @@ class CheckoutAddress(object):
                    street,
                    house_nr_ext,
                    city)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!r}, '
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'house_nr={self.house_nr!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'zipcode={self.zipcode!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'countrycode={self.countrycode!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!s}, '
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'house_nr={self.house_nr!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'zipcode={self.zipcode!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'countrycode={self.countrycode!s})')

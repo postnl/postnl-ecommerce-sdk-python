@@ -14,11 +14,10 @@ class Timeframe(object):
 
     """Implementation of the 'Timeframe' model.
 
-    TODO: type model description here.
-
     Attributes:
         date (str): The expected date of delivery
-        timeframes (TimeframesResponseObject): TODO: type description here.
+        timeframes (TimeframesResponseObject): The model property of type
+            TimeframesResponseObject.
 
     """
 
@@ -59,7 +58,7 @@ class Timeframe(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +67,13 @@ class Timeframe(object):
         # Return an object of this model
         return cls(date,
                    timeframes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!r}, '
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!s}, '
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!s})')

@@ -8,11 +8,11 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 """
 
 from postnlecommerce.api_helper import APIHelper
-import postnlecommerce.exceptions.api_exception
+from postnlecommerce.exceptions.api_exception import APIException
 from postnlecommerce.models.confirming_response_shipment import ConfirmingResponseShipment
 
 
-class ConfirmingResponseErrorException(postnlecommerce.exceptions.api_exception.APIException):
+class ConfirmingResponseErrorException(APIException):
     def __init__(self, reason, response):
         """Constructor for the ConfirmingResponseErrorException class
 
@@ -41,3 +41,9 @@ class ConfirmingResponseErrorException(postnlecommerce.exceptions.api_exception.
             self.response_shipments = [ConfirmingResponseShipment.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
         else:
             self.response_shipments = None
+
+    def __str__(self):
+        base_str = super().__str__()
+        return (f'{self.__class__.__name__}('
+                f'{base_str[base_str.find("(") + 1:-1]}, '
+                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')

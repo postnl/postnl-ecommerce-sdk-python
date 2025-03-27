@@ -14,11 +14,10 @@ class LabellingMergedLabel(object):
 
     """Implementation of the 'labellingMergedLabel' model.
 
-    TODO: type model description here.
-
     Attributes:
-        barcodes (List[str]): TODO: type description here.
-        labels (List[LabellingLabel]): TODO: type description here.
+        barcodes (List[str]): The model property of type List[str].
+        labels (List[LabellingLabel]): The model property of type
+            List[LabellingLabel].
 
     """
 
@@ -59,7 +58,7 @@ class LabellingMergedLabel(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +71,13 @@ class LabellingMergedLabel(object):
         # Return an object of this model
         return cls(barcodes,
                    labels)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcodes={(self.barcodes if hasattr(self, "barcodes") else None)!r}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcodes={(self.barcodes if hasattr(self, "barcodes") else None)!s}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!s})')

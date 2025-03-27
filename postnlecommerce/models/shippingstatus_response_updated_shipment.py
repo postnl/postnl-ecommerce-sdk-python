@@ -14,8 +14,6 @@ class ShippingstatusResponseUpdatedShipment(object):
 
     """Implementation of the 'shippingstatusResponseUpdatedShipment' model.
 
-    TODO: type model description here.
-
     Attributes:
         barcode (str): The barcode belonging to the status update
         creation_date (str): The date of the update
@@ -79,7 +77,7 @@ class ShippingstatusResponseUpdatedShipment(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -94,3 +92,19 @@ class ShippingstatusResponseUpdatedShipment(object):
                    customer_number,
                    customer_code,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
+                f'creation_date={(self.creation_date if hasattr(self, "creation_date") else None)!r}, '
+                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!r}, '
+                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
+                f'creation_date={(self.creation_date if hasattr(self, "creation_date") else None)!s}, '
+                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!s}, '
+                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

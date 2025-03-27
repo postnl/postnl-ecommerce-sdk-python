@@ -82,7 +82,7 @@ class CheckoutPickupAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +99,21 @@ class CheckoutPickupAddress(object):
                    house_nr_ext,
                    countrycode,
                    company_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!r}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!s}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!s})')

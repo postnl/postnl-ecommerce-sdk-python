@@ -7,10 +7,12 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+import os
 import unittest
 from tests.http_response_catcher import HttpResponseCatcher
-from postnlecommerce.configuration import Configuration
+from postnlecommerce.configuration import Configuration, Environment
 from postnlecommerce.postnlecommerce_client import PostnlecommerceClient
+from postnlecommerce.http.auth.custom_header_authentication import CustomHeaderAuthenticationCredentials
 
 
 class ControllerTestBase(unittest.TestCase):
@@ -31,4 +33,19 @@ class ControllerTestBase(unittest.TestCase):
 
     @staticmethod
     def create_configuration():
-        return Configuration(http_call_back=HttpResponseCatcher())
+        environment = os.getenv('POSTNLECOMMERCE_ENVIRONMENT')
+        apikey = os.getenv('POSTNLECOMMERCE_APIKEY')
+
+        if environment is not None:
+            environment = Environment[environment.upper()]
+        custom_header_authentication_credentials=None
+        if apikey is not None:
+            custom_header_authentication_credentials=CustomHeaderAuthenticationCredentials(
+                apikey=apikey)
+
+
+        config = Configuration(http_call_back=HttpResponseCatcher())
+        return config.clone_with(
+            custom_header_authentication_credentials=custom_header_authentication_credentials,
+            environment=environment)
+

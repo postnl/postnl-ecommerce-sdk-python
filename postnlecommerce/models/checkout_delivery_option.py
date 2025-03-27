@@ -14,8 +14,6 @@ class CheckoutDeliveryOption(object):
 
     """Implementation of the 'checkoutDeliveryOption' model.
 
-    TODO: type model description here.
-
     Attributes:
         delivery_date (str): The possible delivery date
         timeframe (List[CheckoutTimeFrame]): Array of timeframes
@@ -59,7 +57,7 @@ class CheckoutDeliveryOption(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +70,13 @@ class CheckoutDeliveryOption(object):
         # Return an object of this model
         return cls(delivery_date,
                    timeframe)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!s})')

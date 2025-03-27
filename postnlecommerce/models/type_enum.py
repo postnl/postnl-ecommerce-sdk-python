@@ -12,18 +12,16 @@ class TypeEnum(object):
 
     """Implementation of the 'Type' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        ENUM_2S: TODO: type description here.
-        ENUM_3S: TODO: type description here.
-        CC: TODO: type description here.
-        CP: TODO: type description here.
-        CD: TODO: type description here.
-        CF: TODO: type description here.
-        LA: TODO: type description here.
-        RI: TODO: type description here.
-        UE: TODO: type description here.
+        ENUM_2S: The enum member of type str.
+        ENUM_3S: The enum member of type str.
+        CC: The enum member of type str.
+        CP: The enum member of type str.
+        CD: The enum member of type str.
+        CF: The enum member of type str.
+        LA: The enum member of type str.
+        RI: The enum member of type str.
+        UE: The enum member of type str.
 
     """
     ENUM_2S = '2S'

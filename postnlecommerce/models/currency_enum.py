@@ -15,10 +15,10 @@ class CurrencyEnum(object):
     Currency code. only EUR, GBP, USD and CNY are allowed.
 
     Attributes:
-        EUR: TODO: type description here.
-        GBP: TODO: type description here.
-        USD: TODO: type description here.
-        CNY: TODO: type description here.
+        EUR: The enum member of type str.
+        GBP: The enum member of type str.
+        USD: The enum member of type str.
+        CNY: The enum member of type str.
 
     """
     EUR = 'EUR'

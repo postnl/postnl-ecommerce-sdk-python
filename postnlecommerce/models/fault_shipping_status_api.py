@@ -14,11 +14,9 @@ class FaultShippingStatusAPI(object):
 
     """Implementation of the 'Fault_ShippingStatus API' model.
 
-    TODO: type model description here.
-
     Attributes:
-        faultstring (str): TODO: type description here.
-        detail (Detail): TODO: type description here.
+        faultstring (str): The model property of type str.
+        detail (Detail): The model property of type Detail.
 
     """
 
@@ -59,7 +57,7 @@ class FaultShippingStatusAPI(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +66,13 @@ class FaultShippingStatusAPI(object):
         # Return an object of this model
         return cls(faultstring,
                    detail)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'faultstring={(self.faultstring if hasattr(self, "faultstring") else None)!r}, '
+                f'detail={(self.detail if hasattr(self, "detail") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'faultstring={(self.faultstring if hasattr(self, "faultstring") else None)!s}, '
+                f'detail={(self.detail if hasattr(self, "detail") else None)!s})')

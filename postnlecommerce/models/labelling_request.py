@@ -16,10 +16,9 @@ class LabellingRequest(object):
 
     """Implementation of the 'labellingRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        customer (LabellingCustomer): TODO: type description here.
+        customer (LabellingCustomer): The model property of type
+            LabellingCustomer.
         label_signature (str): GIF image of the signature (as a base64 encoded
             string) max size: 280x60 mm (1058x226 pixels). This can be used to
             automatically sign the customs forms. The value of this element
@@ -28,7 +27,8 @@ class LabellingRequest(object):
             be accepted by the server for performance reasons. Requests that
             exceed this limit will not return a validation error,but a HTTP
             404 error.
-        message (LabellingCustomerMessage): TODO: type description here.
+        message (LabellingCustomerMessage): The model property of type
+            LabellingCustomerMessage.
         shipments (List[LabellingCustomerShipment]): List of 1 or more
             Shipments. At least 1 shipment is required.
 
@@ -75,7 +75,7 @@ class LabellingRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -90,3 +90,17 @@ class LabellingRequest(object):
                    message,
                    shipments,
                    label_signature)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!r}, '
+                f'label_signature={(self.label_signature if hasattr(self, "label_signature") else None)!r}, '
+                f'message={self.message!r}, '
+                f'shipments={self.shipments!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!s}, '
+                f'label_signature={(self.label_signature if hasattr(self, "label_signature") else None)!s}, '
+                f'message={self.message!s}, '
+                f'shipments={self.shipments!s})')

@@ -58,7 +58,7 @@ class ShippingstatusAmount(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class ShippingstatusAmount(object):
         # Return an object of this model
         return cls(rembours_bedrag,
                    verzekerd_bedrag)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'rembours_bedrag={(self.rembours_bedrag if hasattr(self, "rembours_bedrag") else None)!r}, '
+                f'verzekerd_bedrag={(self.verzekerd_bedrag if hasattr(self, "verzekerd_bedrag") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'rembours_bedrag={(self.rembours_bedrag if hasattr(self, "rembours_bedrag") else None)!s}, '
+                f'verzekerd_bedrag={(self.verzekerd_bedrag if hasattr(self, "verzekerd_bedrag") else None)!s})')

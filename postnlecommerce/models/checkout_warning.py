@@ -13,15 +13,14 @@ class CheckoutWarning(object):
 
     """Implementation of the 'checkoutWarning' model.
 
-    TODO: type model description here.
-
     Attributes:
         delivery_date (str): Deliverydate that triggered the warning
         code (str): Warning code (for a possible list of warnings, see the
             generic error codes page)
         description (str): Warning description (for a possible list of
             warnings, see the generic error codes page)
-        options (CheckoutWarningOptionEnum): TODO: type description here.
+        options (CheckoutWarningOptionEnum): The model property of type
+            CheckoutWarningOptionEnum.
 
     """
 
@@ -72,7 +71,7 @@ class CheckoutWarning(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +84,17 @@ class CheckoutWarning(object):
                    code,
                    description,
                    options)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s})')

@@ -14,11 +14,9 @@ class ConfirmingResponse(object):
 
     """Implementation of the 'confirmingResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        response_shipments (List[ConfirmingResponseShipment]): TODO: type
-            description here.
+        response_shipments (List[ConfirmingResponseShipment]): The model
+            property of type List[ConfirmingResponseShipment].
 
     """
 
@@ -54,7 +52,7 @@ class ConfirmingResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +63,11 @@ class ConfirmingResponse(object):
             response_shipments = APIHelper.SKIP
         # Return an object of this model
         return cls(response_shipments)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')

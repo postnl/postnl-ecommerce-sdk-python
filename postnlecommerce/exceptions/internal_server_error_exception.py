@@ -8,11 +8,11 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 """
 
 from postnlecommerce.api_helper import APIHelper
-import postnlecommerce.exceptions.api_exception
+from postnlecommerce.exceptions.api_exception import APIException
 from postnlecommerce.models.fault import Fault
 
 
-class InternalServerErrorException(postnlecommerce.exceptions.api_exception.APIException):
+class InternalServerErrorException(APIException):
     def __init__(self, reason, response):
         """Constructor for the InternalServerErrorException class
 
@@ -37,3 +37,9 @@ class InternalServerErrorException(postnlecommerce.exceptions.api_exception.APIE
 
         """
         self.fault = Fault.from_dictionary(dictionary.get('fault')) if 'fault' in dictionary.keys() else None
+
+    def __str__(self):
+        base_str = super().__str__()
+        return (f'{self.__class__.__name__}('
+                f'{base_str[base_str.find("(") + 1:-1]}, '
+                f'fault={(self.fault if hasattr(self, "fault") else None)!s})')

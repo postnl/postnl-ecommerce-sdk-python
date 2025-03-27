@@ -34,10 +34,8 @@ class ConfirmingController(BaseController):
                          body):
         """Does a POST request to /shipment/v2/confirm.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (ConfirmingRequest): TODO: type description here.
+            body (ConfirmingRequest): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

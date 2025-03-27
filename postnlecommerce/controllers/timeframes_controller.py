@@ -56,8 +56,7 @@ class TimeframesController(BaseController):
 
         Args:
             allow_sunday_sorting (bool): Whether or not the requesting party
-                allows for Sunday sorting (which leads to delivery on
-                Monday).
+                allows for Sunday sorting (which leads to delivery on Monday).
             start_date (str): Date of the beginning of the timeframe. Format:
                 dd-MM-yyyy
             end_date (str): Date of the enddate of the timeframe.
